@@ -10,7 +10,8 @@ const Columns: React.StatelessComponent<ColumnsProps> = ({ children }) => {
     <Box display="flexOnDesktop">
       {React.Children.map(children, (child, index) => (
         <Fragment key={index}>
-          <Box style={{ flex: 1 }}>hello</Box>
+          {/* <Box style={{ flex: 1 }}>hello gavin</Box> */}
+          {child}
           {/* <Hidden mobile>
                     <Space size="small" />
                 </Hidden> */}
