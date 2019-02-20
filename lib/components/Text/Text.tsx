@@ -1,28 +1,36 @@
-import React, { Component } from 'react';
-import { Omit } from 'utility-types';
+import React, { Component, ReactNode } from 'react';
 import classnames from 'classnames';
 import ThemeConsumer from '../ThemeConsumer/ThemeConsumer';
 import styles from './Text.css.js';
 import Box, { BoxProps } from '../Box/Box';
-import {
-  ColorVariants,
-  FontSizeVariants,
-  FontWeightVariants,
-  TransformVariants
-} from '../../themes/theme';
+import { ColorVariants, FontWeightVariants, Theme } from '../../themes/theme';
 
-export interface TextProps extends Omit<BoxProps, 'size'> {
-  size?: FontSizeVariants;
+type TextSize = 'standard' | 'large' | 'interaction';
+
+const resolveTransformAtom = (
+  size: TextSize,
+  baseline: boolean,
+  theme: Theme
+): string | null => {
+  if (!baseline || size === 'interaction') {
+    return null;
+  }
+  if (size === 'standard') {
+    return theme.atoms.transform.standardText;
+  }
+  if (size === 'large') {
+    return theme.atoms.transform.largeText;
+  }
+  throw new Error('No valid text size provided');
+};
+
+export interface TextProps extends Pick<BoxProps, 'component'> {
+  children?: ReactNode;
+  size?: TextSize;
   color?: ColorVariants;
   weight?: FontWeightVariants;
   baseline?: boolean;
 }
-
-const isTransformVariant = (
-  atom: Record<TransformVariants, string>,
-  transformSize: string
-): transformSize is TransformVariants =>
-  Object.keys(atom).indexOf(transformSize) > -1;
 
 export default class Text extends Component<TextProps> {
   static displayName = 'Text';
@@ -37,34 +45,27 @@ export default class Text extends Component<TextProps> {
             color,
             weight,
             baseline = true,
-            className,
-            ...restProps
+            children
           } = this.props;
-
-          const transformSize = `${size}Text`;
-          const baselineTransform =
-            isTransformVariant(theme.atoms.transform, transformSize) && baseline
-              ? theme.atoms.transform[transformSize]
-              : '';
 
           return (
             <Box
               component={component}
               className={classnames(
-                className,
                 styles.block,
                 theme.atoms.fontFamily.text,
                 theme.atoms.color[color || 'neutral'],
                 theme.atoms.fontSize[size],
                 theme.atoms.fontWeight[weight || 'regular'],
-                baselineTransform,
+                resolveTransformAtom(size, baseline, theme),
                 {
                   [styles.listItem]:
                     typeof component === 'string' && /^li$/i.test(component)
                 }
               )}
-              {...restProps}
-            />
+            >
+              {children}
+            </Box>
           );
         }}
       </ThemeConsumer>
