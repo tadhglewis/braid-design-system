@@ -7,13 +7,15 @@ const docs: ComponentDocs = {
   examples: [
     {
       label: 'TextField',
-      render: ({ id, handler }) => (
+      render: ({ id, handler, value }) => (
         <div style={{ maxWidth: '300px' }}>
           <TextField
             label="Job Title"
             id={id}
-            onChange={handler}
-            value="Senior Developer"
+            onChange={({ target }) => {
+              handler((target as HTMLInputElement).value);
+            }}
+            value={value('Senior Developer')}
           />
         </div>
       ),

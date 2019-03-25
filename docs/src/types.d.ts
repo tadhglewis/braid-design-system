@@ -19,11 +19,10 @@ export interface ComponentDocs {
 
 export interface ComponentExample {
   label?: string;
-  render?: (
-    args: {
-      id: string;
-      handler: (event: SyntheticEvent) => void;
-    },
-  ) => ReactNode;
+  render?: (args: {
+    id: string;
+    handler: (value: any) => void;
+    value: (intialValue?: any) => any;
+  }) => ReactNode;
   code?: string;
 }

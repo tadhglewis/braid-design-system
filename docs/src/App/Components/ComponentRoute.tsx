@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import dedent from 'dedent';
 import { ComponentProps } from './ComponentProps';
@@ -13,9 +13,17 @@ import {
 import { ComponentDocs } from '../../types';
 
 const themes = [wireframe, jobStreet, seekAsia, seekAnz];
-const handler = () => {
-  /* No-op for docs examples */
-};
+
+const exampleStateReducer = (
+  state: { [id: string]: any },
+  { id, value }: { id: string; value: any },
+) => ({
+  ...state,
+  [id]: {
+    dirty: true,
+    value,
+  },
+});
 
 const cleanCodeSnippet = (code: string) =>
   code.replace(/<HideCode>.*?<\/HideCode>/gs, '...');
@@ -40,6 +48,7 @@ export const ComponentRoute = ({
 
   const componentPath = category ? `${category}/` : '';
   const sourceUrl = `${sourceUrlPrefix}/lib/components/${componentPath}${componentName}`;
+  const [exampleState, dispatch] = useReducer(exampleStateReducer, {});
 
   return (
     <Box>
@@ -64,19 +73,29 @@ export const ComponentRoute = ({
             </Box>
           ) : null}
           {render
-            ? themes.map(theme => (
-                <Box key={theme.name} marginBottom="large">
-                  <Box paddingBottom="small">
-                    <Text color="secondary">Theme: {theme.name}</Text>
+            ? themes.map(theme => {
+                const id = `${index}_${theme.name}`;
+
+                return (
+                  <Box key={theme.name} marginBottom="large">
+                    <Box paddingBottom="small">
+                      <Text color="secondary">Theme: {theme.name}</Text>
+                    </Box>
+                    <ThemeProvider theme={theme}>
+                      {render({
+                        id,
+                        handler: value => {
+                          dispatch({ id, value });
+                        },
+                        value: (initialValue?: any) =>
+                          exampleState[id] && exampleState[id].dirty
+                            ? exampleState[id].value
+                            : initialValue,
+                      })}
+                    </ThemeProvider>
                   </Box>
-                  <ThemeProvider theme={theme}>
-                    {render({
-                      id: `${index}_${theme.name}`,
-                      handler,
-                    })}
-                  </ThemeProvider>
-                </Box>
-              ))
+                );
+              })
             : null}
           <Box paddingBottom="small">
             <Text color="secondary">Code:</Text>
@@ -95,11 +114,18 @@ export const ComponentRoute = ({
             <Text component="pre" color="white">
               {render && !code
                 ? cleanCodeSnippet(
-                    reactElementToJSXString(render({ id: 'id', handler }), {
-                      useBooleanShorthandSyntax: false,
-                      showDefaultProps: false,
-                      showFunctions: true,
-                    }),
+                    reactElementToJSXString(
+                      render({
+                        id: 'id',
+                        handler: () => {},
+                        value: value => value,
+                      }),
+                      {
+                        useBooleanShorthandSyntax: false,
+                        showDefaultProps: false,
+                        showFunctions: true,
+                      },
+                    ),
                   )
                 : null}
               {code ? cleanCodeSnippet(dedent(code)) : null}
