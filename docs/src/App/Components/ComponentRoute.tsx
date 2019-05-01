@@ -10,10 +10,11 @@ import {
   seekAsia,
   seekAnz,
   jobStreetCandidate,
+  jobsDBCandidate,
 } from '../../../../lib/themes';
 import { ComponentDocs } from '../../types';
 
-const themes = [wireframe, jobStreet, seekAsia, jobStreetCandidate, seekAnz];
+const themes = [wireframe, jobStreet, seekAsia, jobStreetCandidate, jobsDBCandidate, seekAnz];
 const handler = () => {
   /* No-op for docs examples */
 };
