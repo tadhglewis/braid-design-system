@@ -6,20 +6,16 @@ import { ExternalLink } from './Link';
 import { ThemeProvider, Box, Text } from '../../../../lib/components';
 import {
   wireframe,
-  jobStreet,
-  seekAsia,
   seekAnz,
-  jobStreetCandidate,
-  jobsDBCandidate,
+  jobStreet,
+  jobsDB,
 } from '../../../../lib/themes';
 import { ComponentDocs } from '../../types';
 
 const themes = [
   wireframe,
   jobStreet,
-  seekAsia,
-  jobStreetCandidate,
-  jobsDBCandidate,
+  jobsDB,
   seekAnz,
 ];
 const handler = () => {
