@@ -823,6 +823,7 @@ exports[`BraidProvider 1`] = `
     name: string
     treatTheme: string
   }
+  userAgent?: string
 }
 `;
 
