@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FocusEvent, createRef } from 'react';
 import classnames from 'classnames';
 import range from 'lodash/range';
-import { isMobile } from 'is-mobile';
 import { Omit } from 'utility-types';
 import { useStyles } from 'sku/treat';
+import { useDevice } from '../DeviceConsumer/DeviceContext';
 import { Box } from '../Box/Box';
 import { Hidden } from '../Hidden/Hidden';
 import { Dropdown } from '../Dropdown/Dropdown';
@@ -69,7 +69,6 @@ const getYears = (min: number, max: number, ascending: boolean) => {
 };
 
 const currYear = new Date().getFullYear();
-const renderNativeInput = isMobile({ tablet: true });
 
 const customValueToString = ({ month, year }: MonthPickerValue) =>
   month && year ? `${year}-${month < 10 ? '0' : ''}${month}` : undefined;
@@ -122,6 +121,7 @@ export const MonthPicker = ({
   ...restProps
 }: MonthPickerProps) => {
   const styles = useStyles(styleRefs);
+  const { isNative } = useDevice();
   const currentValue = {
     month: value && value.month ? value.month : undefined,
     year: value && value.year ? value.year : undefined,
@@ -246,5 +246,5 @@ export const MonthPicker = ({
     </FieldGroup>
   );
 
-  return renderNativeInput ? nativeField : customFieldGroup;
+  return isNative ? nativeField : customFieldGroup;
 };
