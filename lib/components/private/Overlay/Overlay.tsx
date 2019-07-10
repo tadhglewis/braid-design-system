@@ -7,7 +7,12 @@ import * as styleRefs from './Overlay.treat';
 export type OverlayProps = Partial<
   Pick<
     BoxProps,
-    'background' | 'borderRadius' | 'boxShadow' | 'transition' | 'className'
+    | 'children'
+    | 'background'
+    | 'borderRadius'
+    | 'boxShadow'
+    | 'transition'
+    | 'className'
   >
 >;
 
@@ -17,16 +22,20 @@ export const Overlay = ({
   boxShadow,
   transition,
   className,
+  children,
 }: OverlayProps) => {
   const styles = useStyles(styleRefs);
 
   return (
     <Box
+      position="absolute"
       background={background}
       borderRadius={borderRadius}
       boxShadow={boxShadow}
       transition={transition}
       className={classnames(styles.root, className)}
-    />
+    >
+      {children}
+    </Box>
   );
 };

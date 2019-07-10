@@ -3,12 +3,14 @@ import { rgba } from 'polished';
 
 const focus = rgba('#1e90ff', 0.7);
 const formAccent = '#2765cf';
+const brand = '#0d3880';
 const brandAccent = '#e60278';
 const positive = '#169400';
 const critical = brandAccent;
 const info = '#9556b7';
 const black = '#1c1c1c';
 const link = '#2765cf';
+const secondary = '#1c1c1ca1';
 
 const tokens: TreatTokens = {
   name: 'seekAnz',
@@ -60,6 +62,16 @@ const tokens: TreatTokens = {
       },
     },
     text: {
+      xsmall: {
+        mobile: {
+          size: 12,
+          rows: 3,
+        },
+        desktop: {
+          size: 12,
+          rows: 3,
+        },
+      },
       small: {
         mobile: {
           size: 14,
@@ -151,9 +163,10 @@ const tokens: TreatTokens = {
       critical,
       info,
       positive,
-      secondary: '#1c1c1ca1',
+      secondary,
     },
     background: {
+      brand,
       input: '#fff',
       inputDisabled: '#eee',
       brandAccent,
@@ -164,6 +177,7 @@ const tokens: TreatTokens = {
       critical,
       info,
       positive,
+      secondary,
     },
   },
 };

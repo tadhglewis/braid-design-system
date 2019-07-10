@@ -20,6 +20,21 @@ exports[`Alert 1`] = `
 }
 `;
 
+exports[`Badge 1`] = `
+{
+  children: string
+  id?: string
+  tone?: 
+    | "info"
+    | "critical"
+    | "positive"
+    | "secondary"
+  weight?: 
+    | "strong"
+    | "regular"
+}
+`;
+
 exports[`Box 1`] = `
 {
   about?: string
@@ -196,6 +211,8 @@ exports[`Box 1`] = `
     | "info"
     | "critical"
     | "positive"
+    | "secondary"
+    | "brand"
     | "input"
     | "inputDisabled"
     | "brandAccent"
@@ -210,6 +227,7 @@ exports[`Box 1`] = `
     | "infoLight"
     | "criticalLight"
     | "positiveLight"
+    | "secondaryLight"
   borderRadius?: "standard"
   boxShadow?: 
     | "outlineFocus"
@@ -411,6 +429,7 @@ exports[`Box 1`] = `
     | "tspan"
     | "use"
     | "view"
+    | "template"
     | ComponentClass<any, any>
     | FunctionComponent<any>
   content?: string
@@ -750,6 +769,10 @@ exports[`Box 1`] = `
   pattern?: string
   placeholder?: string
   playsInline?: boolean
+  position?: 
+    | "fixed"
+    | "absolute"
+    | "relative"
   poster?: string
   prefix?: string
   preload?: string
@@ -894,6 +917,7 @@ exports[`ChevronIcon 1`] = `
   inline?: boolean
   size?: 
     | "fill"
+    | "xsmall"
     | "small"
     | "large"
     | "standard"
@@ -901,10 +925,10 @@ exports[`ChevronIcon 1`] = `
     | "info"
     | "critical"
     | "positive"
+    | "secondary"
     | "formAccent"
     | "link"
     | "neutral"
-    | "secondary"
 }
 `;
 
@@ -967,6 +991,7 @@ exports[`ErrorIcon 1`] = `
   inline?: boolean
   size?: 
     | "fill"
+    | "xsmall"
     | "small"
     | "large"
     | "standard"
@@ -974,10 +999,10 @@ exports[`ErrorIcon 1`] = `
     | "info"
     | "critical"
     | "positive"
+    | "secondary"
     | "formAccent"
     | "link"
     | "neutral"
-    | "secondary"
 }
 `;
 
@@ -1184,6 +1209,7 @@ exports[`Heading 1`] = `
     | "tspan"
     | "use"
     | "view"
+    | "template"
     | ComponentClass<any, any>
     | FunctionComponent<any>
   id?: string
@@ -1213,6 +1239,7 @@ exports[`InfoIcon 1`] = `
   inline?: boolean
   size?: 
     | "fill"
+    | "xsmall"
     | "small"
     | "large"
     | "standard"
@@ -1220,10 +1247,10 @@ exports[`InfoIcon 1`] = `
     | "info"
     | "critical"
     | "positive"
+    | "secondary"
     | "formAccent"
     | "link"
     | "neutral"
-    | "secondary"
 }
 `;
 
@@ -1475,10 +1502,12 @@ exports[`Text 1`] = `
     | "tspan"
     | "use"
     | "view"
+    | "template"
     | ComponentClass<any, any>
     | FunctionComponent<any>
   id?: string
   size?: 
+    | "xsmall"
     | "small"
     | "large"
     | "standard"
@@ -1486,10 +1515,10 @@ exports[`Text 1`] = `
     | "info"
     | "critical"
     | "positive"
+    | "secondary"
     | "formAccent"
     | "link"
     | "neutral"
-    | "secondary"
   weight?: 
     | "strong"
     | "regular"
@@ -2085,6 +2114,7 @@ exports[`TickCircleIcon 1`] = `
   inline?: boolean
   size?: 
     | "fill"
+    | "xsmall"
     | "small"
     | "large"
     | "standard"
@@ -2092,10 +2122,10 @@ exports[`TickCircleIcon 1`] = `
     | "info"
     | "critical"
     | "positive"
+    | "secondary"
     | "formAccent"
     | "link"
     | "neutral"
-    | "secondary"
 }
 `;
 
@@ -2104,6 +2134,7 @@ exports[`TickIcon 1`] = `
   inline?: boolean
   size?: 
     | "fill"
+    | "xsmall"
     | "small"
     | "large"
     | "standard"
@@ -2111,10 +2142,22 @@ exports[`TickIcon 1`] = `
     | "info"
     | "critical"
     | "positive"
+    | "secondary"
     | "formAccent"
     | "link"
     | "neutral"
-    | "secondary"
+}
+`;
+
+exports[`Toggle 1`] = `
+{
+  align?: 
+    | "left"
+    | "right"
+  id: string
+  label: ReactNode
+  on: boolean
+  onChange: ChangeHandler
 }
 `;
 

@@ -107,6 +107,13 @@ const widthRules = {
 };
 export const width = styleMap(mapToStyleProperty(widthRules, 'width'));
 
+const positionRules = {
+  absolute: 'absolute',
+  relative: 'relative',
+  fixed: 'fixed',
+};
+export const position = styleMap(mapToStyleProperty(positionRules, 'position'));
+
 const displayRules = {
   block: 'block',
   inline: 'inline',
@@ -158,6 +165,7 @@ export const background = styleMap(({ color }) => ({
   infoLight: { background: getLightVariant(color.background.info) },
   criticalLight: { background: getLightVariant(color.background.critical) },
   positiveLight: { background: getLightVariant(color.background.positive) },
+  secondaryLight: { background: getLightVariant(color.background.secondary) },
 }));
 
 export const boxShadow = styleMap(

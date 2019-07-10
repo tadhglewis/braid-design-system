@@ -30,6 +30,7 @@ export interface TreatTokens {
       };
     };
     text: {
+      xsmall: TextDefinition;
       small: TextDefinition;
       standard: TextDefinition;
       large: TextDefinition;
@@ -97,6 +98,7 @@ export interface TreatTokens {
       secondary: string;
     };
     background: {
+      brand: string;
       input: string;
       inputDisabled: string;
       brandAccent: string;
@@ -107,6 +109,7 @@ export interface TreatTokens {
       card: string;
       critical: string;
       positive: string;
+      secondary: string;
     };
   };
 }

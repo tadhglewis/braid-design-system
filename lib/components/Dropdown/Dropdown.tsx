@@ -92,10 +92,11 @@ export const Dropdown = forwardRef<HTMLSelectElement, DropdownProps>(
             <Box
               paddingLeft={paddingLeft}
               paddingRight={paddingRight}
+              position="absolute"
               display="flex"
               className={styles.chevron}
             >
-              <ChevronIcon inline />
+              <ChevronIcon tone="neutral" inline />
             </Box>
           </Fragment>
         )}
