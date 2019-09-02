@@ -21,6 +21,7 @@ export { Hidden } from './Hidden/Hidden';
 export { MonthPicker } from './MonthPicker/MonthPicker';
 export { Paragraph } from './Paragraph/Paragraph';
 export { Radio } from './Radio/Radio';
+export { RadioList } from './RadioList/RadioList';
 export { Secondary } from './Secondary/Secondary';
 export { Strong } from './Strong/Strong';
 export { Text } from './Text/Text';

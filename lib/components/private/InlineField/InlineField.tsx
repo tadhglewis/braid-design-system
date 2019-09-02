@@ -29,6 +29,7 @@ export interface InlineFieldProps {
   message?: FieldMessageProps['message'];
   reserveMessageSpace?: FieldMessageProps['reserveMessageSpace'];
   tone?: InlineFieldTone;
+  'aria-describedby'?: FormElementProps['aria-describedby'];
   children?: ReactNode;
   data?: DataAttributeMap;
 }
@@ -85,6 +86,7 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
       children,
       message,
       reserveMessageSpace = false,
+      'aria-describedby': ariaDescribedBy,
       tone = 'neutral',
       disabled = false,
     },
@@ -116,9 +118,11 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
           checked={checked}
           position="absolute"
           className={classnames(styles.realField, styles.realFieldSize)}
-          aria-describedby={messageId}
           disabled={disabled}
           ref={ref}
+          {...((message || ariaDescribedBy) && {
+            'aria-describedby': ariaDescribedBy || messageId,
+          })}
           {...buildDataAttributes(data)}
         />
         <Box display="flex">

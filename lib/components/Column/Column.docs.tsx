@@ -44,7 +44,7 @@ const docs: ComponentDocs = {
       render: () => (
         <Fragment>
           {widths.map(width => (
-            <Columns>
+            <Columns key={width}>
               <Column width={width}>
                 <HideCode>
                   <Content>{width}</Content>
