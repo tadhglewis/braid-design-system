@@ -1,1 +1,0 @@
-(window.__LOADABLE_LOADED_CHUNKS__=window.__LOADABLE_LOADED_CHUNKS__||[]).push([[1],{ugiR:function(_,n,u){"use strict";u.r(n);var D=u("pSjD");u.d(n,"default",function(){return D.a})}}]);
