@@ -17,24 +17,30 @@ const fakeFieldBase = style({
 
 const fakeFieldSize = style(theme => {
   const size = getSize(theme);
-  const { touchableSize, grid } = theme;
 
   return {
     height: size,
     width: size,
-    marginTop: (grid * touchableSize - size) / 2,
   };
 });
 
 export const fakeField = [fakeFieldSize, fakeFieldBase];
 
-export const label = style({
-  userSelect: 'none',
-  selectors: {
-    [`${realField}:not(:disabled) + * > ${fakeFieldBase} + &`]: {
-      cursor: 'pointer',
+export const label = style(theme => {
+  // Uses mobile standard text to mirror behaviour in getSize
+  const standardTextHeight =
+    theme.typography.text.standard.mobile.rows * theme.grid;
+  const offset = (getSize(theme) - standardTextHeight) / 2;
+
+  return {
+    paddingTop: offset,
+    userSelect: 'none',
+    selectors: {
+      [`${realField}:not(:disabled) + * > ${fakeFieldBase} + &`]: {
+        cursor: 'pointer',
+      },
     },
-  },
+  };
 });
 
 export const children = style(theme => {

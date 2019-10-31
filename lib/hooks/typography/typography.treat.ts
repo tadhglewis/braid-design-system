@@ -241,10 +241,16 @@ export const virtualTouchable = style({
   ':after': {
     content: '""',
     position: 'absolute',
-    height: touchableSize,
-    top: `calc(-${touchableSize / 2}px + 50%)`,
+    transform: 'translateY(-50%)',
+    minHeight: touchableSize,
+    height: '100%',
+    top: '50%',
     left: 0,
     right: 0,
-    border: 'red solid 1px',
+  },
+  selectors: {
+    '.debug &:after': {
+      border: 'rgba(255,0,0,0.3) solid 1px',
+    },
   },
 });
