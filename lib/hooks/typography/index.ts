@@ -29,14 +29,13 @@ export const useText = ({
   return classnames(
     styles.fontFamily,
     styles.text[size].base,
+    {
+      [styles.text[size].baseline]: baseline,
+      [styles.text[size].cropFirstLine]: baseline && !_LEGACY_SPACE_,
+    },
     inTextLinkRenderer
-      ? useTouchableSpace(size)
-      : [
-          useTextTone({ tone, backgroundContext }),
-          styles.fontWeight[weight],
-          baseline ? styles.text[size].baseline : null,
-          baseline && !_LEGACY_SPACE_ ? styles.text[size].cropFirstLine : null,
-        ],
+      ? null
+      : [useTextTone({ tone, backgroundContext }), styles.fontWeight[weight]],
   );
 };
 
@@ -116,3 +115,5 @@ export const useTextTone = ({
 
 export const useTouchableSpace = (size: keyof typeof styleRefs.touchable) =>
   useStyles(styleRefs).touchable[size];
+
+export const useVirtualTouchable = () => useStyles(styleRefs).virtualTouchable;

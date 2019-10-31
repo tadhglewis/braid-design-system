@@ -1,5 +1,5 @@
 import mapValues from 'lodash/mapValues';
-import { style, styleMap, ClassRef } from 'sku/treat';
+import { style, styleMap, ClassRef, Style } from 'sku/treat';
 import { Theme } from 'treat/theme';
 import basekick from './basekick';
 import { getAccessibleVariant, isLight, mapToStyleProperty } from '../../utils';
@@ -234,3 +234,17 @@ export const touchable = styleMap(
       ),
     ),
 );
+
+const touchableSize = 48;
+export const virtualTouchable = style({
+  position: 'relative',
+  ':after': {
+    content: '""',
+    position: 'absolute',
+    height: touchableSize,
+    top: `calc(-${touchableSize / 2}px + 50%)`,
+    left: 0,
+    right: 0,
+    border: 'red solid 1px',
+  },
+});

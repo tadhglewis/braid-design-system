@@ -13,6 +13,7 @@ import {
   useWeight,
   useTouchableSpace,
   useText,
+  useVirtualTouchable,
 } from '../../hooks/typography';
 import * as styleRefs from './TextLinkRenderer.treat';
 import { useBackground } from '../Box/BackgroundContext';
@@ -66,6 +67,7 @@ function InlineLink({ children }: TextLinkRendererProps) {
         style: {},
         className: classnames(
           useLinkStyles(),
+          useVirtualTouchable(),
           useBoxStyles({
             component: 'a',
             cursor: 'pointer',
@@ -84,6 +86,7 @@ function TouchableLink({ children }: TextLinkRendererProps) {
           style: {},
           className: classnames(
             useLinkStyles(),
+            useVirtualTouchable(),
             useBoxStyles({
               component: 'a',
               cursor: 'pointer',
