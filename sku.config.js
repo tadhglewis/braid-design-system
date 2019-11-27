@@ -24,6 +24,7 @@ module.exports = {
   playroomTitle: 'BRAID',
   playroomComponents: 'lib/playroom/components.ts',
   playroomThemes: 'lib/themes/index.ts',
+  playroomPatterns: 'lib/playroom/patterns.ts',
   playroomFrameComponent: 'lib/playroom/FrameComponent.tsx',
   playroomTarget: 'site/dist/playroom',
 };
