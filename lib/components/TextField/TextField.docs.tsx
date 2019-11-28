@@ -176,90 +176,13 @@ const docs: ComponentDocs = {
     {
       name: 'Standard',
       code: dedent`
-        <TextField
-          id="id"
-          label="Job Title"
-          value="Senior Developer"
-        />
+        <TextField label="Text Field" />
       `,
     },
     {
-      name: 'Clear button',
+      name: 'Optional',
       code: dedent`
-        <TextField
-          id="id"
-          label="Job Title"
-          value="Senior Developer"
-          onClear={() => {}}
-        />
-      `,
-    },
-    {
-      name: 'Icon',
-      code: dedent`
-        <TextField
-          icon={<IconSearch/>}
-          id="id"
-          placeholder="Enter a job title"
-          value=""
-        />
-      `,
-    },
-    {
-      name: 'Message',
-      code: dedent`
-        <TextField
-          id="id"
-          label="Job Title"
-          message="e.g. Senior Developer"
-        />
-      `,
-    },
-    {
-      name: 'Secondary label',
-      code: dedent`
-        <TextField
-          id="id"
-          label="Title"
-          secondaryLabel="Optional"
-          value=""
-        />
-      `,
-    },
-    {
-      name: 'Tertiary label',
-      code: dedent`
-        <TextField
-          id="id"
-          label="Title"
-          secondaryLabel="Optional"
-          tertiaryLabel={<TextLink>Help?</TextLink>}
-          value=""
-        />
-      `,
-    },
-    {
-      name: 'Error message',
-      code: dedent`
-        <TextField
-          id="id"
-          label="Do you like Braid?"
-          message="Answer is incorrect"
-          tone="critical"
-          value="No"
-        />
-      `,
-    },
-    {
-      name: 'Positive message',
-      code: dedent`
-        <TextField
-          id="id"
-          label="Do you like Braid?"
-          message="Nice one!"
-          tone="positive"
-          value="Yes"
-        />
+        <TextField label="Text Field" secondaryLabel="Optional" />
       `,
     },
   ],

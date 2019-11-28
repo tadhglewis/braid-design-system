@@ -23,7 +23,7 @@ module.exports = {
   displayNamesProd: true,
   playroomTitle: 'BRAID',
   playroomComponents: 'lib/playroom/components.ts',
-  playroomThemes: 'lib/themes/index.ts',
+  playroomThemes: 'lib/playroom/themes.ts',
   playroomPatterns: 'lib/playroom/patterns.ts',
   playroomFrameComponent: 'lib/playroom/FrameComponent.tsx',
   playroomTarget: 'site/dist/playroom',
