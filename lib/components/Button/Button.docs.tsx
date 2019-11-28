@@ -42,6 +42,11 @@ const docs: ComponentDocs = {
       storybook: false,
     },
   ],
+  patterns: [
+    { name: 'Standard', code: '<Button>Button</Button>' },
+    { name: 'Strong', code: '<Button weight="strong">Button</Button>' },
+    { name: 'Weak', code: '<Button weight="weak">Button</Button>' },
+  ],
 };
 
 export default docs;

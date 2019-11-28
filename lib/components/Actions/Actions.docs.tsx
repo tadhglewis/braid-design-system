@@ -1,4 +1,5 @@
 import React from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { Actions } from './Actions';
 import { Button } from '../Button/Button';
@@ -35,6 +36,35 @@ const docs: ComponentDocs = {
           <Button weight="regular">Regular</Button>
         </Actions>
       ),
+    },
+  ],
+  patterns: [
+    {
+      name: 'Standard Button, Text Link',
+      code: dedent`
+        <Actions>
+          <Button>Button</Button>
+          <TextLink href="#">Link</TextLink>
+        </Actions>
+      `,
+    },
+    {
+      name: 'Strong Button, Text Link',
+      code: dedent`
+        <Actions>
+          <Button weight="strong">Button</Button>
+          <TextLink href="#">Link</TextLink>
+        </Actions>
+      `,
+    },
+    {
+      name: 'Weak Button, Text Link',
+      code: dedent`
+        <Actions>
+          <Button weight="weak">Button</Button>
+          <TextLink href="#">Link</TextLink>
+        </Actions>
+      `,
     },
   ],
 };
