@@ -1,4 +1,5 @@
 import React from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { Card } from './Card';
 import { Box } from '../Box/Box';
@@ -20,6 +21,16 @@ const docs: ComponentDocs = {
           <Text>This text is inside a card.</Text>
         </Card>
       ),
+    },
+  ],
+  patterns: [
+    {
+      name: 'Standard',
+      code: dedent`
+        <Card>
+          <Text>Card</Text>
+        </Card>
+      `,
     },
   ],
 };

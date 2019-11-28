@@ -6,6 +6,16 @@ import { Text } from '../Text/Text';
 const docs: ComponentDocs = {
   category: 'Interaction',
   migrationGuide: true,
+  patterns: [
+    {
+      name: 'Standard',
+      code: '<Checkbox label="Checkbox" reserveMessageSpace={false} />',
+    },
+    {
+      name: 'Standard (Checked)',
+      code: '<Checkbox label="Checkbox" checked reserveMessageSpace={false} />',
+    },
+  ],
   examples: [
     {
       label: 'Standard Checkbox',

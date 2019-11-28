@@ -1,4 +1,5 @@
 import React from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { Columns } from './Columns';
 import { Column } from '../Column/Column';
@@ -15,6 +16,46 @@ const Content = ({ children = 'Column' }) => (
 const docs: ComponentDocs = {
   category: 'Layout',
   migrationGuide: true,
+  patterns: [
+    {
+      name: '2 Columns',
+      code: dedent`
+        <Columns space="gutter">
+          <Column><Text>Column</Text></Column>
+          <Column><Text>Column</Text></Column>
+        </Columns>
+      `,
+    },
+    {
+      name: '2 Columns (Collapse Below Tablet)',
+      code: dedent`
+        <Columns space="gutter" collapseBelow="tablet">
+          <Column><Text>Column</Text></Column>
+          <Column><Text>Column</Text></Column>
+        </Columns>
+      `,
+    },
+    {
+      name: '3 Columns',
+      code: dedent`
+        <Columns space="gutter">
+          <Column><Text>Column</Text></Column>
+          <Column><Text>Column</Text></Column>
+          <Column><Text>Column</Text></Column>
+        </Columns>
+      `,
+    },
+    {
+      name: '3 Columns (Collapse Below Tablet)',
+      code: dedent`
+        <Columns space="gutter" collapseBelow="tablet">
+          <Column><Text>Column</Text></Column>
+          <Column><Text>Column</Text></Column>
+          <Column><Text>Column</Text></Column>
+        </Columns>
+      `,
+    },
+  ],
   examples: [
     {
       label: 'No space',

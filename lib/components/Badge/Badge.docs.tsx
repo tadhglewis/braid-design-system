@@ -1,4 +1,5 @@
 import React from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { Badge } from './Badge';
 
@@ -65,6 +66,33 @@ const docs: ComponentDocs = {
           Neutral
         </Badge>
       ),
+    },
+  ],
+
+  patterns: [
+    {
+      name: 'Info',
+      code: dedent`
+        <Badge tone="info">Badge</Badge>
+      `,
+    },
+    {
+      name: 'Promote',
+      code: dedent`
+        <Badge tone="promote">Badge</Badge>
+      `,
+    },
+    {
+      name: 'Positive',
+      code: dedent`
+        <Badge tone="positive">Badge</Badge>
+      `,
+    },
+    {
+      name: 'Critical',
+      code: dedent`
+        <Badge tone="critical">Badge</Badge>
+      `,
     },
   ],
 };

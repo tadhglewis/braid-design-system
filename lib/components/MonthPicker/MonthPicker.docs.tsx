@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { MonthPicker } from './MonthPicker';
 
@@ -13,6 +14,17 @@ const Container = ({ children }: { children: ReactNode }) => (
 const docs: ComponentDocs = {
   category: 'Interaction',
   migrationGuide: true,
+  patterns: [
+    {
+      name: 'Standard',
+      code: dedent`
+        <MonthPicker
+          label="Month Picker"
+          value={{ month: undefined, year: undefined }}
+        />
+      `,
+    },
+  ],
   examples: [
     {
       label: 'Default',

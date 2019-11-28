@@ -6,6 +6,10 @@ import { Text } from '../Text/Text';
 const docs: ComponentDocs = {
   category: 'Interaction',
   migrationGuide: true,
+  patterns: [
+    { name: 'Standard', code: '<Radio checked={false} label="Radio" />' },
+    { name: 'Checked', code: '<Radio checked={true} label="Radio" />' },
+  ],
   examples: [
     {
       label: 'Standard Radio Button',

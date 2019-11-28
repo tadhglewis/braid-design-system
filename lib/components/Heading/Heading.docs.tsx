@@ -16,6 +16,28 @@ const Container = ({ children }: { children: ReactNode }) => (
 const docs: ComponentDocs = {
   category: 'Content',
   migrationGuide: true,
+  patterns: [
+    { name: 'Level 1', code: '<Heading level="1">Heading</Heading>' },
+    {
+      name: 'Level 1 (Weak)',
+      code: '<Heading level="1" weight="weak>Heading</Heading>',
+    },
+    { name: 'Level 2', code: '<Heading level="2">Heading</Heading>' },
+    {
+      name: 'Level 2 (Weak)',
+      code: '<Heading level="2" weight="weak>Heading</Heading>',
+    },
+    { name: 'Level 3', code: '<Heading level="3">Heading</Heading>' },
+    {
+      name: 'Level 3 (Weak)',
+      code: '<Heading level="3" weight="weak>Heading</Heading>',
+    },
+    { name: 'Level 4', code: '<Heading level="4">Heading</Heading>' },
+    {
+      name: 'Level 4 (Weak)',
+      code: '<Heading level="4" weight="weak>Heading</Heading>',
+    },
+  ],
   examples: [
     {
       label: 'Level 1',

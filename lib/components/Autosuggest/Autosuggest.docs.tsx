@@ -1,4 +1,5 @@
 import React, { useState, ReactNode } from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { Autosuggest } from './Autosuggest';
 import matchHighlights from 'autosuggest-highlight/match';
@@ -195,6 +196,24 @@ const docs: ComponentDocs = {
           />
         );
       },
+    },
+  ],
+  patterns: [
+    {
+      name: 'Standard',
+      code: dedent`
+        <Autosuggest
+          label="Autosuggest"
+          value={{ text: '' }}
+          onChange={() => {}}
+          suggestions={[
+            { text: 'Apples' },
+            { text: 'Bananas' },
+            { text: 'Carrots' },
+          ]}
+          reserveMessageSpace={false}
+        />
+      `,
     },
   ],
 };
