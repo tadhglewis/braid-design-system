@@ -124,67 +124,8 @@ const docs: ComponentDocs = {
       name: 'Standard',
       code: dedent`
         <Textarea
-          id="id"
-          label="Job Title"
-          value="Senior Developer"
-        />
-      `,
-    },
-    {
-      name: 'Message',
-      code: dedent`
-        <Textarea
-        id="id"
-        label="Job Title"
-        message="e.g. Senior Developer"
-        value=""
-      />
-      `,
-    },
-    {
-      name: 'Secondary label',
-      code: dedent`
-        <Textarea
-        id="id"
-        label="Title"
-        secondaryLabel="Optional"
-        value=""
-      />
-      `,
-    },
-    {
-      name: 'Tertiary label',
-      code: dedent`
-        <Textarea
-        id="id"
-        label="Title"
-        secondaryLabel="Optional"
-        tertiaryLabel={<TextLink>Help?</TextLink>}
-        value=""
-      />
-      `,
-    },
-    {
-      name: 'Error message',
-      code: dedent`
-        <Textarea
-          id="id"
-          label="Do you like Braid?"
-          message="Answer is incorrect"
-          tone="critical"
-          value="No"
-        />
-      `,
-    },
-    {
-      name: 'Positive message',
-      code: dedent`
-        <Textarea
-          id="id"
-          label="Do you like Braid?"
-          message="Nice one!"
-          tone="positive"
-          value="Yes"
+          label="Textarea"
+          reserveMessageSpace={false}
         />
       `,
     },

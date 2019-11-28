@@ -21,8 +21,16 @@ const docs: ComponentDocs = {
       name: '2 Columns',
       code: dedent`
         <Columns space="gutter">
-          <Column><Text>Column</Text></Column>
-          <Column><Text>Column</Text></Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
         </Columns>
       `,
     },
@@ -30,8 +38,16 @@ const docs: ComponentDocs = {
       name: '2 Columns (Collapse Below Tablet)',
       code: dedent`
         <Columns space="gutter" collapseBelow="tablet">
-          <Column><Text>Column</Text></Column>
-          <Column><Text>Column</Text></Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
         </Columns>
       `,
     },
@@ -39,9 +55,21 @@ const docs: ComponentDocs = {
       name: '3 Columns',
       code: dedent`
         <Columns space="gutter">
-          <Column><Text>Column</Text></Column>
-          <Column><Text>Column</Text></Column>
-          <Column><Text>Column</Text></Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
         </Columns>
       `,
     },
@@ -49,9 +77,42 @@ const docs: ComponentDocs = {
       name: '3 Columns (Collapse Below Tablet)',
       code: dedent`
         <Columns space="gutter" collapseBelow="tablet">
-          <Column><Text>Column</Text></Column>
-          <Column><Text>Column</Text></Column>
-          <Column><Text>Column</Text></Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
+          <Column>
+            <Stack space="small">
+              <Text>Column</Text>
+            </Stack>
+          </Column>
+        </Columns>
+      `,
+    },
+    {
+      name: 'Main Content With Sidebar',
+      code: dedent`
+        <Columns space="gutter" collapseBelow="tablet">
+          <Column width="2/3">
+            <Card>
+              <Stack space="small">
+                <Text>Main Content</Text>
+              </Stack>
+            </Card>
+          </Column>
+          <Column>
+            <Card>
+              <Stack space="small">
+                <Text>Sidebar</Text>
+              </Stack>
+            </Card>
+          </Column>
         </Columns>
       `,
     },

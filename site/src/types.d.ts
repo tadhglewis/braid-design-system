@@ -23,7 +23,11 @@ export interface ComponentDocs {
   foundation?: boolean;
   storybook?: boolean;
   examples: ComponentExample[];
-  patterns?: Array<{ name: string; code: string }>;
+  patterns?: Array<{
+    category?: string;
+    name: string;
+    code: string;
+  }>;
 }
 
 export interface ComponentExample {

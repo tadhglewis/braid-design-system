@@ -16,7 +16,7 @@ const docs: ComponentDocs = {
     {
       name: 'Standard',
       code: dedent`
-        <Dropdown label="Dropdown">
+        <Dropdown label="Dropdown" reserveMessageSpace={false}>
           <option>Option</option>
           <option>Option</option>
           <option>Option</option>

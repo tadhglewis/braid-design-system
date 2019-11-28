@@ -116,7 +116,7 @@
   },
   "resolutions": {
     "acorn": "6.3.0",
-    "playroom": "seek-oss/playroom#3d4d588c90cb45cf25474fa31717b0413128e73c"
+    "playroom": "seek-oss/playroom#ba769f00bb1443f79472ed3aaab592618381215f"
   },
   "volta": {
     "node": "10.15.1",

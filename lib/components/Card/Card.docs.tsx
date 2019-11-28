@@ -25,10 +25,34 @@ const docs: ComponentDocs = {
   ],
   patterns: [
     {
-      name: 'Standard',
+      name: 'With Heading',
       code: dedent`
         <Card>
-          <Text>Card</Text>
+          <Stack space="medium">
+            <Heading level="3">Card heading</Heading>
+            <Text>Card content</Text>
+          </Stack>
+        </Card>
+      `,
+    },
+    {
+      name: 'With Overflow Menu',
+      code: dedent`
+        <Card>
+          <Columns>
+            <Column>
+              <Stack space="medium">
+                <Heading level="3">Card heading</Heading>
+                <Text>Card content</Text>
+              </Stack>
+            </Column>
+            <Column width="content">
+              <OverflowMenu label="Options">
+                <OverflowMenuItem>Menu Item</OverflowMenuItem>
+                <OverflowMenuItem>Menu Item</OverflowMenuItem>
+              </OverflowMenu>
+            </Column>
+          </Columns>
         </Card>
       `,
     },

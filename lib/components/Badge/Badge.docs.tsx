@@ -6,6 +6,40 @@ import { Badge } from './Badge';
 const docs: ComponentDocs = {
   category: 'Content',
   migrationGuide: true,
+  patterns: [
+    {
+      name: 'Info',
+      code: dedent`
+        <Inline space="xsmall">
+          <Badge tone="info">Badge</Badge>
+        </Inline>
+      `,
+    },
+    {
+      name: 'Promote',
+      code: dedent`
+        <Inline space="xsmall">
+          <Badge tone="promote">Badge</Badge>
+        </Inline>
+      `,
+    },
+    {
+      name: 'Positive',
+      code: dedent`
+        <Inline space="xsmall">
+          <Badge tone="positive">Badge</Badge>
+        </Inline>
+      `,
+    },
+    {
+      name: 'Critical',
+      code: dedent`
+        <Inline space="xsmall">
+          <Badge tone="critical">Badge</Badge>
+        </Inline>
+      `,
+    },
+  ],
   examples: [
     {
       label: 'Info Badge',
@@ -66,33 +100,6 @@ const docs: ComponentDocs = {
           Neutral
         </Badge>
       ),
-    },
-  ],
-
-  patterns: [
-    {
-      name: 'Info',
-      code: dedent`
-        <Badge tone="info">Badge</Badge>
-      `,
-    },
-    {
-      name: 'Promote',
-      code: dedent`
-        <Badge tone="promote">Badge</Badge>
-      `,
-    },
-    {
-      name: 'Positive',
-      code: dedent`
-        <Badge tone="positive">Badge</Badge>
-      `,
-    },
-    {
-      name: 'Critical',
-      code: dedent`
-        <Badge tone="critical">Badge</Badge>
-      `,
     },
   ],
 };
