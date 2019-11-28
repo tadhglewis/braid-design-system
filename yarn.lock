@@ -12442,7 +12442,7 @@ pkginfo@0.x.x:
   resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.4.1.tgz#b5418ef0439de5425fc4995042dced14fb2a84ff"
   integrity sha1-tUGO8EOd5UJfxJlQQtztFPsqhP8=
 
-playroom@^0.10.1, playroom@seek-oss/playroom#hack:
+playroom@^0.10.1, playroom@seek-oss/playroom#3d4d588c90cb45cf25474fa31717b0413128e73c:
   version "0.0.0-semantically-released"
   resolved "https://codeload.github.com/seek-oss/playroom/tar.gz/3d4d588c90cb45cf25474fa31717b0413128e73c"
   dependencies:
@@ -14814,7 +14814,7 @@ sisteransi@^1.0.3:
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.4.tgz#386713f1ef688c7c0304dc4c0632898941cad2e3"
   integrity sha512-/ekMoM4NJ59ivGSfKapeG+FWtrmWvA1p6FBZwXrqojw90vJu8lBmrTxCMuBCydKtkaUe2zt4PlxeTKpjwMbyig==
 
-sku@seek-oss/sku#hack-playroom:
+sku@seek-oss/sku#f6f6d94a4929f310a3dbadfd910dbb215ee22eca:
   version "0.0.0-development"
   resolved "https://codeload.github.com/seek-oss/sku/tar.gz/f6f6d94a4929f310a3dbadfd910dbb215ee22eca"
   dependencies:
