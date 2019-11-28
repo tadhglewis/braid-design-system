@@ -1,4 +1,5 @@
 import React from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { Toggle } from './Toggle';
 
@@ -36,6 +37,50 @@ const docs: ComponentDocs = {
           onChange={handler}
         />
       ),
+    },
+  ],
+  patterns: [
+    {
+      name: 'On',
+      code: dedent`
+      <Toggle
+        id="id"
+        label="Toggled on"
+        on
+      />
+      `,
+    },
+    {
+      name: 'Off',
+      code: dedent`
+      <Toggle
+        id="id"
+        label="Toggled off"
+        on={false}
+      />
+      `,
+    },
+    {
+      name: 'On, Aligned right',
+      code: dedent`
+      <Toggle
+        id="id"
+        label="Toggled on"
+        align="right"
+        on
+      />
+      `,
+    },
+    {
+      name: 'Off, Aligned right',
+      code: dedent`
+      <Toggle
+        id="id"
+        label="Toggled off"
+        align="right"
+        on={false}
+      />
+      `,
     },
   ],
 };

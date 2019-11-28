@@ -1,4 +1,5 @@
 import React, { Fragment, ReactNode } from 'react';
+import dedent from 'dedent';
 import { titleCase } from 'change-case';
 import { ComponentDocs } from '../../../site/src/types';
 import { Text } from './Text';
@@ -129,6 +130,26 @@ const docs: ComponentDocs = {
           </Fragment>
         );
       },
+    },
+  ],
+  patterns: [
+    {
+      name: 'Standard',
+      code: dedent`
+          <Text>Standard text</Text>
+      `,
+    },
+    {
+      name: 'Small',
+      code: dedent`
+          <Text size="small">Small text</Text>
+      `,
+    },
+    {
+      name: 'Large',
+      code: dedent`
+          <Text size="large">Small text</Text>
+      `,
     },
   ],
 };

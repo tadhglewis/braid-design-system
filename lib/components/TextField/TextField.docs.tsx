@@ -1,4 +1,5 @@
 import React, { useState, ReactNode } from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { TextField } from './TextField';
 import { TextLink } from '../TextLink/TextLink';
@@ -169,6 +170,97 @@ const docs: ComponentDocs = {
           />
         </Box>
       ),
+    },
+  ],
+  patterns: [
+    {
+      name: 'Standard',
+      code: dedent`
+        <TextField
+          id="id"
+          label="Job Title"
+          value="Senior Developer"
+        />
+      `,
+    },
+    {
+      name: 'Clear button',
+      code: dedent`
+        <TextField
+          id="id"
+          label="Job Title"
+          value="Senior Developer"
+          onClear={() => {}}
+        />
+      `,
+    },
+    {
+      name: 'Icon',
+      code: dedent`
+        <TextField
+          icon={<IconSearch/>}
+          id="id"
+          placeholder="Enter a job title"
+          value=""
+        />
+      `,
+    },
+    {
+      name: 'Message',
+      code: dedent`
+        <TextField
+          id="id"
+          label="Job Title"
+          message="e.g. Senior Developer"
+        />
+      `,
+    },
+    {
+      name: 'Secondary label',
+      code: dedent`
+        <TextField
+          id="id"
+          label="Title"
+          secondaryLabel="Optional"
+          value=""
+        />
+      `,
+    },
+    {
+      name: 'Tertiary label',
+      code: dedent`
+        <TextField
+          id="id"
+          label="Title"
+          secondaryLabel="Optional"
+          tertiaryLabel={<TextLink>Help?</TextLink>}
+          value=""
+        />
+      `,
+    },
+    {
+      name: 'Error message',
+      code: dedent`
+        <TextField
+          id="id"
+          label="Do you like Braid?"
+          message="Answer is incorrect"
+          tone="critical"
+          value="No"
+        />
+      `,
+    },
+    {
+      name: 'Positive message',
+      code: dedent`
+        <TextField
+          id="id"
+          label="Do you like Braid?"
+          message="Nice one!"
+          tone="positive"
+          value="Yes"
+        />
+      `,
     },
   ],
 };
