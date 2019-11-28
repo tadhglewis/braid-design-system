@@ -6,6 +6,7 @@ import { Box } from '../Box/Box';
 
 const docs: ComponentDocs = {
   category: 'Content',
+  patterns: [{ name: 'Standard', code: '<Loader />' }],
   examples: [
     {
       label: 'Default',

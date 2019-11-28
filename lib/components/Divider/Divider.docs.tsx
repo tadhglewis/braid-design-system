@@ -4,6 +4,7 @@ import { Divider } from './Divider';
 
 const docs: ComponentDocs = {
   category: 'Layout',
+  patterns: [{ name: 'Standard', code: '<Divider />' }],
   examples: [
     {
       label: 'Standard Divider',

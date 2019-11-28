@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { Dropdown } from './Dropdown';
 import { Box } from '../Box/Box';
@@ -11,6 +12,18 @@ const Container = ({ children }: { children: ReactNode }) => (
 const docs: ComponentDocs = {
   category: 'Interaction',
   migrationGuide: true,
+  patterns: [
+    {
+      name: 'Standard',
+      code: dedent`
+        <Dropdown label="Dropdown">
+          <option>Option</option>
+          <option>Option</option>
+          <option>Option</option>
+        </Dropdown>
+      `,
+    },
+  ],
   examples: [
     {
       label: 'Dropdown with placeholder',
