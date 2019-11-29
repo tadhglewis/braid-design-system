@@ -123,10 +123,7 @@ const docs: ComponentDocs = {
     {
       name: 'Standard',
       code: dedent`
-        <Textarea
-          label="Textarea"
-          reserveMessageSpace={false}
-        />
+        <Textarea label="Textarea" />
       `,
     },
   ],

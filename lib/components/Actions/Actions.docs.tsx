@@ -14,7 +14,7 @@ const docs: ComponentDocs = {
       Example: () => (
         <Actions>
           <Button weight="strong">Strong</Button>
-          <TextLink href="#">TextLink</TextLink>
+          <TextLink href="#">TextCancel</TextLink>
         </Actions>
       ),
     },
@@ -43,8 +43,8 @@ const docs: ComponentDocs = {
       name: 'Standard Button, Text Link',
       code: dedent`
         <Actions>
-          <Button>Button</Button>
-          <TextLink href="#">Link</TextLink>
+          <Button>Submit</Button>
+          <TextLink href="#">Cancel</TextLink>
         </Actions>
       `,
     },
@@ -52,8 +52,8 @@ const docs: ComponentDocs = {
       name: 'Strong Button, Text Link',
       code: dedent`
         <Actions>
-          <Button weight="strong">Button</Button>
-          <TextLink href="#">Link</TextLink>
+          <Button weight="strong">Submit</Button>
+          <TextLink href="#">Cancel</TextLink>
         </Actions>
       `,
     },
@@ -61,8 +61,8 @@ const docs: ComponentDocs = {
       name: 'Weak Button, Text Link',
       code: dedent`
         <Actions>
-          <Button weight="weak">Button</Button>
-          <TextLink href="#">Link</TextLink>
+          <Button weight="weak">Submit</Button>
+          <TextLink href="#">Cancel</TextLink>
         </Actions>
       `,
     },

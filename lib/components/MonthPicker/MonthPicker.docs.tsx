@@ -21,7 +21,6 @@ const docs: ComponentDocs = {
         <MonthPicker
           label="Month Picker"
           value={{ month: undefined, year: undefined }}
-          reserveMessageSpace={false}
         />
       `,
     },

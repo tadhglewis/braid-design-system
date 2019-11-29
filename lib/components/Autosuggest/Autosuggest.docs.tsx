@@ -211,7 +211,6 @@ const docs: ComponentDocs = {
             { text: 'Bananas' },
             { text: 'Carrots' },
           ]}
-          reserveMessageSpace={false}
         />
       `,
     },

@@ -12442,9 +12442,9 @@ pkginfo@0.x.x:
   resolved "https://registry.yarnpkg.com/pkginfo/-/pkginfo-0.4.1.tgz#b5418ef0439de5425fc4995042dced14fb2a84ff"
   integrity sha1-tUGO8EOd5UJfxJlQQtztFPsqhP8=
 
-playroom@^0.10.1, playroom@seek-oss/playroom#7015364d5b3acbc5cf219fdcb96a9c8c5a733ad3:
+playroom@^0.10.1, playroom@seek-oss/playroom#f3a4e06fb62d541ba1f1b738d1dd13d86dd9e5c0:
   version "0.0.0-semantically-released"
-  resolved "https://codeload.github.com/seek-oss/playroom/tar.gz/7015364d5b3acbc5cf219fdcb96a9c8c5a733ad3"
+  resolved "https://codeload.github.com/seek-oss/playroom/tar.gz/f3a4e06fb62d541ba1f1b738d1dd13d86dd9e5c0"
   dependencies:
     "@babel/core" "^7.1.0"
     "@babel/preset-env" "^7.2.0"
