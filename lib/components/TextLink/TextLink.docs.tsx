@@ -214,14 +214,6 @@ const docs: ComponentDocs = {
       },
     },
   ],
-  patterns: [
-    {
-      name: 'Standard link',
-      code: dedent`
-          <TextLink href="#">Link</TextLink>
-      `,
-    },
-  ],
 };
 
 export default docs;

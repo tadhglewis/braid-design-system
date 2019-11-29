@@ -7,8 +7,8 @@ const docs: ComponentDocs = {
   category: 'Interaction',
   migrationGuide: true,
   patterns: [
-    { name: 'Standard', code: '<Radio checked={false} label="Radio" />' },
-    { name: 'Checked', code: '<Radio checked={true} label="Radio" />' },
+    { name: 'Standard', code: '<Radio checked={false} label="Label" />' },
+    { name: 'Checked', code: '<Radio checked={true} label="Label" />' },
   ],
   examples: [
     {

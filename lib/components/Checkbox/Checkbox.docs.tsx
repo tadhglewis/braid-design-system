@@ -9,11 +9,11 @@ const docs: ComponentDocs = {
   patterns: [
     {
       name: 'Standard',
-      code: '<Checkbox label="Checkbox" checked={false} />',
+      code: '<Checkbox label="Label" checked={false} />',
     },
     {
       name: 'Standard (Checked)',
-      code: '<Checkbox label="Checkbox" checked={true} />',
+      code: '<Checkbox label="Label" checked={true} />',
     },
   ],
   examples: [

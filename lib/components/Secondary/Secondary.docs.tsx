@@ -16,14 +16,6 @@ const docs: ComponentDocs = {
       ),
     },
   ],
-  patterns: [
-    {
-      name: 'Standard',
-      code: dedent`
-              <Secondary>Secondary text</Secondary>
-          `,
-    },
-  ],
 };
 
 export default docs;

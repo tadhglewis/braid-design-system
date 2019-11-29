@@ -16,7 +16,7 @@ const docs: ComponentDocs = {
     {
       name: 'Standard',
       code: dedent`
-        <Dropdown label="Dropdown">
+        <Dropdown label="Label">
           <option>Option</option>
           <option>Option</option>
           <option>Option</option>

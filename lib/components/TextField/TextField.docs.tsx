@@ -176,13 +176,13 @@ const docs: ComponentDocs = {
     {
       name: 'Standard',
       code: dedent`
-        <TextField label="Text Field" />
+        <TextField label="Label" />
       `,
     },
     {
       name: 'Optional',
       code: dedent`
-        <TextField label="Text Field" secondaryLabel="Optional" />
+        <TextField label="Label" secondaryLabel="Optional" />
       `,
     },
   ],

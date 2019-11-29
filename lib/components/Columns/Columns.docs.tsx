@@ -102,7 +102,7 @@ const docs: ComponentDocs = {
           <Column width="2/3">
             <Card>
               <Stack space="small">
-                <Text>Main Content</Text>
+                <Text>Main</Text>
               </Stack>
             </Card>
           </Column>

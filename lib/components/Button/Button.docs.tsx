@@ -43,9 +43,9 @@ const docs: ComponentDocs = {
     },
   ],
   patterns: [
-    { name: 'Standard', code: '<Button>Button</Button>' },
-    { name: 'Strong', code: '<Button weight="strong">Button</Button>' },
-    { name: 'Weak', code: '<Button weight="weak">Button</Button>' },
+    { name: 'Standard', code: '<Button>Submit</Button>' },
+    { name: 'Strong', code: '<Button weight="strong">Submit</Button>' },
+    { name: 'Weak', code: '<Button weight="weak">Submit</Button>' },
   ],
 };
 

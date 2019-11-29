@@ -28,9 +28,9 @@ const docs: ComponentDocs = {
       name: 'With Heading',
       code: dedent`
         <Card>
-          <Stack space="medium">
-            <Heading level="3">Card heading</Heading>
-            <Text>Card content</Text>
+          <Stack space="gutter">
+            <Heading level="3">Heading</Heading>
+            <Text>Text</Text>
           </Stack>
         </Card>
       `,
@@ -41,9 +41,9 @@ const docs: ComponentDocs = {
         <Card>
           <Columns>
             <Column>
-              <Stack space="medium">
-                <Heading level="3">Card heading</Heading>
-                <Text>Card content</Text>
+              <Stack space="gutter">
+                <Heading level="3">Heading</Heading>
+                <Text>Text</Text>
               </Stack>
             </Column>
             <Column width="content">

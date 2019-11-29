@@ -19,7 +19,7 @@ const docs: ComponentDocs = {
       name: 'Standard',
       code: dedent`
         <MonthPicker
-          label="Month Picker"
+          label="Month"
           value={{ month: undefined, year: undefined }}
         />
       `,

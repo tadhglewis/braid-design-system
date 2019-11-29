@@ -12,8 +12,8 @@ const docs: ComponentDocs = {
       name: 'Standard',
       code: dedent`
         <OverflowMenu label="Options">
-          <OverflowMenuItem>Menu Item</OverflowMenuItem>
-          <OverflowMenuItem>Menu Item</OverflowMenuItem>
+          <OverflowMenuItem>Option</OverflowMenuItem>
+          <OverflowMenuItem>Option</OverflowMenuItem>
         </OverflowMenu>
       `,
     },
