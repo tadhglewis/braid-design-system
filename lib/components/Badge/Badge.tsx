@@ -46,9 +46,10 @@ export const Badge = ({
   id,
 }: BadgeProps) => {
   const styles = useStyles(styleRefs);
+  const content = typeof children === 'string' ? children : '';
 
   if (typeof children !== 'string') {
-    throw new Error('Badge may only contain a `string`');
+    // throw new Error('Badge may only contain a `string`');
   }
 
   return (
@@ -62,7 +63,7 @@ export const Badge = ({
         className={styles.inner}
       >
         <Text component="span" weight="medium" size="xsmall" baseline={false}>
-          {children}
+          {content}
         </Text>
       </Box>
     </Box>
