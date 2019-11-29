@@ -1,5 +1,4 @@
 import React from 'react';
-import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { Secondary } from './Secondary';
 import { Text } from '../Text/Text';

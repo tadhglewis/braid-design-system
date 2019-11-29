@@ -39,20 +39,19 @@ const docs: ComponentDocs = {
       name: 'With Overflow Menu',
       code: dedent`
         <Card>
-          <Columns>
-            <Column>
-              <Stack space="gutter">
+          <Stack space="gutter">
+            <Columns space="gutter">
+              <Column>
                 <Heading level="3">Heading</Heading>
-                <Text>Text</Text>
-              </Stack>
-            </Column>
-            <Column width="content">
-              <OverflowMenu label="Options">
-                <OverflowMenuItem>Menu Item</OverflowMenuItem>
-                <OverflowMenuItem>Menu Item</OverflowMenuItem>
-              </OverflowMenu>
-            </Column>
-          </Columns>
+              </Column>
+              <Column width="content">
+                <OverflowMenu label="Options">
+                  <OverflowMenuItem>Menu Item</OverflowMenuItem>
+                </OverflowMenu>
+              </Column>
+            </Columns>
+            <Text>Text</Text>
+          </Stack>
         </Card>
       `,
     },

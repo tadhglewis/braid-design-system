@@ -14,6 +14,9 @@ export default flatten(
 
     const patterns = docs.patterns || [];
 
-    return patterns.map(pattern => ({ category: componentName, ...pattern }));
+    return patterns.map(pattern => ({
+      category: pattern.category || componentName,
+      ...pattern,
+    }));
   }),
 );

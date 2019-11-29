@@ -214,6 +214,26 @@ const docs: ComponentDocs = {
         />
       `,
     },
+    {
+      name: 'Location search',
+      code: dedent`
+        <Autosuggest
+          icon={<IconLocation />}
+          placeholder="Enter a capital city"
+          value={{ text: '' }}
+          onChange={() => {}}
+          suggestions={[
+            { text: 'Adelaide' },
+            { text: 'Brisbane' },
+            { text: 'Darwin' },
+            { text: 'Hobart' },
+            { text: 'Melbourne' },
+            { text: 'Perth' },
+            { text: 'Sydney' },
+          ]}
+        />
+      `,
+    },
   ],
 };
 

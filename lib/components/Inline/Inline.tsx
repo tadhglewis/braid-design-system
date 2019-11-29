@@ -11,10 +11,15 @@ import * as styleRefs from './Inline.treat';
 
 export interface InlineProps {
   space: ResponsiveSpace;
+  wrap?: boolean;
   children: ReactNode;
 }
 
-export const Inline = ({ space = 'none', children }: InlineProps) => {
+export const Inline = ({
+  space = 'none',
+  wrap = true,
+  children,
+}: InlineProps) => {
   const styles = useStyles(styleRefs);
   const negativeOffsetX = useNegativeOffsetX(space);
   const negativeOffsetY = useNegativeOffsetY(space);
@@ -23,7 +28,10 @@ export const Inline = ({ space = 'none', children }: InlineProps) => {
     <Box className={classnames(negativeOffsetY)}>
       <Box
         display="flex"
-        className={classnames(styles.flexWrap, negativeOffsetX)}
+        className={classnames(
+          wrap ? styles.flexWrap : undefined,
+          negativeOffsetX,
+        )}
       >
         {Children.map(children, child =>
           child !== null && child !== undefined ? (

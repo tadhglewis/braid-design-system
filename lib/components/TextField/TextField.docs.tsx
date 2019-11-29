@@ -185,6 +185,32 @@ const docs: ComponentDocs = {
         <TextField label="Label" secondaryLabel="Optional" />
       `,
     },
+    {
+      name: 'Search field with icon',
+      code: dedent`
+        <TextField icon={<IconSearch />} placeholder="Search" />
+      `,
+    },
+    {
+      name: 'Password field',
+      code: dedent`
+        <TextField
+          label="Password"
+          tertiaryLabel={<TextLink>Forgot password?</TextLink>}
+          type="password"
+        />
+      `,
+    },
+    {
+      category: 'Form',
+      name: 'Two form fields',
+      code: dedent`
+        <Stack space="medium">
+          <TextField label="Field name" />
+          <TextField label="Field name" />
+        </Stack>
+      `,
+    },
   ],
 };
 

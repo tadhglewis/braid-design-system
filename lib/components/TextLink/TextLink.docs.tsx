@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import dedent from 'dedent';
 import { ComponentDocs } from '../../../site/src/types';
 import { TextLink } from './TextLink';
 import { Text } from '../Text/Text';
