@@ -5,6 +5,7 @@ import { Stack, StackProps } from './Stack';
 import { HideCode } from '../private/HideCode';
 import { Heading } from '../Heading/Heading';
 import { padding } from '../Box/useBoxStyles.treat';
+import dedent from 'dedent';
 
 const spaces = Object.keys(padding.top).filter(
   space => space !== 'none',
@@ -37,33 +38,63 @@ const docs: ComponentDocs = {
   patterns: [
     {
       name: 'Xxsmall Space',
-      code:
-        '<Stack space="xxsmall"><Text>Stack</Text><Text>Stack</Text><Text>Stack</Text></Stack>',
+      code: dedent`
+        <Stack space="xxsmall">
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+        </Stack>
+      `,
     },
     {
       name: 'Xsmall Space',
-      code:
-        '<Stack space="xsmall"><Text>Stack</Text><Text>Stack</Text><Text>Stack</Text></Stack>',
+      code: dedent`
+        <Stack space="xsmall">
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+        </Stack>
+      `,
     },
     {
       name: 'Small Space',
-      code:
-        '<Stack space="small"><Text>Stack</Text><Text>Stack</Text><Text>Stack</Text></Stack>',
+      code: dedent`
+        <Stack space="small">
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+        </Stack>
+      `,
     },
     {
       name: 'Medium Space',
-      code:
-        '<Stack space="medium"><Text>Stack</Text><Text>Stack</Text><Text>Stack</Text></Stack>',
+      code: dedent`
+        <Stack space="medium">
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+        </Stack>
+      `,
     },
     {
       name: 'Gutter Space',
-      code:
-        '<Stack space="gutter"><Text>Stack</Text><Text>Stack</Text><Text>Stack</Text></Stack>',
+      code: dedent`
+        <Stack space="gutter">
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+        </Stack>
+      `,
     },
     {
       name: 'Large Space',
-      code:
-        '<Stack space="large"><Text>Stack</Text><Text>Stack</Text><Text>Stack</Text></Stack>',
+      code: dedent`
+        <Stack space="large">
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+          <Text>Stack</Text>
+        </Stack>
+      `,
     },
   ],
   examples: [

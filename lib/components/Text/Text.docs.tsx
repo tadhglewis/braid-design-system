@@ -136,19 +136,19 @@ const docs: ComponentDocs = {
     {
       name: 'Standard',
       code: dedent`
-          <Text>Standard text</Text>
+        <Text>Standard text</Text>
       `,
     },
     {
       name: 'Small',
       code: dedent`
-          <Text size="small">Small text</Text>
+        <Text size="small">Small text</Text>
       `,
     },
     {
       name: 'Large',
       code: dedent`
-          <Text size="large">Small text</Text>
+        <Text size="large">Small text</Text>
       `,
     },
   ],

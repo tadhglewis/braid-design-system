@@ -219,7 +219,7 @@ const docs: ComponentDocs = {
       code: dedent`
         <Autosuggest
           icon={<IconLocation />}
-          placeholder="Enter a capital city"
+          placeholder="Enter a location"
           value={{ text: '' }}
           onChange={() => {}}
           suggestions={[

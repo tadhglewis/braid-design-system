@@ -13,8 +13,8 @@ const docs: ComponentDocs = {
       label: 'Actions with Strong Button and TextLink',
       Example: () => (
         <Actions>
-          <Button weight="strong">Strong</Button>
-          <TextLink href="#">TextCancel</TextLink>
+          <Button weight="strong">Submit</Button>
+          <TextLink href="#">Cancel</TextLink>
         </Actions>
       ),
     },

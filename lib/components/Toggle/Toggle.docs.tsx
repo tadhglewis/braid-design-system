@@ -43,43 +43,43 @@ const docs: ComponentDocs = {
     {
       name: 'On',
       code: dedent`
-      <Toggle
-        id="id"
-        label="Toggled on"
-        on
-      />
+        <Toggle
+          id="id"
+          label="Toggled on"
+          on
+        />
       `,
     },
     {
       name: 'Off',
       code: dedent`
-      <Toggle
-        id="id"
-        label="Toggled off"
-        on={false}
-      />
+        <Toggle
+          id="id"
+          label="Toggled off"
+          on={false}
+        />
       `,
     },
     {
       name: 'On, Aligned right',
       code: dedent`
-      <Toggle
-        id="id"
-        label="Toggled on"
-        align="right"
-        on
-      />
+        <Toggle
+          id="id"
+          label="Toggled on"
+          align="right"
+          on
+        />
       `,
     },
     {
       name: 'Off, Aligned right',
       code: dedent`
-      <Toggle
-        id="id"
-        label="Toggled off"
-        align="right"
-        on={false}
-      />
+        <Toggle
+          id="id"
+          label="Toggled off"
+          align="right"
+          on={false}
+        />
       `,
     },
   ],

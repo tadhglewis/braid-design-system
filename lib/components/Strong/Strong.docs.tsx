@@ -20,7 +20,7 @@ const docs: ComponentDocs = {
     {
       name: 'Standard',
       code: dedent`
-          <Strong>Strong text</Strong>
+        <Strong>Strong text</Strong>
       `,
     },
   ],
