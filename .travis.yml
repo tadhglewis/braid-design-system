@@ -2,11 +2,9 @@ language: node_js
 cache: yarn
 notifications:
   email: false
-before_script:
-  - npm prune
 
 script:
-  - yarn ci
+  - yarn --no-lockfile
 
 after_success:
   - if [ ${TRAVIS_SECURE_ENV_VARS} = "true" ]; then
