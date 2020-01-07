@@ -1,9 +1,7 @@
 export { BraidProvider } from './BraidProvider/BraidProvider';
-export {
-  BraidLoadableProvider,
-} from './BraidLoadableProvider/BraidLoadableProvider';
+export { BraidLoadableProvider } from './BraidLoadableProvider/BraidLoadableProvider';
 export { ThemeNameConsumer } from './ThemeNameConsumer/ThemeNameConsumer';
-export { useThemeName } from './ThemeNameConsumer/ThemeNameContext';
+export { useThemeName } from './ThemeNameConsumer/useThemeName';
 export { Actions } from './Actions/Actions';
 export { Alert } from './Alert/Alert';
 export { Autosuggest } from './Autosuggest/Autosuggest';
@@ -26,6 +24,7 @@ export { FieldMessage } from './FieldMessage/FieldMessage';
 export { Heading } from './Heading/Heading';
 export { Hidden } from './Hidden/Hidden';
 export { Inline } from './Inline/Inline';
+export { Loader } from './Loader/Loader';
 export { OverflowMenu } from './OverflowMenu/OverflowMenu';
 export { OverflowMenuItem } from './OverflowMenuItem/OverflowMenuItem';
 export { MonthPicker } from './MonthPicker/MonthPicker';
@@ -38,6 +37,7 @@ export { Textarea } from './Textarea/Textarea';
 export { TextField } from './TextField/TextField';
 export { TextLink } from './TextLink/TextLink';
 export { TextLinkRenderer } from './TextLinkRenderer/TextLinkRenderer';
+export { Tiles } from './Tiles/Tiles';
 export { Toggle } from './Toggle/Toggle';
 
 export * from './icons';

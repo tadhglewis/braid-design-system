@@ -10,6 +10,7 @@ export interface TextProps extends Pick<BoxProps, 'component'> {
   tone?: UseTextProps['tone'];
   weight?: UseTextProps['weight'];
   baseline?: UseTextProps['baseline'];
+  align?: BoxProps['textAlign'];
   _LEGACY_SPACE_?: boolean;
 }
 
@@ -18,6 +19,7 @@ export const Text = ({
   component = 'span',
   size,
   tone,
+  align,
   weight,
   baseline = true,
   _LEGACY_SPACE_ = false,
@@ -37,6 +39,8 @@ export const Text = ({
   );
 
   if (process.env.NODE_ENV !== 'production') {
+    // NODE_ENV is static so hook call is not conditional
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const inText = useContext(TextContext);
 
     if (inText) {
@@ -48,7 +52,13 @@ export const Text = ({
 
   return (
     <TextContext.Provider value={textContextValue}>
-      <Box id={id} display="block" component={component} className={textStyles}>
+      <Box
+        id={id}
+        display="block"
+        component={component}
+        textAlign={align}
+        className={textStyles}
+      >
         {children}
       </Box>
     </TextContext.Provider>

@@ -11,14 +11,14 @@ import { Omit } from 'utility-types';
 import { Box } from '../Box/Box';
 import { Field, FieldProps } from '../private/Field/Field';
 import { IconChevron } from '../icons';
-import { useTextTone } from '../../hooks/typography';
 import * as styleRefs from './Dropdown.treat';
+import { Text } from '../Text/Text';
 
 type ValidDropdownChildren = AllHTMLAttributes<
   HTMLOptionElement | HTMLOptGroupElement
 >;
 type SelectProps = AllHTMLAttributes<HTMLSelectElement>;
-interface DropdownProps
+export interface DropdownProps
   extends Omit<FieldProps, 'labelId' | 'secondaryMessage' | 'onClear'> {
   children: ValidDropdownChildren[] | ValidDropdownChildren;
   value: NonNullable<SelectProps['value']>;
@@ -27,17 +27,6 @@ interface DropdownProps
   onFocus?: SelectProps['onFocus'];
   placeholder?: string;
 }
-
-const getTone = (
-  placeholder: DropdownProps['placeholder'],
-  value: DropdownProps['value'],
-) => {
-  if (!value && placeholder) {
-    return 'secondary';
-  }
-
-  return 'neutral';
-};
 
 const NamedDropdown = forwardRef<HTMLSelectElement, DropdownProps>(
   (props: DropdownProps, ref) => {
@@ -67,9 +56,17 @@ const NamedDropdown = forwardRef<HTMLSelectElement, DropdownProps>(
         ref={ref}
         labelId={undefined}
         secondaryMessage={null}
+        value={value}
       >
-        {(overlays, { className, paddingX, ...fieldProps }, fieldRef) => (
+        {(
+          overlays,
+          { className, paddingX, ...fieldProps },
+          fieldRef,
+          _,
+          icon,
+        ) => (
           <Fragment>
+            {icon}
             <Box
               component="select"
               paddingLeft={paddingX}
@@ -79,11 +76,7 @@ const NamedDropdown = forwardRef<HTMLSelectElement, DropdownProps>(
               onBlur={onBlur}
               onFocus={onFocus}
               placeholder={placeholder}
-              className={classnames(
-                styles.field,
-                className,
-                useTextTone({ tone: getTone(placeholder, value) }),
-              )}
+              className={classnames(styles.field, className)}
               {...fieldProps}
               ref={fieldRef}
             >
@@ -94,16 +87,18 @@ const NamedDropdown = forwardRef<HTMLSelectElement, DropdownProps>(
             </Box>
             {overlays}
             <Box
-              paddingX={paddingX}
               position="absolute"
               display="flex"
               alignItems="center"
+              justifyContent="center"
               pointerEvents="none"
               height="touchable"
               width="touchable"
               className={styles.chevron}
             >
-              <IconChevron size="fill" />
+              <Text baseline={false}>
+                <IconChevron />
+              </Text>
             </Box>
           </Fragment>
         )}

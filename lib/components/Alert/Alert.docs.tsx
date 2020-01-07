@@ -3,6 +3,7 @@ import { ComponentDocs } from '../../../site/src/types';
 import { Alert } from './Alert';
 
 const docs: ComponentDocs = {
+  category: 'Content',
   migrationGuide: true,
   examples: [
     {
@@ -16,6 +17,20 @@ const docs: ComponentDocs = {
       Example: () => (
         <Alert weight="strong" tone="info">
           This is an important piece of information.
+        </Alert>
+      ),
+    },
+    {
+      label: 'Promote Alert',
+      Example: () => (
+        <Alert tone="promote">This is a promoted piece of information.</Alert>
+      ),
+    },
+    {
+      label: 'Strong Promote Alert',
+      Example: () => (
+        <Alert weight="strong" tone="promote">
+          This is a promoted piece of information.
         </Alert>
       ),
     },

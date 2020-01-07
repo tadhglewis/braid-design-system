@@ -4,7 +4,10 @@ import { ComponentDocs } from '../../../site/src/types';
 import { Text } from './Text';
 import { Box } from '../Box/Box';
 import { Stack } from '../Stack/Stack';
-import { background as boxBackgrounds } from '../Box/useBoxStyles.treat';
+import {
+  background as boxBackgrounds,
+  textAlign,
+} from '../Box/useBoxStyles.treat';
 import { text as textSizes } from '../../hooks/typography/typography.treat';
 
 const Container = ({ children }: { children: ReactNode }) => (
@@ -12,6 +15,7 @@ const Container = ({ children }: { children: ReactNode }) => (
 );
 
 const docs: ComponentDocs = {
+  category: 'Content',
   migrationGuide: true,
   examples: [
     { label: 'Standard Text', Example: () => <Text>Standard text.</Text> },
@@ -33,6 +37,36 @@ const docs: ComponentDocs = {
       ),
     },
     {
+      label: 'Text Alignment',
+      docsSite: false,
+      Container,
+      Example: () => {
+        const alignments = Object.keys(textAlign) as Array<
+          keyof typeof textAlign
+        >;
+
+        return (
+          <Stack space="medium">
+            {alignments.map(alignment => (
+              <Text align={alignment} key={alignment}>
+                {titleCase(alignment)}
+              </Text>
+            ))}
+          </Stack>
+        );
+      },
+    },
+    {
+      label: 'Text Alignment (responsive)',
+      docsSite: false,
+      Container,
+      Example: () => (
+        <Text align={['right', 'center', 'left']}>
+          Right aligned mobile, center on tablet, left on desktop
+        </Text>
+      ),
+    },
+    {
       label: 'Text Spacing',
       docsSite: false,
       Container,
@@ -42,7 +76,7 @@ const docs: ComponentDocs = {
         return (
           <Stack space="medium">
             {sizes.sort().map(size => (
-              <Box background="neutralLight">
+              <Box key={size} background="neutralLight">
                 <Text size={size}>
                   {titleCase(size)} Text (Line 1)
                   <br />
@@ -64,7 +98,7 @@ const docs: ComponentDocs = {
         return (
           <Stack space="medium">
             {sizes.sort().map(size => (
-              <Box background="neutralLight">
+              <Box key={size} background="neutralLight">
                 <Text size={size} _LEGACY_SPACE_>
                   {titleCase(size)} Text (Line 1)
                   <br />
@@ -88,7 +122,7 @@ const docs: ComponentDocs = {
         return (
           <Fragment>
             {backgrounds.sort().map(background => (
-              <Box background={background} paddingY="xsmall">
+              <Box key={background} background={background} paddingY="xsmall">
                 <Text>{background}</Text>
               </Box>
             ))}

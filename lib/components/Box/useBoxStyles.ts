@@ -5,7 +5,7 @@ import { Theme } from 'treat/theme';
 import {
   resolveResponsiveProp,
   ResponsiveProp,
-} from '../../utils/resolveResponsiveProp';
+} from '../../utils/responsiveProp';
 import * as resetStyleRefs from '../../reset/reset.treat';
 import * as styleRefs from './useBoxStyles.treat';
 
@@ -32,6 +32,7 @@ export interface UseBoxStylesProps {
   flexDirection?: ResponsiveProp<keyof typeof styleRefs.flexDirection>;
   alignItems?: ResponsiveProp<keyof typeof styleRefs.alignItems>;
   justifyContent?: ResponsiveProp<keyof typeof styleRefs.justifyContent>;
+  textAlign?: ResponsiveProp<keyof typeof styleRefs.textAlign>;
   borderRadius?: keyof typeof styleRefs.borderRadius;
   background?: keyof typeof styleRefs.background;
   boxShadow?: keyof typeof styleRefs.boxShadow;
@@ -64,6 +65,7 @@ export const useBoxStyles = ({
   flexDirection,
   alignItems,
   justifyContent,
+  textAlign,
   borderRadius,
   background,
   boxShadow,
@@ -105,69 +107,92 @@ export const useBoxStyles = ({
       resolveResponsiveProp(
         resolvedMarginTop,
         styles.margin.top,
+        styles.marginTablet.top,
         styles.marginDesktop.top,
       ),
     resolvedMarginBottom &&
       resolveResponsiveProp(
         resolvedMarginBottom,
         styles.margin.bottom,
+        styles.marginTablet.bottom,
         styles.marginDesktop.bottom,
       ),
     resolvedMarginLeft &&
       resolveResponsiveProp(
         resolvedMarginLeft,
         styles.margin.left,
+        styles.marginTablet.left,
         styles.marginDesktop.left,
       ),
     resolvedMarginRight &&
       resolveResponsiveProp(
         resolvedMarginRight,
         styles.margin.right,
+        styles.marginTablet.right,
         styles.marginDesktop.right,
       ),
     resolvedPaddingTop &&
       resolveResponsiveProp(
         resolvedPaddingTop,
         styles.padding.top,
+        styles.paddingTablet.top,
         styles.paddingDesktop.top,
       ),
     resolvedPaddingBottom &&
       resolveResponsiveProp(
         resolvedPaddingBottom,
         styles.padding.bottom,
+        styles.paddingTablet.bottom,
         styles.paddingDesktop.bottom,
       ),
     resolvedPaddingLeft &&
       resolveResponsiveProp(
         resolvedPaddingLeft,
         styles.padding.left,
+        styles.paddingTablet.left,
         styles.paddingDesktop.left,
       ),
     resolvedPaddingRight &&
       resolveResponsiveProp(
         resolvedPaddingRight,
         styles.padding.right,
+        styles.paddingTablet.right,
         styles.paddingDesktop.right,
       ),
     display &&
-      resolveResponsiveProp(display, styles.display, styles.displayDesktop),
+      resolveResponsiveProp(
+        display,
+        styles.display,
+        styles.displayTablet,
+        styles.displayDesktop,
+      ),
     flexDirection &&
       resolveResponsiveProp(
         flexDirection,
         styles.flexDirection,
+        styles.flexDirectionTablet,
         styles.flexDirectionDesktop,
       ),
     alignItems &&
       resolveResponsiveProp(
         alignItems,
         styles.alignItems,
+        styles.alignItemsTablet,
         styles.alignItemsDesktop,
       ),
     justifyContent &&
       resolveResponsiveProp(
         justifyContent,
         styles.justifyContent,
+        styles.justifyContentTablet,
         styles.justifyContentDesktop,
+      ),
+    textAlign &&
+      resolveResponsiveProp(
+        textAlign,
+        styles.textAlign,
+        styles.textAlignTablet,
+        styles.textAlignDesktop,
       ),
   );
 };

@@ -15,8 +15,11 @@ import { Field, FieldProps } from '../private/Field/Field';
 import * as styleRefs from './Textarea.treat';
 
 type NativeTextareaProps = AllHTMLAttributes<HTMLTextAreaElement>;
-interface TextareaProps
-  extends Omit<FieldProps, 'labelId' | 'secondaryMessage' | 'onClear'> {
+export interface TextareaProps
+  extends Omit<
+    FieldProps,
+    'labelId' | 'secondaryMessage' | 'onClear' | 'icon'
+  > {
   value: NonNullable<NativeTextareaProps['value']>;
   onChange: NonNullable<NativeTextareaProps['onChange']>;
   onBlur?: NativeTextareaProps['onBlur'];
@@ -102,6 +105,7 @@ const NamedTextarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       <Field
         {...restProps}
         ref={ref}
+        value={value}
         labelId={undefined}
         secondaryMessage={renderCount({
           characterLimit,

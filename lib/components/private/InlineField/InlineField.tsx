@@ -10,10 +10,7 @@ import {
 import { FieldOverlay } from '../FieldOverlay/FieldOverlay';
 import { Text } from '../../Text/Text';
 import { IconTick } from '../../icons';
-import {
-  useTouchableSpace,
-  useVirtualTouchable,
-} from '../../../hooks/typography';
+import { useVirtualTouchable } from '../../../hooks/typography';
 import buildDataAttributes, { DataAttributeMap } from '../buildDataAttributes';
 import * as styleRefs from './InlineField.treat';
 
@@ -53,12 +50,23 @@ const Indicator = ({
   const styles = useStyles(styleRefs);
   const isCheckbox = type === 'checkbox';
 
+  const iconTone = (() => {
+    if (disabled) {
+      return 'secondary';
+    }
+
+    if (hover) {
+      return 'formAccent';
+    }
+  })();
+
   return isCheckbox ? (
-    <Box transition="fast" className={classnames(styles.checkboxIndicator)}>
-      <IconTick
-        size="fill"
-        tone={disabled ? 'secondary' : hover ? 'formAccent' : undefined}
-      />
+    <Box
+      height="full" // Needed for IE11
+      transition="fast"
+      className={classnames(styles.checkboxIndicator)}
+    >
+      <IconTick size="fill" tone={iconTone} />
     </Box>
   ) : (
     <Box
@@ -103,7 +111,7 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
     const accentBackground = disabled ? 'formAccentDisabled' : 'formAccent';
 
     return (
-      <Box position="relative">
+      <Box position="relative" className={styles.root}>
         <Box
           component="input"
           type={type}

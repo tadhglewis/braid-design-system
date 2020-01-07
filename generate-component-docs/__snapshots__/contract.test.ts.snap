@@ -14,6 +14,7 @@ exports[`Alert 1`] = `
     | "critical"
     | "info"
     | "positive"
+    | "promote"
   weight?: 
     | "regular"
     | "strong"
@@ -25,9 +26,10 @@ exports[`Autosuggest 1`] = `
   aria-describedby?: string
   autoFocus?: boolean
   automaticSelection?: boolean
-  data?: Record<string, ReactText>
+  data?: Record<string, string | number>
   description?: ReactNode
   disabled?: boolean
+  icon?: ReactNode
   id: string
   label?: ReactNode
   message?: ReactNode
@@ -38,6 +40,7 @@ exports[`Autosuggest 1`] = `
   onFocus?: () => void
   placeholder?: string
   reserveMessageSpace?: boolean
+  scrollToTopOnMobile?: boolean
   secondaryLabel?: ReactNode
   secondaryMessage?: ReactNode
   showMobileBackdrop?: boolean
@@ -60,6 +63,7 @@ exports[`Badge 1`] = `
     | "info"
     | "neutral"
     | "positive"
+    | "promote"
   weight?: 
     | "regular"
     | "strong"
@@ -263,6 +267,8 @@ exports[`Box 1`] = `
     | "neutralLight"
     | "positive"
     | "positiveLight"
+    | "promote"
+    | "promoteLight"
     | "selection"
   borderRadius?: 
     | "full"
@@ -271,7 +277,10 @@ exports[`Box 1`] = `
     | "borderCritical"
     | "borderFormAccent"
     | "borderFormAccentLarge"
+    | "borderFormHover"
     | "borderStandard"
+    | "borderStandardInverted"
+    | "borderStandardInvertedLarge"
     | "large"
     | "medium"
     | "outlineFocus"
@@ -947,6 +956,11 @@ exports[`Box 1`] = `
   suppressHydrationWarning?: boolean
   tabIndex?: number
   target?: string
+  textAlign?: ResponsiveProp<
+    | "center"
+    | "left"
+    | "right"
+  >
   title?: string
   transform?: "touchable"
   transition?: 
@@ -998,6 +1012,8 @@ exports[`BoxRenderer 1`] = `
     | "neutralLight"
     | "positive"
     | "positiveLight"
+    | "promote"
+    | "promoteLight"
     | "selection"
   borderRadius?: 
     | "full"
@@ -1006,12 +1022,15 @@ exports[`BoxRenderer 1`] = `
     | "borderCritical"
     | "borderFormAccent"
     | "borderFormAccentLarge"
+    | "borderFormHover"
     | "borderStandard"
+    | "borderStandardInverted"
+    | "borderStandardInvertedLarge"
     | "large"
     | "medium"
     | "outlineFocus"
     | "small"
-  children: (className: string) => ReactElement<any, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<any, any, any>)> | null
+  children: (className: string) => ReactElement<any, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<...>)> | null
   component: 
     | "a"
     | "abbr"
@@ -1371,6 +1390,11 @@ exports[`BoxRenderer 1`] = `
     | "absolute"
     | "fixed"
     | "relative"
+  textAlign?: ResponsiveProp<
+    | "center"
+    | "left"
+    | "right"
+  >
   transform?: "touchable"
   transition?: 
     | "fast"
@@ -1394,12 +1418,7 @@ exports[`BraidProvider 1`] = `
 {
   children: ReactNode
   styleBody?: boolean
-  theme: {
-    background: string
-    name: string
-    treatTheme: string
-    webFonts: { linkTag: string; }[]
-  }
+  theme: { name: string; background: string; webFonts: { linkTag: string; }[]; backgroundLightness: { formAccentActive: "dark" | "light"; formAccentHover: "dark" | "light"; brandAccentActive: "dark" | "light"; ... 19 more ...; neutral: "dark" | "light"; }; treatTheme: string; }
 }
 `;
 
@@ -1435,6 +1454,7 @@ exports[`Button 1`] = `
 {
   aria-describedby?: string
   children?: ReactNode
+  data?: Record<string, string | number>
   id?: string
   loading?: boolean
   onClick?: (event: MouseEvent<HTMLButtonElement, MouseEvent>) => void
@@ -1470,7 +1490,7 @@ exports[`Checkbox 1`] = `
 {
   checked: boolean
   children?: ReactNode
-  data?: Record<string, ReactText>
+  data?: Record<string, string | number>
   disabled?: boolean
   id: string
   label: ReactNode
@@ -1510,10 +1530,17 @@ exports[`Column 1`] = `
 
 exports[`Columns 1`] = `
 {
+  alignY?: ResponsiveProp<
+    | "bottom"
+    | "center"
+    | "top"
+  >
   children: 
-    | Column
-    | Column[]
-  collapse?: boolean
+    | ReactElement<ColumnProps, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<...>)>
+    | ReactElement<ColumnProps, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<...>)>[]
+  collapseBelow?: 
+    | "desktop"
+    | "tablet"
   reverse?: boolean
   space: ResponsiveProp<
     | "gutter"
@@ -1549,11 +1576,12 @@ exports[`Dropdown 1`] = `
   autoComplete?: string
   autoFocus?: boolean
   children: 
-    | AllHTMLAttributes<HTMLOptGroupElement | HTMLOptionElement>
-    | AllHTMLAttributes<HTMLOptGroupElement | HTMLOptionElement>[]
-  data?: Record<string, ReactText>
+    | ValidDropdownChildren
+    | ValidDropdownChildren[]
+  data?: Record<string, string | number>
   description?: ReactNode
   disabled?: boolean
+  icon?: ReactNode
   id: string
   label?: ReactNode
   message?: ReactNode
@@ -1609,6 +1637,11 @@ exports[`FieldMessage 1`] = `
 exports[`Heading 1`] = `
 {
   _LEGACY_SPACE_?: boolean
+  align?: ResponsiveProp<
+    | "center"
+    | "left"
+    | "right"
+  >
   children: ReactNode
   component?: 
     | "a"
@@ -1801,10 +1834,14 @@ exports[`Heading 1`] = `
 
 exports[`Hidden 1`] = `
 {
+  above?: 
+    | "mobile"
+    | "tablet"
+  below?: 
+    | "desktop"
+    | "tablet"
   children: ReactNode
-  desktop?: boolean
   inline?: boolean
-  mobile?: boolean
   print?: boolean
   screen?: boolean
 }
@@ -1825,6 +1862,7 @@ exports[`IconAdd 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -1845,6 +1883,7 @@ exports[`IconBookmark 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -1869,6 +1908,7 @@ exports[`IconChevron 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -1888,6 +1928,87 @@ exports[`IconClear 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconCompany 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconCompose 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconCopy 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconCreditCard 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -1907,6 +2028,7 @@ exports[`IconCritical 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -1926,6 +2048,248 @@ exports[`IconDate 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconDelete 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconDocument 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconDownload 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconEdit 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconEducation 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconFilter 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconGrid 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconHeart 1`] = `
+{
+  active?: boolean
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconHelp 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconHistory 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconHome 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconImage 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -1945,6 +2309,47 @@ exports[`IconInfo 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconInvoice 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconList 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -1964,6 +2369,47 @@ exports[`IconLocation 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconMail 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconMinus 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -1983,6 +2429,47 @@ exports[`IconMoney 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconNewWindow 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconNote 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -2002,6 +2489,87 @@ exports[`IconOverflow 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconPeople 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconPersonAdd 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconPersonVerified 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconPhone 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -2021,6 +2589,107 @@ exports[`IconPositive 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconPrint 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconProfile 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconPromote 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconRecommended 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconResume 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -2040,6 +2709,107 @@ exports[`IconSearch 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSecurity 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSend 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSent 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSettings 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconShare 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -2059,6 +2829,87 @@ exports[`IconSocialFacebook 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSocialGitHub 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSocialInstagram 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSocialLinkedIn 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSocialMedium 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -2078,6 +2929,68 @@ exports[`IconSocialTwitter 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconStar 1`] = `
+{
+  active?: boolean
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconSubCategory 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconTag 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
@@ -2097,12 +3010,98 @@ exports[`IconTick 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconTime 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconUpload 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconVideo 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
+    | "secondary"
+}
+`;
+
+exports[`IconWorkExperience 1`] = `
+{
+  size?: 
+    | "fill"
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
+  tone?: 
+    | "critical"
+    | "formAccent"
+    | "info"
+    | "link"
+    | "neutral"
+    | "positive"
+    | "promote"
     | "secondary"
 }
 `;
 
 exports[`Inline 1`] = `
 {
+  align?: ResponsiveProp<
+    | "center"
+    | "left"
+    | "right"
+  >
   children: ReactNode
   space: ResponsiveProp<
     | "gutter"
@@ -2115,6 +3114,17 @@ exports[`Inline 1`] = `
     | "xxlarge"
     | "xxsmall"
   >
+}
+`;
+
+exports[`Loader 1`] = `
+{
+  delayVisibility?: boolean
+  size?: 
+    | "large"
+    | "small"
+    | "standard"
+    | "xsmall"
 }
 `;
 
@@ -2148,8 +3158,8 @@ exports[`MonthPicker 1`] = `
 exports[`OverflowMenu 1`] = `
 {
   children: 
-    | ReactElement<OverflowMenuItemProps, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<any, any, any>)>
-    | ReactElement<OverflowMenuItemProps, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<any, any, any>)>[]
+    | (false | ReactElement<OverflowMenuItemProps, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<...>)> | null)[]
+    | ReactElement<OverflowMenuItemProps, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<...>)>
   label: string
   onClose?: () => void
   onOpen?: () => void
@@ -2170,7 +3180,7 @@ exports[`Radio 1`] = `
 {
   checked: boolean
   children?: ReactNode
-  data?: Record<string, ReactText>
+  data?: Record<string, string | number>
   disabled?: boolean
   id: string
   label: ReactNode
@@ -2198,7 +3208,16 @@ exports[`Secondary 1`] = `
 
 exports[`Stack 1`] = `
 {
+  align?: ResponsiveProp<
+    | "center"
+    | "left"
+    | "right"
+  >
   children: ReactNode
+  component?: 
+    | "div"
+    | "ol"
+    | "ul"
   dividers?: boolean
   space: ResponsiveProp<
     | "gutter"
@@ -2224,6 +3243,11 @@ exports[`Strong 1`] = `
 exports[`Text 1`] = `
 {
   _LEGACY_SPACE_?: boolean
+  align?: ResponsiveProp<
+    | "center"
+    | "left"
+    | "right"
+  >
   baseline?: boolean
   children?: ReactNode
   component?: 
@@ -2416,6 +3440,7 @@ exports[`Text 1`] = `
     | "link"
     | "neutral"
     | "positive"
+    | "promote"
     | "secondary"
   weight?: 
     | "medium"
@@ -2429,9 +3454,10 @@ exports[`TextField 1`] = `
   aria-describedby?: string
   autoComplete?: string
   autoFocus?: boolean
-  data?: Record<string, ReactText>
+  data?: Record<string, string | number>
   description?: ReactNode
   disabled?: boolean
+  icon?: ReactNode
   id: string
   label?: ReactNode
   message?: ReactNode
@@ -2930,6 +3956,7 @@ exports[`TextLink 1`] = `
   security?: string
   selected?: boolean
   shape?: string
+  showVisited?: boolean
   size?: number
   sizes?: string
   slot?: string
@@ -2970,7 +3997,8 @@ exports[`TextLink 1`] = `
 
 exports[`TextLinkRenderer 1`] = `
 {
-  children: (styleProps: StyleProps) => ReactElement<any, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<any, any, any>)>
+  children: (styleProps: StyleProps) => ReactElement<any, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<...>)>
+  showVisited?: boolean
 }
 `;
 
@@ -2980,7 +4008,7 @@ exports[`Textarea 1`] = `
   autoComplete?: string
   autoFocus?: boolean
   characterLimit?: number
-  data?: Record<string, ReactText>
+  data?: Record<string, string | number>
   description?: ReactNode
   disabled?: boolean
   grow?: boolean
@@ -3014,7 +4042,32 @@ exports[`Textarea 1`] = `
 
 exports[`ThemeNameConsumer 1`] = `
 {
-  children: (name: string) => ReactElement<any, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<any, any, any>)>
+  children: (name: string) => ReactElement<any, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<...>)>
+}
+`;
+
+exports[`Tiles 1`] = `
+{
+  children: ReactNode
+  columns: ResponsiveProp<
+    | 1
+    | 2
+    | 3
+    | 4
+    | 5
+  >
+  dividers?: boolean
+  space: ResponsiveProp<
+    | "gutter"
+    | "large"
+    | "medium"
+    | "none"
+    | "small"
+    | "xlarge"
+    | "xsmall"
+    | "xxlarge"
+    | "xxsmall"
+  >
 }
 `;
 

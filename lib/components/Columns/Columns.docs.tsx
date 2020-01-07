@@ -13,6 +13,7 @@ const Content = ({ children = 'Column' }) => (
 );
 
 const docs: ComponentDocs = {
+  category: 'Layout',
   migrationGuide: true,
   examples: [
     {
@@ -67,7 +68,8 @@ const docs: ComponentDocs = {
       ),
     },
     {
-      label: 'Responsive space with `none` on mobile, e.g. ["none", "gutter"]',
+      label:
+        'Responsive space with `none` below tablet, e.g. ["none", "gutter"]',
       docsSite: false,
       Example: () => (
         <Columns space={['none', 'gutter']}>
@@ -85,7 +87,8 @@ const docs: ComponentDocs = {
       ),
     },
     {
-      label: 'Responsive space with `none` on desktop, e.g. ["small", "none"]',
+      label:
+        'Responsive space with `none` above mobile, e.g. ["small", "none"]',
       docsSite: false,
       Example: () => (
         <Columns space={['small', 'none']}>
@@ -103,52 +106,40 @@ const docs: ComponentDocs = {
       ),
     },
     {
-      label: 'Collapse on mobile',
+      label: 'Vertically align to center',
       Example: () => (
-        <Columns space="small" collapse>
+        <Columns space="small" alignY="center">
           <Column>
             <HideCode>
-              <Content>First</Content>
+              <Content>Content</Content>
+              <Content>Content</Content>
             </HideCode>
           </Column>
           <Column>
             <HideCode>
-              <Content>Second</Content>
+              <Content>Content</Content>
+              <Content>Content</Content>
+              <Content>Content</Content>
             </HideCode>
           </Column>
         </Columns>
       ),
     },
     {
-      label: 'Collapse on mobile with custom space, e.g. "small"',
+      label: 'Vertically align to bottom',
       Example: () => (
-        <Columns space="small" collapse>
+        <Columns space="small" alignY="bottom">
           <Column>
             <HideCode>
-              <Content>First</Content>
+              <Content>Content</Content>
+              <Content>Content</Content>
             </HideCode>
           </Column>
           <Column>
             <HideCode>
-              <Content>Second</Content>
-            </HideCode>
-          </Column>
-        </Columns>
-      ),
-    },
-    {
-      label:
-        'Collapse on mobile with responsive space, e.g. ["small", "large"]',
-      Example: () => (
-        <Columns space={['small', 'large']} collapse>
-          <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
-          </Column>
-          <Column>
-            <HideCode>
-              <Content>Second</Content>
+              <Content>Content</Content>
+              <Content>Content</Content>
+              <Content>Content</Content>
             </HideCode>
           </Column>
         </Columns>
@@ -156,10 +147,101 @@ const docs: ComponentDocs = {
     },
     {
       label:
-        'Collapse on mobile with responsive space and `none` on mobile, e.g. ["none", "gutter"]',
+        'Responsive alignment (e.g. top on mobile, center on tablet upwards)',
+      Example: () => (
+        <Columns space="small" alignY={['top', 'center']}>
+          <Column>
+            <HideCode>
+              <Content>Content</Content>
+              <Content>Content</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Content</Content>
+              <Content>Content</Content>
+              <Content>Content</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label: 'Alignment + collapse',
       docsSite: false,
       Example: () => (
-        <Columns space={['none', 'gutter']} collapse>
+        <Columns space="small" collapseBelow="tablet" alignY="center">
+          <Column>
+            <HideCode>
+              <Content>Content</Content>
+              <Content>Content</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Content</Content>
+              <Content>Content</Content>
+              <Content>Content</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label: 'Collapse below tablet',
+      Example: () => (
+        <Columns space="small" collapseBelow="tablet">
+          <Column>
+            <HideCode>
+              <Content>First</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label: 'Collapse below desktop',
+      Example: () => (
+        <Columns space="small" collapseBelow="desktop">
+          <Column>
+            <HideCode>
+              <Content>First</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label: 'Collapse below tablet with custom space, e.g. "small"',
+      Example: () => (
+        <Columns space="small" collapseBelow="tablet">
+          <Column>
+            <HideCode>
+              <Content>First</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label: 'Collapse below desktop with custom space, e.g. "small"',
+      Example: () => (
+        <Columns space="small" collapseBelow="desktop">
           <Column>
             <HideCode>
               <Content>First</Content>
@@ -175,10 +257,103 @@ const docs: ComponentDocs = {
     },
     {
       label:
-        'Collapse on mobile with responsive space and `none` on desktop, e.g. ["small", "none"]',
+        'Collapse below tablet with responsive space, e.g. ["small", "large"]',
+      Example: () => (
+        <Columns space={['small', 'large']} collapseBelow="tablet">
+          <Column>
+            <HideCode>
+              <Content>First</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label:
+        'Collapse below desktop with responsive space, e.g. ["small", "medium", "xlarge"]',
+      Example: () => (
+        <Columns space={['small', 'medium', 'xlarge']} collapseBelow="desktop">
+          <Column>
+            <HideCode>
+              <Content>First</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label:
+        'Collapse below tablet with responsive space and `none` below tablet, e.g. ["none", "gutter"]',
       docsSite: false,
       Example: () => (
-        <Columns space={['small', 'none']} collapse>
+        <Columns space={['none', 'gutter']} collapseBelow="tablet">
+          <Column>
+            <HideCode>
+              <Content>First</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label:
+        'Collapse below desktop with responsive space and `none` below desktop, e.g. ["none", "xsmall", gutter"]',
+      docsSite: false,
+      Example: () => (
+        <Columns space={['none', 'xsmall', 'gutter']} collapseBelow="desktop">
+          <Column>
+            <HideCode>
+              <Content>First</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label:
+        'Collapse below tablet with responsive space and `none` above mobile, e.g. ["small", "none"]',
+      docsSite: false,
+      Example: () => (
+        <Columns space={['small', 'none']} collapseBelow="tablet">
+          <Column>
+            <HideCode>
+              <Content>First</Content>
+            </HideCode>
+          </Column>
+          <Column>
+            <HideCode>
+              <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label:
+        'Collapse below desktop with responsive space and `none` above tablet, e.g. ["small", "medium, "none"]',
+      docsSite: false,
+      Example: () => (
+        <Columns space={['small', 'medium', 'none']} collapseBelow="desktop">
           <Column>
             <HideCode>
               <Content>First</Content>
@@ -204,6 +379,33 @@ const docs: ComponentDocs = {
           <Column>
             <HideCode>
               <Content>Second</Content>
+            </HideCode>
+          </Column>
+        </Columns>
+      ),
+    },
+    {
+      label:
+        'Test: Collapsed "content" columns should be full width when setting "alignY"',
+      docsSite: false,
+      Example: () => (
+        <Columns space="small" alignY="bottom" collapseBelow="tablet">
+          <Column>
+            <HideCode>
+              <Content>No width</Content>
+            </HideCode>
+          </Column>
+          <Column width="1/2">
+            <HideCode>
+              <Content>1/2 width</Content>
+              <Content>1/2 width</Content>
+            </HideCode>
+          </Column>
+          <Column width="content">
+            <HideCode>
+              <Content>Content width</Content>
+              <Content>Content width</Content>
+              <Content>Content width</Content>
             </HideCode>
           </Column>
         </Columns>

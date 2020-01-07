@@ -32,6 +32,7 @@ const Header = ({ children = 'Content' }: { children?: ReactNode }) => (
 );
 
 const docs: ComponentDocs = {
+  category: 'Layout',
   migrationGuide: true,
   examples: [
     ...spaces.map(space => ({
@@ -51,6 +52,40 @@ const docs: ComponentDocs = {
         </Stack>
       ),
     })),
+    {
+      label: 'Align to center',
+      Container,
+      Example: () => (
+        <Stack space="gutter" align="center">
+          <Box padding="small" background="info" style={{ width: 50 }} />
+          <Box padding="small" background="info" style={{ width: 70 }} />
+          <Box padding="small" background="info" style={{ width: 100 }} />
+        </Stack>
+      ),
+    },
+    {
+      label: 'Align to right',
+      Container,
+      Example: () => (
+        <Stack space="gutter" align="right">
+          <Box padding="small" background="info" style={{ width: 50 }} />
+          <Box padding="small" background="info" style={{ width: 70 }} />
+          <Box padding="small" background="info" style={{ width: 100 }} />
+        </Stack>
+      ),
+    },
+    {
+      label:
+        'Responsive alignment (e.g. center on mobile, left from tablet upwards)',
+      Container,
+      Example: () => (
+        <Stack space="gutter" align={['center', 'left']}>
+          <Box padding="small" background="info" style={{ width: 50 }} />
+          <Box padding="small" background="info" style={{ width: 70 }} />
+          <Box padding="small" background="info" style={{ width: 100 }} />
+        </Stack>
+      ),
+    },
     {
       label: 'Dividers',
       Container,

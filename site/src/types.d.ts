@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode, SyntheticEvent, ReactElement } from 'react';
+import { ComponentType, ReactNode } from 'react';
 
 export interface AppConfig {
   playroomUrl: string;
@@ -12,8 +12,15 @@ export interface RenderContext {
   appConfig: AppConfig;
 }
 
+export interface Page {
+  title: string;
+  Component: ComponentType;
+}
+
 export interface ComponentDocs {
+  category: 'Logic' | 'Layout' | 'Content' | 'Interaction' | 'Icon';
   migrationGuide?: boolean;
+  foundation?: boolean;
   storybook?: boolean;
   examples: ComponentExample[];
 }

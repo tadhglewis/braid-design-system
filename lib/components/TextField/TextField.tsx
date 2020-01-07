@@ -14,7 +14,7 @@ const validTypes = {
 };
 
 type InputProps = AllHTMLAttributes<HTMLInputElement>;
-interface TextFieldProps
+export interface TextFieldProps
   extends Omit<FieldProps, 'labelId' | 'secondaryMessage'> {
   value: NonNullable<InputProps['value']>;
   type?: keyof typeof validTypes;
@@ -44,8 +44,9 @@ const NamedTextField = forwardRef<HTMLInputElement, TextFieldProps>(
       labelId={undefined}
       secondaryMessage={null}
     >
-      {(overlays, fieldProps, fieldRef, cancelButton) => (
+      {(overlays, fieldProps, fieldRef, cancelButton, icon) => (
         <Fragment>
+          {icon}
           <Box
             component="input"
             type={validTypes[type]}

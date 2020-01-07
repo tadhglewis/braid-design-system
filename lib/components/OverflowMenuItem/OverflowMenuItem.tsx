@@ -120,7 +120,9 @@ export const OverflowMenuItem = ({
       onKeyUp={onKeyUp}
       onKeyDown={onKeyDown}
       onMouseEnter={() => dispatch({ type: MENU_ITEM_HOVER, value: index })}
-      onClick={() => {
+      onClick={event => {
+        event.stopPropagation();
+        event.preventDefault();
         dispatch({ type: MENU_ITEM_CLICK });
         clickHandler();
       }}
@@ -129,6 +131,7 @@ export const OverflowMenuItem = ({
       paddingX="small"
       background={isHighlighted ? 'selection' : undefined}
       cursor="pointer"
+      textAlign="left"
       className={classnames(
         useTouchableSpace(menuItemTextSize),
         styles.menuItem,

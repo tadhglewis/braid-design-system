@@ -10,6 +10,7 @@ import { background as boxBackgrounds } from '../Box/useBoxStyles.treat';
 import { Box } from '../Box/Box';
 
 const docs: ComponentDocs = {
+  category: 'Interaction',
   migrationGuide: true,
   examples: [
     {
@@ -18,6 +19,17 @@ const docs: ComponentDocs = {
         <Text>
           The last word of a sentence is a{' '}
           <TextLink href="">text link.</TextLink>
+        </Text>
+      ),
+    },
+    {
+      label: 'Visited Text Link',
+      Example: () => (
+        <Text>
+          The last word of a sentence is a{' '}
+          <TextLink href="" showVisited>
+            visited link.
+          </TextLink>
         </Text>
       ),
     },

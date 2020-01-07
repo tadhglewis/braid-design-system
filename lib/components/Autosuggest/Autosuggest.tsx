@@ -6,6 +6,7 @@ import React, {
   ChangeEvent,
   MouseEvent,
   KeyboardEvent,
+  useEffect,
 } from 'react';
 import classnames from 'classnames';
 import { useStyles } from 'sku/react-treat';
@@ -54,6 +55,7 @@ const INPUT_ESCAPE = 7;
 const INPUT_ENTER = 8;
 const SUGGESTION_MOUSE_CLICK = 9;
 const SUGGESTION_MOUSE_ENTER = 10;
+const HAS_SUGGESTIONS_CHANGED = 11;
 
 type Action =
   | { type: typeof INPUT_FOCUS }
@@ -66,7 +68,8 @@ type Action =
   | { type: typeof INPUT_ESCAPE }
   | { type: typeof INPUT_ENTER }
   | { type: typeof SUGGESTION_MOUSE_CLICK }
-  | { type: typeof SUGGESTION_MOUSE_ENTER; value: number };
+  | { type: typeof SUGGESTION_MOUSE_ENTER; value: number }
+  | { type: typeof HAS_SUGGESTIONS_CHANGED };
 
 interface AutosuggestState<Value> {
   highlightedIndex: number | null;
@@ -222,6 +225,7 @@ export interface AutosuggestProps<Value>
   onChange: (value: AutosuggestValue<Value>) => void;
   automaticSelection?: boolean;
   showMobileBackdrop?: boolean;
+  scrollToTopOnMobile?: boolean;
   onBlur?: () => void;
   onFocus?: () => void;
   placeholder?: string;
@@ -233,6 +237,7 @@ export function Autosuggest<Value>({
   onChange = noop,
   automaticSelection = false,
   showMobileBackdrop = false,
+  scrollToTopOnMobile = true,
   onFocus = noop,
   onBlur = noop,
   placeholder,
@@ -299,7 +304,10 @@ export function Autosuggest<Value>({
           ...state,
           isOpen: true,
           previewValue: null,
-          highlightedIndex: hasSuggestions && automaticSelection ? 0 : null,
+          highlightedIndex:
+            hasSuggestions && automaticSelection && value.text.length > 0
+              ? 0
+              : null,
         };
       }
 
@@ -361,9 +369,21 @@ export function Autosuggest<Value>({
           highlightedIndex: null,
         };
       }
-    }
 
-    return state;
+      case HAS_SUGGESTIONS_CHANGED: {
+        return automaticSelection
+          ? {
+              ...state,
+              highlightedIndex:
+                hasSuggestions && value.text.length > 0 ? 0 : null,
+            }
+          : state;
+      }
+
+      default: {
+        throw new Error(`Invalid Autosuggest action: ${action.type}`);
+      }
+    }
   };
 
   const [{ isOpen, previewValue, highlightedIndex }, dispatch] = useReducer(
@@ -383,6 +403,12 @@ export function Autosuggest<Value>({
   useScrollIntoView(highlightedItem, menuRef.current);
   useIsolatedScroll(menuRef.current);
 
+  useEffect(() => {
+    dispatch({
+      type: HAS_SUGGESTIONS_CHANGED,
+    });
+  }, [hasSuggestions]);
+
   const inputProps = {
     value: previewValue ? previewValue.text : value.text,
     placeholder,
@@ -401,7 +427,7 @@ export function Autosuggest<Value>({
         mobileDetectionRef.current &&
         getComputedStyle(mobileDetectionRef.current).display === 'block';
 
-      if (rootRef.current && isMobile) {
+      if (rootRef.current && isMobile && scrollToTopOnMobile) {
         smoothScroll(rootRef.current); // tslint:disable-line no-floating-promises
       }
 
@@ -475,6 +501,9 @@ export function Autosuggest<Value>({
           dispatch({ type: INPUT_ENTER });
           return;
         }
+        default: {
+          return;
+        }
       }
     },
   };
@@ -520,7 +549,6 @@ export function Autosuggest<Value>({
               overlays,
               {
                 background,
-                boxShadow,
                 borderRadius,
                 paddingX,
                 className,
@@ -528,11 +556,11 @@ export function Autosuggest<Value>({
               },
               fieldRef,
               cancelButton,
+              icon,
             ) => (
               <Box {...a11y.rootProps}>
                 <Box
                   component="input"
-                  boxShadow={boxShadow}
                   borderRadius={borderRadius}
                   paddingX={paddingX}
                   {...restFieldProps}
@@ -540,12 +568,10 @@ export function Autosuggest<Value>({
                   {...inputProps}
                   type="text"
                   position="relative"
-                  className={classnames(
-                    className,
-                    isOpen ? styles.zIndexInput : null,
-                  )}
+                  className={className}
                   ref={fieldRef}
                 />
+                {icon}
                 <Box
                   component="ul"
                   display={isOpen && hasSuggestions ? 'block' : 'none'}
@@ -599,13 +625,7 @@ export function Autosuggest<Value>({
                 </Box>
                 {overlays}
                 {cancelButton ? (
-                  <Box
-                    position="absolute"
-                    className={classnames(
-                      styles.cancelButton,
-                      isOpen ? styles.zIndexInput : undefined,
-                    )}
-                  >
+                  <Box position="absolute" className={styles.cancelButton}>
                     {cancelButton}
                   </Box>
                 ) : null}

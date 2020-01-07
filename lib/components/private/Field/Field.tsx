@@ -10,7 +10,10 @@ import React, {
 import { useStyles } from 'sku/react-treat';
 import classnames from 'classnames';
 import { Box, BoxProps } from '../../Box/Box';
-import { BackgroundProvider } from '../../Box/BackgroundContext';
+import {
+  BackgroundProvider,
+  useBackgroundLightness,
+} from '../../Box/BackgroundContext';
 import { FieldLabel, FieldLabelProps } from '../../FieldLabel/FieldLabel';
 import {
   FieldMessage,
@@ -21,6 +24,7 @@ import { Stack } from '../../Stack/Stack';
 import { ClearButton } from '../../iconButtons/ClearButton/ClearButton';
 import buildDataAttributes, { DataAttributeMap } from '../buildDataAttributes';
 import { useText, useTouchableSpace } from '../../../hooks/typography';
+import { Text } from '../../Text/Text';
 import * as styleRefs from './Field.treat';
 
 type FormElementProps = AllHTMLAttributes<HTMLFormElement>;
@@ -43,6 +47,7 @@ export interface FieldProps {
   data?: DataAttributeMap;
   onClear?: () => void;
   autoFocus?: boolean;
+  icon?: ReactNode;
 }
 
 type PassthroughProps =
@@ -53,7 +58,6 @@ type PassthroughProps =
   | 'autoFocus';
 interface FieldRenderProps extends Pick<FieldProps, PassthroughProps> {
   background: BoxProps['background'];
-  boxShadow: BoxProps['boxShadow'];
   borderRadius: BoxProps['borderRadius'];
   width: BoxProps['width'];
   paddingX: BoxProps['paddingX'];
@@ -69,6 +73,7 @@ interface InternalFieldProps extends FieldProps {
     props: FieldRenderProps,
     ref: Ref<FieldRef>,
     cancelButton: ReactNode,
+    icon: ReactNode,
   ): ReactNode;
 }
 
@@ -94,6 +99,7 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
       data,
       onClear,
       autoFocus,
+      icon,
     },
     forwardedRef,
   ) => {
@@ -105,7 +111,8 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
     const ref = forwardedRef || defaultRef;
 
     const messageId = `${id}-message`;
-    const background = disabled ? 'inputDisabled' : 'input';
+    const fieldBackground = disabled ? 'inputDisabled' : 'input';
+    const showFieldBorder = useBackgroundLightness() === 'light';
 
     const clearHandler = useCallback(() => {
       if (typeof onClear !== 'function') {
@@ -119,11 +126,17 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
       }
     }, [onClear, ref]);
 
-    const clearButtonVisible =
-      onClear && typeof value === 'string' && value.length > 0;
+    const hasValue =
+      typeof value === 'string' ? value.length > 0 : value != null;
+    const clearButtonVisible = onClear && hasValue;
 
     const overlays = (
       <Fragment>
+        <FieldOverlay variant="default" visible={showFieldBorder} />
+        <FieldOverlay
+          variant="critical"
+          visible={tone === 'critical' && !disabled}
+        />
         <FieldOverlay variant="focus" className={styles.focusOverlay} />
         <FieldOverlay variant="hover" className={styles.hoverOverlay} />
       </Fragment>
@@ -163,17 +176,13 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
         ) : null}
 
         <Box position="relative">
-          <BackgroundProvider value={background}>
+          <BackgroundProvider value={fieldBackground}>
             {children(
               overlays,
               {
                 id,
                 name,
-                background,
-                boxShadow:
-                  tone === 'critical' && !disabled
-                    ? 'borderCritical'
-                    : 'borderStandard',
+                background: fieldBackground,
                 width: 'full',
                 paddingX: 'small',
                 borderRadius: 'standard',
@@ -186,17 +195,34 @@ export const Field = forwardRef<FieldRef, InternalFieldProps>(
                 ...buildDataAttributes(data),
                 className: classnames(
                   styles.field,
+                  styles.placeholderColor,
                   useText({
-                    backgroundContext: background,
+                    backgroundContext: fieldBackground,
+                    tone: hasValue ? 'neutral' : 'secondary',
                     size: 'standard',
                     baseline: false,
                   }),
                   useTouchableSpace('standard'),
-                  onClear ? styles.clearButtonSpace : null,
+                  clearButtonVisible ? styles.clearButtonSpace : null,
+                  icon ? styles.iconSpace : null,
                 ),
               },
               ref,
               clearButton,
+              icon ? (
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  position="absolute"
+                  height="touchable"
+                  width="touchable"
+                  pointerEvents="none"
+                  className={styles.icon}
+                >
+                  <Text baseline={false}>{icon}</Text>
+                </Box>
+              ) : null,
             )}
           </BackgroundProvider>
         </Box>

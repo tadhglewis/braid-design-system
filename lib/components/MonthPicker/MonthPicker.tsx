@@ -20,7 +20,7 @@ interface MonthPickerValue {
 
 type FocusHandler = () => void;
 type ChangeHandler = (value: MonthPickerValue) => void;
-interface MonthPickerProps
+export interface MonthPickerProps
   extends Omit<
     FieldProps,
     | 'value'
@@ -32,6 +32,7 @@ interface MonthPickerProps
     | 'secondaryMessage'
     | 'onClear'
     | 'autoFocus'
+    | 'icon'
   > {
   value: MonthPickerValue;
   onChange: ChangeHandler;
@@ -178,6 +179,7 @@ export const MonthPicker = ({
       tone={tone}
       disabled={disabled}
       label={label}
+      value={customValueToString(currentValue)}
       {...restProps}
       labelId={undefined}
       data={undefined}

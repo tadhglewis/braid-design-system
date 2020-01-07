@@ -34,7 +34,7 @@ interface OverflowMenuProps {
   onClose?: () => void;
   label: string;
   children:
-    | Array<ReactElement<OverflowMenuItemProps>>
+    | Array<ReactElement<OverflowMenuItemProps> | null | false>
     | ReactElement<OverflowMenuItemProps>;
 }
 
@@ -146,12 +146,10 @@ export const OverflowMenu = ({
       if (typeof onOpen === 'function') {
         onOpen();
       }
-    } else {
-      if (typeof onClose === 'function' && hasOpened.current) {
-        onClose();
-      }
+    } else if (typeof onClose === 'function' && hasOpened.current) {
+      onClose();
     }
-  }, [open]);
+  }, [onClose, onOpen, open]);
 
   const focusTrigger = () => {
     if (buttonRef && buttonRef.current) {
@@ -221,7 +219,11 @@ export const OverflowMenu = ({
             ref={buttonRef}
             onKeyUp={onTriggerKeyUp}
             onKeyDown={onTriggerKeyDown}
-            onClick={() => dispatch({ type: MENU_TRIGGER_CLICK })}
+            onClick={event => {
+              event.stopPropagation();
+              event.preventDefault();
+              dispatch({ type: MENU_TRIGGER_CLICK });
+            }}
           />
         </Box>
 
@@ -264,7 +266,11 @@ export const OverflowMenu = ({
 
       {open ? (
         <Box
-          onClick={() => dispatch({ type: BACKDROP_CLICK })}
+          onClick={event => {
+            event.stopPropagation();
+            event.preventDefault();
+            dispatch({ type: BACKDROP_CLICK });
+          }}
           position="fixed"
           className={styles.backdrop}
         />

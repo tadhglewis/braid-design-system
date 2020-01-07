@@ -32,7 +32,7 @@ export const Home = () => {
           >
             <Box
               width="full"
-              paddingBottom="xxsmall"
+              paddingBottom="small"
               className={styles.container}
             >
               <Logo width="100%" />
@@ -67,7 +67,7 @@ export const Home = () => {
                   className={styles.linkButton}
                   tabIndex={-1}
                 >
-                  <Button weight="weak">Components</Button>
+                  <Button weight="weak">Documentation</Button>
                 </Link>
               </Action>
               <Action>
