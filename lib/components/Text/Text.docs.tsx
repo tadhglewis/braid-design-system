@@ -17,6 +17,7 @@ const Container = ({ children }: { children: ReactNode }) => (
 const docs: ComponentDocs = {
   category: 'Content',
   migrationGuide: true,
+  screenshotWidths: [320, 768],
   examples: [
     { label: 'Standard Text', Example: () => <Text>Standard text.</Text> },
     {
@@ -26,6 +27,14 @@ const docs: ComponentDocs = {
     {
       label: 'Large Text',
       Example: () => <Text size="large">Large text.</Text>,
+    },
+    {
+      label: 'Truncating long text',
+      Example: () => (
+        <Box style={{ width: 90 }}>
+          <Text truncate>Long piece of text</Text>
+        </Box>
+      ),
     },
     {
       label: 'Text on Brand Background',

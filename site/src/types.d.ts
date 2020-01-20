@@ -21,7 +21,7 @@ export interface ComponentDocs {
   category: 'Logic' | 'Layout' | 'Content' | 'Interaction' | 'Icon';
   migrationGuide?: boolean;
   foundation?: boolean;
-  storybook?: boolean;
+  screenshotWidths: Array<320 | 768 | 1200>;
   examples: ComponentExample[];
 }
 
@@ -32,4 +32,5 @@ export interface ComponentExample {
   Example?: (props: { id: string; handler: () => void }) => JSX.Element;
   Container?: (props: { children: ReactNode }) => JSX.Element;
   code?: string;
+  playroom?: boolean;
 }

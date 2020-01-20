@@ -6,6 +6,7 @@ import { Text } from '../Text/Text';
 const docs: ComponentDocs = {
   category: 'Interaction',
   migrationGuide: true,
+  screenshotWidths: [320],
   examples: [
     {
       label: 'Standard Checkbox',
@@ -16,25 +17,13 @@ const docs: ComponentDocs = {
     {
       label: 'Checkbox without Message Placeholder',
       Example: ({ id, handler }) => (
-        <Checkbox
-          id={id}
-          checked={false}
-          onChange={handler}
-          label="Label"
-          reserveMessageSpace={false}
-        />
+        <Checkbox id={id} checked={false} onChange={handler} label="Label" />
       ),
     },
     {
       label: 'Checked Checkbox',
       Example: ({ id, handler }) => (
-        <Checkbox
-          id={id}
-          checked={true}
-          onChange={handler}
-          label="Label"
-          reserveMessageSpace={false}
-        />
+        <Checkbox id={id} checked={true} onChange={handler} label="Label" />
       ),
     },
     {
@@ -46,7 +35,6 @@ const docs: ComponentDocs = {
           checked={false}
           onChange={handler}
           label="Label"
-          reserveMessageSpace={false}
         />
       ),
     },
@@ -66,13 +54,7 @@ const docs: ComponentDocs = {
     {
       label: 'Nested Checkbox',
       Example: ({ id, handler }) => (
-        <Checkbox
-          id={id}
-          checked={true}
-          onChange={handler}
-          label="Label"
-          reserveMessageSpace={false}
-        >
+        <Checkbox id={id} checked={true} onChange={handler} label="Label">
           <Text>This text is visible when the checkbox is checked.</Text>
         </Checkbox>
       ),

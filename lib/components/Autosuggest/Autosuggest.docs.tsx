@@ -34,6 +34,7 @@ interface Value {
 const docs: ComponentDocs = {
   category: 'Interaction',
   migrationGuide: true,
+  screenshotWidths: [320],
   examples: [
     {
       label: 'Standard suggestions',
@@ -167,7 +168,6 @@ const docs: ComponentDocs = {
                 ['Apples', 'Bananas', 'Broccoli', 'Carrots'],
                 value.text,
               )}
-              reserveMessageSpace={false}
             />
           </Box>
         );

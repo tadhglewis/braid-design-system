@@ -129,3 +129,7 @@ export function useTouchableSpace(size: keyof typeof styleRefs.touchable) {
 export function useVirtualTouchable() {
   return useStyles(styleRefs).virtualTouchable;
 }
+
+export function useTruncate() {
+  return useStyles(styleRefs).truncate;
+}

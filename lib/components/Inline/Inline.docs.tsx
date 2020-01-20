@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { ComponentDocs } from '../../../site/src/types';
 import { Box } from '../Box/Box';
 import { Inline, InlineProps } from './Inline';
+import { Placeholder } from '../private/Placeholder/Placeholder';
 import { padding } from '../Box/useBoxStyles.treat';
 
 const spaces = Object.keys(padding.top).filter(
@@ -9,33 +10,30 @@ const spaces = Object.keys(padding.top).filter(
 ) as Array<InlineProps['space']>;
 
 const Container = ({ children }: { children: ReactNode }) => (
-  <Box background="infoLight" style={{ maxWidth: '240px' }}>
+  <Box background="neutralLight" style={{ maxWidth: '240px' }}>
     {children}
   </Box>
 );
 
-const Item = () => (
-  <Box background="brand" width="touchable" height="touchable" />
-);
-
 const docs: ComponentDocs = {
   category: 'Layout',
+  screenshotWidths: [320, 768],
   examples: [
     ...spaces.map(space => ({
       label: `Space: ${space}`,
       Container,
       Example: () => (
         <Inline space={space}>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
         </Inline>
       ),
     })),
@@ -44,16 +42,16 @@ const docs: ComponentDocs = {
       Container,
       Example: () => (
         <Inline space={['xxsmall', 'medium']}>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
         </Inline>
       ),
     },
@@ -62,16 +60,16 @@ const docs: ComponentDocs = {
       Container,
       Example: () => (
         <Inline space="small" align="center">
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
         </Inline>
       ),
     },
@@ -80,16 +78,16 @@ const docs: ComponentDocs = {
       Container,
       Example: () => (
         <Inline space="small" align="right">
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
         </Inline>
       ),
     },
@@ -99,16 +97,16 @@ const docs: ComponentDocs = {
       Container,
       Example: () => (
         <Inline space="small" align={['center', 'left']}>
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
-          <Item />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
+          <Placeholder width={48} height={48} />
         </Inline>
       ),
     },

@@ -7,11 +7,12 @@ import { Text } from '../Text/Text';
 const docs: ComponentDocs = {
   category: 'Layout',
   migrationGuide: true,
+  screenshotWidths: [320],
   examples: [
     {
       label: 'Default',
       Container: ({ children }) => (
-        <Box padding="gutter" style={{ backgroundColor: '#ccc' }}>
+        <Box padding="gutter" background="neutralLight">
           {children}
         </Box>
       ),

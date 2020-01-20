@@ -16,6 +16,7 @@ const Container = ({ children }: { children: ReactNode }) => (
 const docs: ComponentDocs = {
   category: 'Content',
   migrationGuide: true,
+  screenshotWidths: [320, 768],
   examples: [
     {
       label: 'Level 1',
@@ -63,6 +64,16 @@ const docs: ComponentDocs = {
         <Heading level="4" weight="weak">
           Heading Level 4 Weak
         </Heading>
+      ),
+    },
+    {
+      label: 'Truncate a long heading',
+      Example: () => (
+        <Box style={{ width: 160 }}>
+          <Heading level="2" truncate>
+            Really long heading
+          </Heading>
+        </Box>
       ),
     },
     {

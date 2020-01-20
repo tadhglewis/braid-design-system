@@ -11,6 +11,7 @@ const Container = ({ children }: { children: ReactNode }) => (
 const docs: ComponentDocs = {
   category: 'Interaction',
   migrationGuide: true,
+  screenshotWidths: [320],
   examples: [
     {
       label: 'Dropdown with placeholder',
@@ -104,7 +105,6 @@ const docs: ComponentDocs = {
             onChange={handler}
             value=""
             placeholder="Please select a role title"
-            reserveMessageSpace={false}
           >
             <option value="1">Developer</option>
             <option value="2">Designer</option>

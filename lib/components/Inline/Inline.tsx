@@ -1,6 +1,4 @@
-import React, { Children, ReactNode } from 'react';
-import classnames from 'classnames';
-import { useStyles } from 'sku/treat';
+import React, { Children } from 'react';
 import { Box } from '../Box/Box';
 import { ResponsiveSpace } from '../Box/useBoxStyles';
 import {
@@ -9,25 +7,25 @@ import {
 } from '../../hooks/useNegativeMargin/useNegativeMargin';
 import { ResponsiveProp } from '../../utils/responsiveProp';
 import { Align, alignToFlexAlign } from '../../utils/align';
-import * as styleRefs from './Inline.treat';
+import { ReactNodeNoStrings } from '../private/ReactNodeNoStrings';
 
 export interface InlineProps {
   align?: ResponsiveProp<Align>;
   space: ResponsiveSpace;
-  children: ReactNode;
+  children: ReactNodeNoStrings;
 }
 
 export const Inline = ({ space = 'none', align, children }: InlineProps) => {
-  const styles = useStyles(styleRefs);
   const negativeMarginLeft = useNegativeMarginLeft(space);
   const negativeMarginTop = useNegativeMarginTop(space);
 
   return (
-    <Box className={classnames(negativeMarginTop)}>
+    <Box className={negativeMarginTop}>
       <Box
         display="flex"
         justifyContent={alignToFlexAlign(align)}
-        className={classnames(styles.flexWrap, negativeMarginLeft)}
+        flexWrap="wrap"
+        className={negativeMarginLeft}
       >
         {Children.map(children, child =>
           child !== null && child !== undefined ? (

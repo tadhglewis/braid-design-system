@@ -4,8 +4,8 @@ import { style, styleMap, ClassRef } from 'sku/treat';
 import { Theme } from 'treat/theme';
 import basekick from './basekick';
 import { getAccessibleVariant, mapToStyleProperty } from '../../utils';
+import { BackgroundVariant } from './../../components/Box/BackgroundContext';
 import { TextBreakpoint } from '../../themes/makeBraidTheme';
-import { UseBoxStylesProps } from '../../components/Box/useBoxStyles';
 
 export const fontFamily = style(({ typography }) => ({
   fontFamily: typography.fontFamily,
@@ -152,7 +152,7 @@ const accessibleColorVariants = styleMap(({ color: { foreground } }) => ({
 }));
 
 type Foreground = keyof typeof tone;
-type BoxBackground = NonNullable<UseBoxStylesProps['background']>;
+type BoxBackground = NonNullable<BackgroundVariant>;
 type ToneOverridesForBackground = {
   [background in BoxBackground]?: {
     [foreground in Foreground | 'neutral']?: ClassRef;
@@ -220,4 +220,9 @@ export const virtualTouchable = style({
       border: 'rgba(255,0,0,0.3) solid 1px',
     },
   },
+});
+
+export const truncate = style({
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
 });

@@ -6,6 +6,7 @@ import { BulletList } from '../BulletList/BulletList';
 const docs: ComponentDocs = {
   category: 'Content',
   migrationGuide: true,
+  screenshotWidths: [320],
   examples: [
     {
       label: 'Standard Bullets',
@@ -24,6 +25,16 @@ const docs: ComponentDocs = {
           <Bullet>This is a small bullet.</Bullet>
           <Bullet>This is a small bullet.</Bullet>
           <Bullet>This is a small bullet.</Bullet>
+        </BulletList>
+      ),
+    },
+    {
+      label: 'Xsmall Bullets',
+      Example: () => (
+        <BulletList size="xsmall">
+          <Bullet>This is an xsmall bullet.</Bullet>
+          <Bullet>This is an xsmall bullet.</Bullet>
+          <Bullet>This is an xsmall bullet.</Bullet>
         </BulletList>
       ),
     },
@@ -54,6 +65,16 @@ const docs: ComponentDocs = {
           <Bullet>Increased space below bullet.</Bullet>
           <Bullet>Increased space below bullet.</Bullet>
           <Bullet>Increased space below bullet.</Bullet>
+        </BulletList>
+      ),
+    },
+    {
+      label: 'Secondary Tone',
+      Example: () => (
+        <BulletList tone="secondary">
+          <Bullet>This is a secondary bullet.</Bullet>
+          <Bullet>This is a secondary bullet.</Bullet>
+          <Bullet>This is a secondary bullet.</Bullet>
         </BulletList>
       ),
     },

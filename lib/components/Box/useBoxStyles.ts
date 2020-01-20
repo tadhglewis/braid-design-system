@@ -30,6 +30,7 @@ export interface UseBoxStylesProps {
   marginRight?: ResponsiveSpace;
   display?: ResponsiveProp<keyof typeof styleRefs.display>;
   flexDirection?: ResponsiveProp<keyof typeof styleRefs.flexDirection>;
+  flexWrap?: keyof typeof styleRefs.flexWrap;
   alignItems?: ResponsiveProp<keyof typeof styleRefs.alignItems>;
   justifyContent?: ResponsiveProp<keyof typeof styleRefs.justifyContent>;
   textAlign?: ResponsiveProp<keyof typeof styleRefs.textAlign>;
@@ -43,6 +44,7 @@ export interface UseBoxStylesProps {
   position?: keyof typeof styleRefs.position;
   cursor?: keyof typeof styleRefs.cursor;
   pointerEvents?: keyof typeof styleRefs.pointerEvents;
+  overflow?: keyof typeof styleRefs.overflow;
 }
 
 export const useBoxStyles = ({
@@ -63,6 +65,7 @@ export const useBoxStyles = ({
   marginRight,
   display,
   flexDirection,
+  flexWrap,
   alignItems,
   justifyContent,
   textAlign,
@@ -76,6 +79,7 @@ export const useBoxStyles = ({
   position,
   cursor,
   pointerEvents,
+  overflow,
 }: UseBoxStylesProps) => {
   const resetStyles = useStyles(resetStyleRefs);
   const styles = useStyles(styleRefs);
@@ -103,6 +107,7 @@ export const useBoxStyles = ({
     styles.position[position!],
     styles.cursor[cursor!],
     styles.pointerEvents[pointerEvents!],
+    styles.overflow[overflow!],
     resolvedMarginTop &&
       resolveResponsiveProp(
         resolvedMarginTop,
@@ -173,6 +178,7 @@ export const useBoxStyles = ({
         styles.flexDirectionTablet,
         styles.flexDirectionDesktop,
       ),
+    styles.flexWrap[flexWrap!],
     alignItems &&
       resolveResponsiveProp(
         alignItems,

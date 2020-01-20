@@ -1,34 +1,22 @@
 import React from 'react';
 import { ComponentDocs } from '../../../site/src/types';
-import { Columns } from './Columns';
-import { Column } from '../Column/Column';
-import { Box } from '../Box/Box';
-import { Text } from '../Text/Text';
-import { HideCode } from '../private/HideCode';
-
-const Content = ({ children = 'Column' }) => (
-  <Box background="selection" padding="small">
-    <Text baseline={false}>{children}</Text>
-  </Box>
-);
+import { Columns, Column } from '../';
+import { Placeholder } from '../private/Placeholder/Placeholder';
 
 const docs: ComponentDocs = {
   category: 'Layout',
   migrationGuide: true,
+  screenshotWidths: [320, 768, 1200],
   examples: [
     {
       label: 'No space',
       Example: () => (
         <Columns space="none">
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
         </Columns>
       ),
@@ -38,14 +26,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small">
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
         </Columns>
       ),
@@ -55,14 +39,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['small', 'large']}>
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
         </Columns>
       ),
@@ -74,14 +54,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['none', 'gutter']}>
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
         </Columns>
       ),
@@ -93,14 +69,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['small', 'none']}>
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content />
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
         </Columns>
       ),
@@ -110,17 +82,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" alignY="center">
           <Column>
-            <HideCode>
-              <Content>Content</Content>
-              <Content>Content</Content>
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Content</Content>
-              <Content>Content</Content>
-              <Content>Content</Content>
-            </HideCode>
+            <Placeholder height={100} />
           </Column>
         </Columns>
       ),
@@ -130,17 +95,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" alignY="bottom">
           <Column>
-            <HideCode>
-              <Content>Content</Content>
-              <Content>Content</Content>
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Content</Content>
-              <Content>Content</Content>
-              <Content>Content</Content>
-            </HideCode>
+            <Placeholder height={100} />
           </Column>
         </Columns>
       ),
@@ -151,17 +109,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" alignY={['top', 'center']}>
           <Column>
-            <HideCode>
-              <Content>Content</Content>
-              <Content>Content</Content>
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Content</Content>
-              <Content>Content</Content>
-              <Content>Content</Content>
-            </HideCode>
+            <Placeholder height={100} />
           </Column>
         </Columns>
       ),
@@ -172,17 +123,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" collapseBelow="tablet" alignY="center">
           <Column>
-            <HideCode>
-              <Content>Content</Content>
-              <Content>Content</Content>
-            </HideCode>
+            <Placeholder height={60} />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Content</Content>
-              <Content>Content</Content>
-              <Content>Content</Content>
-            </HideCode>
+            <Placeholder height={100} />
           </Column>
         </Columns>
       ),
@@ -192,14 +136,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" collapseBelow="tablet">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -209,14 +149,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" collapseBelow="desktop">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -226,14 +162,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" collapseBelow="tablet">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -243,14 +175,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" collapseBelow="desktop">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -261,14 +189,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['small', 'large']} collapseBelow="tablet">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -279,14 +203,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['small', 'medium', 'xlarge']} collapseBelow="desktop">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -298,14 +218,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['none', 'gutter']} collapseBelow="tablet">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -317,14 +233,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['none', 'xsmall', 'gutter']} collapseBelow="desktop">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -336,14 +248,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['small', 'none']} collapseBelow="tablet">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -355,14 +263,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space={['small', 'medium', 'none']} collapseBelow="desktop">
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -372,14 +276,10 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" reverse>
           <Column>
-            <HideCode>
-              <Content>First</Content>
-            </HideCode>
+            <Placeholder height={60} label="First" />
           </Column>
           <Column>
-            <HideCode>
-              <Content>Second</Content>
-            </HideCode>
+            <Placeholder height={60} label="Second" />
           </Column>
         </Columns>
       ),
@@ -391,22 +291,13 @@ const docs: ComponentDocs = {
       Example: () => (
         <Columns space="small" alignY="bottom" collapseBelow="tablet">
           <Column>
-            <HideCode>
-              <Content>No width</Content>
-            </HideCode>
+            <Placeholder height={60} label="No width" />
           </Column>
           <Column width="1/2">
-            <HideCode>
-              <Content>1/2 width</Content>
-              <Content>1/2 width</Content>
-            </HideCode>
+            <Placeholder height={100} label="1/2 width" />
           </Column>
           <Column width="content">
-            <HideCode>
-              <Content>Content width</Content>
-              <Content>Content width</Content>
-              <Content>Content width</Content>
-            </HideCode>
+            <Placeholder height={140} label="Content width" />
           </Column>
         </Columns>
       ),

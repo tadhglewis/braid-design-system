@@ -1,33 +1,31 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { ComponentDocs } from '../../../site/src/types';
-import { Box, Text } from '../';
-import { HideCode } from '../private/HideCode';
-import { ContentBlock } from './ContentBlock';
+import { Placeholder } from '../private/Placeholder/Placeholder';
+import { ContentBlock, Box } from '../';
+
+const Container = ({ children }: { children: ReactNode }) => (
+  <Box background="neutralLight">{children}</Box>
+);
 
 const docs: ComponentDocs = {
   category: 'Layout',
+  screenshotWidths: [320, 1200],
   examples: [
     {
       label: 'Default Content Block',
+      Container,
       Example: () => (
         <ContentBlock>
-          <HideCode>
-            <Box padding="gutter" background="infoLight">
-              <Text baseline={false}>Content Block</Text>
-            </Box>
-          </HideCode>
+          <Placeholder height={100} label="Content block" />
         </ContentBlock>
       ),
     },
     {
       label: 'Large Content Block',
+      Container,
       Example: () => (
         <ContentBlock width="large">
-          <HideCode>
-            <Box padding="gutter" background="infoLight">
-              <Text baseline={false}>Content Block</Text>
-            </Box>
-          </HideCode>
+          <Placeholder height={100} label="Content block" />
         </ContentBlock>
       ),
     },

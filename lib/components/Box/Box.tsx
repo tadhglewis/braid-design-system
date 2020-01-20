@@ -27,6 +27,7 @@ const NamedBox = forwardRef<HTMLElement, BoxProps>(
       marginRight,
       display,
       flexDirection,
+      flexWrap,
       alignItems,
       justifyContent,
       textAlign,
@@ -40,6 +41,7 @@ const NamedBox = forwardRef<HTMLElement, BoxProps>(
       position,
       cursor,
       pointerEvents,
+      overflow,
       className,
       ...restProps
     },
@@ -63,6 +65,7 @@ const NamedBox = forwardRef<HTMLElement, BoxProps>(
       marginRight,
       display,
       flexDirection,
+      flexWrap,
       alignItems,
       justifyContent,
       textAlign,
@@ -76,6 +79,7 @@ const NamedBox = forwardRef<HTMLElement, BoxProps>(
       position,
       cursor,
       pointerEvents,
+      overflow,
     });
 
     const element = createElement(component, {

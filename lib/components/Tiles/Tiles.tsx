@@ -1,4 +1,4 @@
-import React, { Children, ReactNode } from 'react';
+import React, { Children } from 'react';
 import { useStyles } from 'sku/react-treat';
 import classnames from 'classnames';
 import { Box } from '../Box/Box';
@@ -13,9 +13,10 @@ import {
   ResponsiveProp,
 } from '../../utils/responsiveProp';
 import * as styleRefs from './Tiles.treat';
+import { ReactNodeNoStrings } from '../private/ReactNodeNoStrings';
 
 export interface TilesProps {
-  children: ReactNode;
+  children: ReactNodeNoStrings;
   space: ResponsiveSpace;
   columns: ResponsiveProp<1 | 2 | 3 | 4 | 5>;
   dividers?: boolean;
@@ -42,10 +43,7 @@ export const Tiles = ({
 
   return (
     <Box className={negativeMarginTop}>
-      <Box
-        display="flex"
-        className={classnames(styles.flexWrap, negativeMarginLeft)}
-      >
+      <Box display="flex" flexWrap="wrap" className={negativeMarginLeft}>
         {Children.map(children, (child, i) => (
           <Box
             className={classnames(
