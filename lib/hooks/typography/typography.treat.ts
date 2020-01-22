@@ -210,6 +210,7 @@ export const virtualTouchable = style({
     position: 'absolute',
     transform: 'translateY(-50%)',
     minHeight: touchableSize,
+    minWidth: touchableSize,
     height: '100%',
     top: '50%',
     left: 0,

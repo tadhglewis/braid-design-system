@@ -16,6 +16,7 @@ import {
 } from '../../hooks/useIcon';
 import { useBackground } from '../Box/BackgroundContext';
 import * as styleRefs from './IconButton.treat';
+import { useVirtualTouchable } from '../../hooks/typography';
 
 type NativeButtonProps = AllHTMLAttributes<HTMLButtonElement>;
 export interface IconButtonProps {
@@ -83,7 +84,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         type="button"
         ref={forwardedRef}
         cursor="pointer"
-        className={styles.button}
+        className={classnames(styles.button, useVirtualTouchable())}
         aria-label={label}
         aria-haspopup={ariaHasPopUp}
         aria-expanded={ariaExpanded}
@@ -95,8 +96,6 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         display="flex"
         alignItems="center"
         justifyContent="center"
-        width="touchable"
-        height="touchable"
         transform="touchable"
         transition="touchable"
         tabIndex={!keyboardAccessible ? -1 : undefined}

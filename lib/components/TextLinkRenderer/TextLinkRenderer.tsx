@@ -13,7 +13,6 @@ import {
   useWeight,
   useTouchableSpace,
   useText,
-  useVirtualTouchable,
 } from '../../hooks/typography';
 import * as styleRefs from './TextLinkRenderer.treat';
 import { useBackground } from '../Box/BackgroundContext';
@@ -29,16 +28,10 @@ export interface TextLinkRendererProps {
 }
 
 export const TextLinkRenderer = (props: TextLinkRendererProps) => {
-  const inText = useContext(TextContext);
-  const inHeading = useContext(HeadingContext);
   const inActions = useContext(ActionsContext);
 
   if (inActions) {
     return <ButtonLink {...props} />;
-  }
-
-  if (!inText && !inHeading) {
-    return <TouchableLink {...props} />;
   }
 
   return <InlineLink {...props} />;
@@ -65,7 +58,6 @@ function InlineLink({ showVisited = false, children }: TextLinkRendererProps) {
       {children({
         style: {},
         className: classnames(
-          useVirtualTouchable(),
           useLinkStyles(showVisited),
           useBoxStyles({
             component: 'a',
@@ -73,30 +65,6 @@ function InlineLink({ showVisited = false, children }: TextLinkRendererProps) {
           }),
         ),
       })}
-    </TextLinkRendererContext.Provider>
-  );
-}
-
-function TouchableLink({
-  showVisited = false,
-  children,
-}: TextLinkRendererProps) {
-  return (
-    <TextLinkRendererContext.Provider value={true}>
-      <Box display="flex">
-        {children({
-          style: {},
-          className: classnames(
-            useVirtualTouchable(),
-            useLinkStyles(showVisited),
-            useBoxStyles({
-              component: 'a',
-              cursor: 'pointer',
-              display: 'block',
-            }),
-          ),
-        })}
-      </Box>
     </TextLinkRendererContext.Provider>
   );
 }
