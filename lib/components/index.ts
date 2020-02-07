@@ -24,6 +24,7 @@ export { Divider } from './Divider/Divider';
 export { Dropdown } from './Dropdown/Dropdown';
 export { FieldLabel } from './FieldLabel/FieldLabel';
 export { FieldMessage } from './FieldMessage/FieldMessage';
+export { Header } from './Header/Header';
 export { Heading } from './Heading/Heading';
 export { Hidden } from './Hidden/Hidden';
 export { Inline } from './Inline/Inline';

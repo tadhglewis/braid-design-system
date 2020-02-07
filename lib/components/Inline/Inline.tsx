@@ -11,11 +11,17 @@ import { ReactNodeNoStrings } from '../private/ReactNodeNoStrings';
 
 export interface InlineProps {
   align?: ResponsiveProp<Align>;
+  wrap?: boolean;
   space: ResponsiveSpace;
   children: ReactNodeNoStrings;
 }
 
-export const Inline = ({ space = 'none', align, children }: InlineProps) => {
+export const Inline = ({
+  space = 'none',
+  align,
+  wrap = true,
+  children,
+}: InlineProps) => {
   const negativeMarginLeft = useNegativeMarginLeft(space);
   const negativeMarginTop = useNegativeMarginTop(space);
 
@@ -24,7 +30,7 @@ export const Inline = ({ space = 'none', align, children }: InlineProps) => {
       <Box
         display="flex"
         justifyContent={alignToFlexAlign(align)}
-        flexWrap="wrap"
+        flexWrap={wrap ? 'wrap' : undefined}
         className={negativeMarginLeft}
       >
         {Children.map(children, child =>
