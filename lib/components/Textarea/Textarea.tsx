@@ -1,14 +1,17 @@
 import React, {
   forwardRef,
-  Fragment,
   useState,
   ReactNode,
   AllHTMLAttributes,
-  ChangeEvent,
+  useRef,
+  UIEvent,
+  useCallback,
+  FormEvent,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
 import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
+import { formatRanges } from './formatRanges';
 import { Field, FieldProps } from '../private/Field/Field';
 import * as styleRefs from './Textarea.treat';
 
@@ -24,6 +27,10 @@ export interface TextareaProps
   onFocus?: NativeTextareaProps['onFocus'];
   onPaste?: NativeTextareaProps['onPaste'];
   placeholder?: NativeTextareaProps['placeholder'];
+  highlightRanges?: Array<{
+    start: number;
+    end?: number;
+  }>;
   characterLimit?: number;
   lines?: number;
   lineLimit?: number;
@@ -89,6 +96,7 @@ const NamedTextarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       onPaste,
       placeholder,
       characterLimit,
+      highlightRanges,
       lines = 3,
       lineLimit,
       grow = true,
@@ -98,6 +106,16 @@ const NamedTextarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ) => {
     const styles = useStyles(styleRefs);
     const [rows, setRows] = useState(lines);
+    const highlightsRef = useRef<HTMLDivElement>(null);
+    const updateScroll = useCallback(
+      (scrollTop: number) => {
+        if (highlightsRef.current) {
+          highlightsRef.current.scrollTop = scrollTop;
+        }
+      },
+      [highlightsRef],
+    );
+    const hasHighlights = Boolean(highlightRanges);
 
     return (
       <Field
@@ -110,30 +128,59 @@ const NamedTextarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           value,
         })}
       >
-        {(overlays, { className, ...fieldProps }, fieldRef) => (
-          <Fragment>
+        {(overlays, { className, background, ...fieldProps }, fieldRef) => (
+          <Box
+            position="relative"
+            background={background}
+            className={styles.resetZIndex}
+          >
+            {hasHighlights ? (
+              <Box
+                ref={highlightsRef}
+                position="absolute"
+                overflow="hidden"
+                pointerEvents="none"
+                width="full"
+                height="full"
+                aria-hidden="true"
+                className={[styles.highlights, className]}
+                {...fieldProps}
+              >
+                {formatRanges(String(value), highlightRanges)}
+              </Box>
+            ) : null}
             <Box
               component="textarea"
+              position="relative"
               rows={rows}
               value={value}
-              onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
+              onChange={(e: FormEvent<HTMLTextAreaElement>) => {
                 if (grow) {
-                  setRows(calculateLines(e.target, lines, lineLimit));
+                  setRows(calculateLines(e.currentTarget, lines, lineLimit));
                 }
                 if (typeof onChange === 'function') {
                   onChange(e);
+                }
+                if (hasHighlights) {
+                  updateScroll(e.currentTarget.scrollTop);
                 }
               }}
               onBlur={onBlur}
               onFocus={onFocus}
               onPaste={onPaste}
+              onScroll={
+                hasHighlights
+                  ? (event: UIEvent<HTMLTextAreaElement>) =>
+                      updateScroll(event.currentTarget.scrollTop)
+                  : undefined
+              }
               placeholder={placeholder}
               className={[styles.field, className]}
               {...fieldProps}
               ref={fieldRef}
             />
             {overlays}
-          </Fragment>
+          </Box>
         )}
       </Field>
     );

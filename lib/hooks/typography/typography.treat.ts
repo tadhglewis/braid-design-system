@@ -113,6 +113,7 @@ export const tone = {
         'linkVisited',
         'neutral',
         'neutralInverted',
+        'secondaryInverted',
       ]),
       'color',
     );
@@ -128,27 +129,40 @@ export const tone = {
   })),
 };
 
-export const neutral = style(theme => ({
-  color: theme.color.foreground.neutral,
-}));
+export const invertableTone = {
+  neutral: styleMap(theme => ({
+    light: {
+      color: theme.color.foreground.neutral,
+    },
+    dark: {
+      color: theme.color.foreground.neutralInverted,
+    },
+  })),
+  secondary: styleMap(theme => ({
+    light: {
+      color: theme.color.foreground.secondary,
+    },
+    dark: {
+      color: theme.color.foreground.secondaryInverted,
+    },
+  })),
+};
 
-export const neutralInverted = style(theme => ({
-  color: theme.color.foreground.neutralInverted,
-}));
+const accessibleColorForTone = (foreground: string) => ({
+  color: getAccessibleVariant(foreground),
+  selectors: {
+    ['svg&']: {
+      color: getAccessibleVariant(foreground, { nonText: true }),
+    },
+  },
+});
 
 const accessibleColorVariants = styleMap(({ color: { foreground } }) => ({
-  critical: {
-    color: getAccessibleVariant(foreground.critical),
-  },
-  positive: {
-    color: getAccessibleVariant(foreground.positive),
-  },
-  info: {
-    color: getAccessibleVariant(foreground.info),
-  },
-  promote: {
-    color: getAccessibleVariant(foreground.promote),
-  },
+  critical: accessibleColorForTone(foreground.critical),
+  caution: accessibleColorForTone(foreground.caution),
+  positive: accessibleColorForTone(foreground.positive),
+  info: accessibleColorForTone(foreground.info),
+  promote: accessibleColorForTone(foreground.promote),
 }));
 
 type Foreground = keyof typeof tone;
@@ -162,6 +176,10 @@ export const toneOverridesForBackground: ToneOverridesForBackground = {
   criticalLight: {
     neutral: accessibleColorVariants.critical,
     critical: accessibleColorVariants.critical,
+  },
+  cautionLight: {
+    neutral: accessibleColorVariants.caution,
+    caution: accessibleColorVariants.caution,
   },
   positiveLight: {
     neutral: accessibleColorVariants.positive,

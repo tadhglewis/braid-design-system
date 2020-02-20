@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentDocs } from '../../../site/src/types';
-import { Toggle } from './Toggle';
+import { Toggle } from '../';
+import { Toggle as PlayroomToggle } from '../../playroom/components';
 
 const handler = () => {
   /* no op for docs examples */
@@ -37,6 +38,47 @@ const docs: ComponentDocs = {
           onChange={handler}
         />
       ),
+    },
+    {
+      label: 'Justified',
+      Container: ({ children }) => (
+        <div style={{ maxWidth: '300px' }}>{children}</div>
+      ),
+      Example: ({ id }) => (
+        <Toggle
+          on={true}
+          align="justify"
+          label="Justified"
+          id={id}
+          onChange={handler}
+        />
+      ),
+    },
+  ],
+  snippets: [
+    {
+      name: 'On',
+      code: <PlayroomToggle label="Toggled on" on />,
+    },
+    {
+      name: 'Off',
+      code: <PlayroomToggle label="Toggled off" on={false} />,
+    },
+    {
+      name: 'On, Aligned right',
+      code: <PlayroomToggle label="Toggled on" align="right" on />,
+    },
+    {
+      name: 'Off, Aligned right',
+      code: <PlayroomToggle label="Toggled off" align="right" on={false} />,
+    },
+    {
+      name: 'On, Justified',
+      code: <PlayroomToggle label="Toggled on" align="justify" on />,
+    },
+    {
+      name: 'Off, Justified',
+      code: <PlayroomToggle label="Toggled off" align="justify" on={false} />,
     },
   ],
 };
