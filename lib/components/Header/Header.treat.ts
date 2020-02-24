@@ -10,20 +10,6 @@ export const header = style({
   // height: `${headerHeight}px`,
 });
 
-export const mobileMenuOpen = style(theme =>
-  theme.utils.responsiveStyle({
-    mobile: {
-      top: '0px',
-      left: '0px',
-      position: 'fixed',
-      zIndex,
-    },
-    tablet: {
-      position: 'static',
-    },
-  }),
-);
-
 export const buttonLink = style({
   ':hover': {
     textDecoration: 'none',
@@ -43,3 +29,38 @@ export const selectionOnHover = style(theme => ({
     // textDecoration: 'none',
   },
 }));
+
+export const menuCheckbox = style({});
+export const menuCheckboxLabel = style({});
+export const menuChevron = style({
+  selectors: {
+    [`${menuCheckbox}:checked ~ ${menuCheckboxLabel} &`]: {
+      transform: 'rotate(180deg)',
+    },
+  },
+});
+export const menuContents = style({
+  opacity: 0,
+  transform: 'translateY(calc(100% -10px))',
+  zIndex: 2,
+  selectors: {
+    [`${menuCheckbox}:checked ~ &`]: {
+      opacity: 1,
+      transform: 'translateY(100%)',
+      pointerEvents: 'auto',
+    },
+  },
+});
+export const menuBackdrop = style({
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  zIndex: 1,
+  selectors: {
+    [`${menuCheckbox}:checked ~ &`]: {
+      background: 'rgba(0,0,0,0.2)',
+      display: 'block',
+    },
+  },
+});
