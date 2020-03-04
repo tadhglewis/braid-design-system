@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import { useStyles } from 'sku/react-treat';
 import {
   Box,
@@ -15,6 +15,9 @@ import * as styleRefs from './Header.treat';
 
 import defaultVariant from './variants/seek-candidate-au-en';
 import { Inline } from '../Inline/Inline';
+import { useTouchableSpace } from '../../hooks/typography';
+import { Overlay } from '../private/Overlay/Overlay';
+import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
 
 type HeaderProps = {
   variant?: HeaderVariant;
@@ -33,6 +36,8 @@ const checkboxId = '_bh';
 export const Header = (props: HeaderProps) => {
   const styles = useStyles(styleRefs);
   const { variant = defaultVariant, activeTabId } = props;
+  const standardTouchableSpace = useTouchableSpace('standard');
+  const virtualTouchable = useVirtualTouchable();
 
   return (
     <Box background="card" paddingX="medium" width="full">
@@ -110,32 +115,37 @@ export const Header = (props: HeaderProps) => {
               id={checkboxId}
               className={styles.menuCheckbox}
             />
-            <Box
-              component="label"
-              cursor="pointer"
-              htmlFor={checkboxId}
-              className={styles.menuCheckboxLabel}
-            >
-              <Text baseline={false}>
-                {(() => {
-                  switch (props.authenticationStatus) {
-                    case 'authenticated': {
-                      return props.userName;
-                    }
-                    case 'pending': {
-                      return '';
-                    }
-                    default: {
-                      return variant.menuLabel;
-                    }
-                  }
-                })()}
-                <Box display="inlineBlock" paddingLeft="xxsmall">
-                  <Box className={styles.menuChevron} transition="fast">
-                    <IconChevron direction="down" alignY="lowercase" />
-                  </Box>
+            <Box position="relative" className={styles.menuCheckboxLabel}>
+              <Overlay
+                boxShadow="outlineFocus"
+                borderRadius="standard"
+                transition="fast"
+                className={styles.menuCheckboxLabelFocus}
+              />
+              <Box component="label" cursor="pointer" htmlFor={checkboxId}>
+                <Box className={virtualTouchable}>
+                  <Text baseline={false}>
+                    {(() => {
+                      switch (props.authenticationStatus) {
+                        case 'authenticated': {
+                          return props.userName;
+                        }
+                        case 'pending': {
+                          return '';
+                        }
+                        default: {
+                          return variant.strings.Menu;
+                        }
+                      }
+                    })()}
+                    <Box display="inlineBlock" paddingLeft="xxsmall">
+                      <Box className={styles.menuChevron} transition="fast">
+                        <IconChevron direction="down" alignY="lowercase" />
+                      </Box>
+                    </Box>
+                  </Text>
                 </Box>
-              </Text>
+              </Box>
             </Box>
             <Box
               className={styles.menuContents}
@@ -161,6 +171,7 @@ export const Header = (props: HeaderProps) => {
                       href={href}
                       height="touchable"
                       paddingX="small"
+                      className={[styles.menuItem, standardTouchableSpace]}
                     >
                       <Text baseline={false}>{text}</Text>
                     </Box>

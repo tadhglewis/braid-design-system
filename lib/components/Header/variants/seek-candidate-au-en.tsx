@@ -4,7 +4,9 @@ import { SeekLogo } from './logos/SeekLogo';
 
 const seekCandidateAuEnHeaderVariant: HeaderVariant = {
   logo: <SeekLogo />,
-  menuLabel: 'Menu',
+  strings: {
+    Menu: 'Menu',
+  },
   tabs: [
     {
       id: 'job_search',

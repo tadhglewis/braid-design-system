@@ -7,7 +7,9 @@ type HeaderLink = {
 
 export type HeaderVariant = Readonly<{
   logo: ReactElement;
-  menuLabel: string;
+  strings: {
+    Menu: string;
+  };
   tabs: Array<{
     id: string;
     href: string;

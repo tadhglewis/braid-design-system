@@ -32,6 +32,15 @@ export const selectionOnHover = style(theme => ({
 
 export const menuCheckbox = style({});
 export const menuCheckboxLabel = style({});
+export const menuCheckboxLabelFocus = style({
+  left: -4,
+  right: -1,
+  selectors: {
+    [`${menuCheckbox}:focus ~ ${menuCheckboxLabel} &`]: {
+      opacity: 1,
+    },
+  },
+});
 export const menuChevron = style({
   selectors: {
     [`${menuCheckbox}:checked ~ ${menuCheckboxLabel} &`]: {
@@ -59,8 +68,16 @@ export const menuBackdrop = style({
   zIndex: 1,
   selectors: {
     [`${menuCheckbox}:checked ~ &`]: {
-      background: 'rgba(0,0,0,0.2)',
+      // background: 'rgba(0,0,0,0.2)',
       display: 'block',
     },
   },
 });
+
+export const menuItem = style(theme => ({
+  selectors: {
+    '&:hover': {
+      background: theme.color.background.selection,
+    },
+  },
+}));
