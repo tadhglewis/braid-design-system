@@ -35,7 +35,7 @@ const checkboxId = '_bh';
 
 export const Header = (props: HeaderProps) => {
   const styles = useStyles(styleRefs);
-  const { variant = defaultVariant, activeTabId } = props;
+  const { variant = defaultVariant, activeTabId, authenticationStatus } = props;
   const standardTouchableSpace = useTouchableSpace('standard');
   const virtualTouchable = useVirtualTouchable();
 
@@ -78,117 +78,131 @@ export const Header = (props: HeaderProps) => {
           </Inline>
         </Column>
         <Column width="content">
-          <Hidden below="desktop">
-            <Columns space="large" alignY="center">
-              <Column width="content">
-                {props.authenticationStatus === 'unauthenticated' ? (
-                  <Columns space="medium">
-                    {variant.secondaryActions.map(({ href, text }) => (
-                      <Column key={text}>
-                        <Text baseline={false} tone="info">
-                          <TextLink href={href} hitArea="large">
-                            <span style={{ whiteSpace: 'nowrap' }}>{text}</span>
-                          </TextLink>
-                        </Text>
-                      </Column>
-                    ))}
-                  </Columns>
-                ) : null}
-              </Column>
-              <Column width="content">
-                <ButtonRenderer weight="weak">
-                  {(ButtonChildren, buttonProps) => (
-                    <a href={variant.callToAction.href} {...buttonProps}>
-                      <ButtonChildren>
-                        {variant.callToAction.text}
-                      </ButtonChildren>
-                    </a>
-                  )}
-                </ButtonRenderer>
-              </Column>
-            </Columns>
-          </Hidden>
-          <Box display="flex" flexDirection="row" cursor="pointer">
-            <Box
-              component="input"
-              type="checkbox"
-              id={checkboxId}
-              className={styles.menuCheckbox}
-            />
-            <Box position="relative" className={styles.menuCheckboxLabel}>
-              <Overlay
-                boxShadow="outlineFocus"
-                borderRadius="standard"
-                transition="fast"
-                className={styles.menuCheckboxLabelFocus}
-              />
-              <Box component="label" cursor="pointer" htmlFor={checkboxId}>
-                <Box className={virtualTouchable}>
-                  <Text baseline={false}>
-                    {(() => {
-                      switch (props.authenticationStatus) {
-                        case 'authenticated': {
-                          return props.userName;
-                        }
-                        case 'pending': {
-                          return '';
-                        }
-                        default: {
-                          return variant.strings.Menu;
-                        }
-                      }
-                    })()}
-                    <Box display="inlineBlock" paddingLeft="xxsmall">
-                      <Box className={styles.menuChevron} transition="fast">
-                        <IconChevron direction="down" alignY="lowercase" />
-                      </Box>
-                    </Box>
-                  </Text>
-                </Box>
-              </Box>
-            </Box>
-            <Box
-              className={styles.menuContents}
-              transition="fast"
-              pointerEvents="none"
-              position="relative"
+          <Box display="flex" alignItems="center">
+            <Hidden
+              above={
+                authenticationStatus === 'unauthenticated' ||
+                authenticationStatus === 'pending'
+                  ? 'mobile'
+                  : undefined
+              }
             >
-              <Hidden below="tablet">
+              <Box display="flex" flexDirection="row" cursor="pointer">
                 <Box
-                  position="absolute"
-                  background="card"
-                  boxShadow="medium"
-                  borderRadius="standard"
-                  marginTop="small"
-                  transition="fast"
-                  style={{ right: 0, top: 0, width: 200 }}
-                >
-                  {variant.authenticatedLinks.map(({ href, text }) => (
-                    <Box
-                      key={text}
-                      component="a"
-                      display="block"
-                      href={href}
-                      height="touchable"
-                      paddingX="small"
-                      className={[styles.menuItem, standardTouchableSpace]}
-                    >
-                      <Text baseline={false}>{text}</Text>
+                  component="input"
+                  type="checkbox"
+                  id={checkboxId}
+                  className={styles.menuCheckbox}
+                />
+                <Box position="relative" className={styles.menuCheckboxLabel}>
+                  <Overlay
+                    boxShadow="outlineFocus"
+                    borderRadius="standard"
+                    transition="fast"
+                    onlyVisibleForKeyboardNavigation
+                    className={styles.menuCheckboxLabelFocus}
+                  />
+                  <Box component="label" cursor="pointer" htmlFor={checkboxId}>
+                    <Box className={virtualTouchable}>
+                      <Text baseline={false}>
+                        {(() => {
+                          switch (props.authenticationStatus) {
+                            case 'authenticated': {
+                              return props.userName ?? variant.strings.Menu;
+                            }
+                            case 'pending': {
+                              return '';
+                            }
+                            default: {
+                              return variant.strings.Menu;
+                            }
+                          }
+                        })()}
+                        <Box display="inlineBlock" paddingLeft="xxsmall">
+                          <Box className={styles.menuChevron} transition="fast">
+                            <IconChevron direction="down" alignY="lowercase" />
+                          </Box>
+                        </Box>
+                      </Text>
                     </Box>
-                  ))}
+                  </Box>
                 </Box>
-              </Hidden>
-            </Box>
-            <Box
-              component="label"
-              htmlFor={checkboxId}
-              className={styles.menuBackdrop}
-              position="fixed"
-              display="none"
-              width="full"
-              height="full"
-              aria-hidden
-            />
+                <Box
+                  className={styles.menuContents}
+                  transition="fast"
+                  pointerEvents="none"
+                  position="relative"
+                >
+                  <Hidden below="tablet">
+                    <Box
+                      position="absolute"
+                      background="card"
+                      boxShadow="medium"
+                      borderRadius="standard"
+                      marginTop="small"
+                      transition="fast"
+                      style={{ right: 0, top: 0, width: 200 }}
+                    >
+                      {variant.authenticatedLinks.map(({ href, text }) => (
+                        <Box
+                          key={text}
+                          component="a"
+                          display="block"
+                          href={href}
+                          height="touchable"
+                          paddingX="small"
+                          className={[styles.menuItem, standardTouchableSpace]}
+                        >
+                          <Text baseline={false}>{text}</Text>
+                        </Box>
+                      ))}
+                    </Box>
+                  </Hidden>
+                </Box>
+                <Box
+                  component="label"
+                  htmlFor={checkboxId}
+                  className={styles.menuBackdrop}
+                  position="fixed"
+                  display="none"
+                  width="full"
+                  height="full"
+                  aria-hidden
+                />
+              </Box>
+            </Hidden>
+            <Hidden below="desktop">
+              <Columns space="large" alignY="center">
+                <Column width="content">
+                  {props.authenticationStatus === 'unauthenticated' ? (
+                    <Columns space="medium">
+                      {variant.secondaryActions.map(({ href, text }) => (
+                        <Column key={text}>
+                          <Text baseline={false} tone="info">
+                            <TextLink href={href} hitArea="large">
+                              <span style={{ whiteSpace: 'nowrap' }}>
+                                {text}
+                              </span>
+                            </TextLink>
+                          </Text>
+                        </Column>
+                      ))}
+                    </Columns>
+                  ) : null}
+                </Column>
+                <Column width="content">
+                  <ButtonRenderer weight="weak">
+                    {(ButtonChildren, buttonProps) => (
+                      <a href={variant.callToAction.href} {...buttonProps}>
+                        <ButtonChildren>
+                          {variant.callToAction.text}
+                        </ButtonChildren>
+                      </a>
+                    )}
+                  </ButtonRenderer>
+                </Column>
+              </Columns>
+            </Hidden>
           </Box>
         </Column>
       </Columns>
