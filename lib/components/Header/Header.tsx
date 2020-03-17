@@ -87,7 +87,7 @@ export const Header = (props: HeaderProps) => {
                   : undefined
               }
             >
-              <Box display="flex" flexDirection="row" cursor="pointer">
+              <Box display="flex" flexDirection="row">
                 <Box
                   component="input"
                   type="checkbox"
@@ -129,19 +129,19 @@ export const Header = (props: HeaderProps) => {
                 </Box>
                 <Box
                   className={styles.menuContents}
-                  transition="fast"
-                  pointerEvents="none"
-                  position="relative"
+
+                  // position="relative"
                 >
-                  <Hidden below="tablet">
+                  <Hidden above="tablet">
                     <Box
-                      position="absolute"
+                      position="fixed"
                       background="card"
-                      boxShadow="medium"
-                      borderRadius="standard"
-                      marginTop="small"
+                      left={0}
+                      right={0}
+                      bottom={0}
+                      pointerEvents="none"
                       transition="fast"
-                      style={{ right: 0, top: 0, width: 200 }}
+                      className={styles.mobileMenu}
                     >
                       {variant.authenticatedLinks.map(({ href, text }) => (
                         <Box
@@ -158,6 +158,47 @@ export const Header = (props: HeaderProps) => {
                       ))}
                     </Box>
                   </Hidden>
+                  <Box
+                    display={['none', 'block']}
+                    position="relative"
+                    height="full"
+                  >
+                    <Box
+                      position="absolute"
+                      marginTop="small"
+                      transition="fast"
+                      height="full"
+                      pointerEvents="none"
+                      className={styles.desktopMenu}
+                    >
+                      <Box
+                        position="absolute"
+                        background="card"
+                        boxShadow="medium"
+                        borderRadius="standard"
+                        top={0}
+                        right={0}
+                        style={{ width: 200 }}
+                      >
+                        {variant.authenticatedLinks.map(({ href, text }) => (
+                          <Box
+                            key={text}
+                            component="a"
+                            display="block"
+                            href={href}
+                            height="touchable"
+                            paddingX="small"
+                            className={[
+                              styles.menuItem,
+                              standardTouchableSpace,
+                            ]}
+                          >
+                            <Text baseline={false}>{text}</Text>
+                          </Box>
+                        ))}
+                      </Box>
+                    </Box>
+                  </Box>
                 </Box>
                 <Box
                   component="label"
@@ -172,12 +213,12 @@ export const Header = (props: HeaderProps) => {
               </Box>
             </Hidden>
             <Hidden below="desktop">
-              <Columns space="large" alignY="center">
+              <Columns space="medium" alignY="center">
                 <Column width="content">
                   {props.authenticationStatus === 'unauthenticated' ? (
                     <Columns space="medium">
                       {variant.secondaryActions.map(({ href, text }) => (
-                        <Column key={text}>
+                        <Column width="content" key={text}>
                           <Text baseline={false} tone="info">
                             <TextLink href={href} hitArea="large">
                               <span style={{ whiteSpace: 'nowrap' }}>

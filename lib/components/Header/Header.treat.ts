@@ -48,31 +48,53 @@ export const menuChevron = style({
     },
   },
 });
-export const menuContents = style({
+export const menuContents = style({});
+export const mobileMenu = style({
+  top: 60,
   opacity: 0,
-  transform: 'translateY(calc(100% -10px))',
-  zIndex: 2,
+  transform: 'translateY(-4px)',
   selectors: {
-    [`${menuCheckbox}:checked ~ &`]: {
+    [`${menuCheckbox}:checked ~ ${menuContents} &`]: {
       opacity: 1,
-      transform: 'translateY(100%)',
+      transform: 'none',
       pointerEvents: 'auto',
     },
   },
 });
-export const menuBackdrop = style({
-  top: 0,
-  bottom: 0,
-  left: 0,
-  right: 0,
-  zIndex: 1,
+export const desktopMenu = style({
+  opacity: 0,
+  transform: 'translateY(-4px)',
+  zIndex: 2,
+  top: '100%',
   selectors: {
-    [`${menuCheckbox}:checked ~ &`]: {
-      // background: 'rgba(0,0,0,0.2)',
-      display: 'block',
+    [`${menuCheckbox}:checked ~ ${menuContents} &`]: {
+      opacity: 1,
+      transform: 'none',
+      pointerEvents: 'auto',
     },
   },
 });
+export const menuBackdrop = [
+  style({
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+  }),
+  style(theme =>
+    theme.utils.responsiveStyle({
+      tablet: {
+        selectors: {
+          [`${menuCheckbox}:checked ~ &`]: {
+            // background: 'rgba(0,0,0,0.2)',
+            display: 'block',
+          },
+        },
+      },
+    }),
+  ),
+];
 
 export const menuItem = style(theme => ({
   selectors: {
