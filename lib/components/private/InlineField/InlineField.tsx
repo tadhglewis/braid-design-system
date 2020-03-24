@@ -124,7 +124,7 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
           checked={checked}
           position="absolute"
           className={styles.realField}
-          aria-describedby={messageId}
+          aria-describedby={hasMessage ? messageId : undefined}
           aria-required={required}
           disabled={disabled}
           ref={ref}
@@ -169,6 +169,7 @@ export const InlineField = forwardRef<HTMLElement, InternalInlineFieldProps>(
             component="label"
             paddingLeft="small"
             htmlFor={id}
+            userSelect="none"
             className={[styles.label, useVirtualTouchable()]}
           >
             <Text

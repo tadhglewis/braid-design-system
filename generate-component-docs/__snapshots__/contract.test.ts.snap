@@ -1026,6 +1026,7 @@ Object {
         | "off"
         | "on"
     useMap?: string
+    userSelect?: "none"
     value?: 
         | number
         | string
@@ -1480,6 +1481,7 @@ Object {
     transition?: 
         | "fast"
         | "touchable"
+    userSelect?: "none"
     width?: 
         | "full"
         | "touchable"
@@ -1505,7 +1507,7 @@ Object {
   props: {
     children: ReactNode
     styleBody?: boolean
-    theme: { name: string; background: string; webFonts: { linkTag: string; }[]; space: { grid: number; space: { gutter: number; xxsmall: number; xsmall: number; small: number; medium: number; large: number; xlarge: number; xxlarge: number; }; }; color: { ...; }; backgroundLightness: { ...; }; treatTheme: string; }
+    theme: { name: string; displayName: string; background: string; webFonts: { linkTag: string; }[]; space: { grid: number; space: { gutter: number; xxsmall: number; xsmall: number; small: number; medium: number; large: number; xlarge: number; xxlarge: number; }; }; color: { ...; }; backgroundLightness: { ...; }; treatTheme: ...
 },
 }
 `;
@@ -4069,6 +4071,17 @@ Object {
         | "right"
     children: ReactNode
     data?: Record<string, string | number>
+    offsetSpace?: ResponsiveProp<
+        | "gutter"
+        | "large"
+        | "medium"
+        | "none"
+        | "small"
+        | "xlarge"
+        | "xsmall"
+        | "xxlarge"
+        | "xxsmall"
+    >
     onClose?: () => void
     onOpen?: () => void
     trigger: (props: TriggerProps, state: TriggerState) => ReactNode

@@ -1,5 +1,64 @@
 # braid-design-system
 
+## 24.1.3
+
+### Patch Changes
+
+- Textarea: Fix trailing new line highlight issue ([#555](https://github.com/seek-oss/braid-design-system/pull/555))
+
+  **BUG FIXES**
+
+  **`Textarea`**
+
+  Fix for `highlightRanges`, where the highlights could get out of sync with the field value, if the value contained trailing new lines.
+
+## 24.1.2
+
+### Patch Changes
+
+- Checkbox & Radio: Only add aria-describedby when a message is provided ([#542](https://github.com/seek-oss/braid-design-system/pull/542))
+
+  **BUG FIXES**
+
+  **`Checkbox` & `Radio`**
+
+  Both of these inputs were previously always adding the `aria-describedby` attribute, while conditionally rendering the `message` only when provided. This meant that elements without a `message` would be indicating that they are described by an element that does not exist.
+
+## 24.1.1
+
+### Patch Changes
+
+- Tiles: Honour column width for non-breaking content. ([#537](https://github.com/seek-oss/braid-design-system/pull/537))
+
+  **BUG FIXES**
+
+  **`Tiles`**
+
+  The column width of a tile was not being honoured when its child elements contained non-wrapping/breaking content.
+
+## 24.1.0
+
+### Minor Changes
+
+- MenuRenderer: Add support for configuring the menu offset from the trigger ([#532](https://github.com/seek-oss/braid-design-system/pull/532))
+
+  **FEATURES**
+
+  **`MenuRenderer`**
+
+  Configure the offset distance between the menu trigger and menu using the `offsetSpace` prop. As with all space values in the system, this accepts a responsive prop.
+
+  ```diff
+   <MenuRenderer
+  +  offsetSpace="small"
+     trigger={(triggerProps, { open }) => (
+       <button {...triggerProps}>Menu</button>
+     )}
+   >
+     <MenuItem onClick={...}>Option</MenuItem>
+   </MenuRenderer>
+  ```
+
 ## 24.0.0
 
 ### Major Changes
