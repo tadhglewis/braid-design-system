@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { useStyles } from 'sku/react-treat';
 import {
   Box,
@@ -38,6 +38,7 @@ export const Header = (props: HeaderProps) => {
   const { variant = defaultVariant, activeTabId, authenticationStatus } = props;
   const standardTouchableSpace = useTouchableSpace('standard');
   const virtualTouchable = useVirtualTouchable();
+  const [open, setOpen] = useState(false);
 
   return (
     <Box background="card" paddingX="medium" width="full">
@@ -93,6 +94,9 @@ export const Header = (props: HeaderProps) => {
                   type="checkbox"
                   id={checkboxId}
                   className={styles.menuCheckbox}
+                  onChange={(event: ChangeEvent<HTMLInputElement>) =>
+                    setOpen(event.currentTarget.checked)
+                  }
                 />
                 <Box position="relative" className={styles.menuCheckboxLabel}>
                   <Overlay
@@ -102,7 +106,12 @@ export const Header = (props: HeaderProps) => {
                     onlyVisibleForKeyboardNavigation
                     className={styles.menuCheckboxLabelFocus}
                   />
-                  <Box component="label" cursor="pointer" htmlFor={checkboxId}>
+                  <Box
+                    component="label"
+                    cursor="pointer"
+                    userSelect="none"
+                    htmlFor={checkboxId}
+                  >
                     <Box className={virtualTouchable}>
                       <Text baseline={false}>
                         {(() => {
