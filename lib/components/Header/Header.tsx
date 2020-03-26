@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { useStyles } from 'sku/react-treat';
 import {
   Box,
@@ -84,7 +84,7 @@ export const Header = (props: HeaderProps) => {
               above={
                 authenticationStatus === 'unauthenticated' ||
                 authenticationStatus === 'pending'
-                  ? 'mobile'
+                  ? 'tablet'
                   : undefined
               }
             >
@@ -168,7 +168,7 @@ export const Header = (props: HeaderProps) => {
                     </Box>
                   </Hidden>
                   <Box
-                    display={['none', 'block']}
+                    display={['none', 'none', 'block']}
                     position="relative"
                     height="full"
                   >

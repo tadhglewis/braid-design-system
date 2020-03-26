@@ -1782,6 +1782,20 @@ Object {
 }
 `;
 
+exports[`Header 1`] = `
+Object {
+  exportType: component,
+  props: {
+    activeTabId?: string
+    authenticationStatus: 
+        | "authenticated"
+        | "pending"
+        | "unauthenticated"
+    variant?: Readonly<{ logo: ReactElement<any, string | ((props: any) => ReactElement<any, string | ... | (new (props: any) => Component<any, any, any>)> | null) | (new (props: any) => Component<any, any, any>)>; ... 4 more ...; authenticatedLinks: HeaderLink[]; }>
+},
+}
+`;
+
 exports[`Heading 1`] = `
 Object {
   exportType: component,

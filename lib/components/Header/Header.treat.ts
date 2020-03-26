@@ -1,5 +1,5 @@
 import { style } from 'sku/treat';
-export const zIndex = 502;
+import * as zIndex from '../private/zIndex';
 // export const headerHeight = 60;
 
 export const headerHeight = style({ height: 60 });
@@ -53,6 +53,7 @@ export const mobileMenu = style({
   top: 60,
   opacity: 0,
   transform: 'translateY(-4px)',
+  zIndex: zIndex.headerOverlay,
   selectors: {
     [`${menuCheckbox}:checked ~ ${menuContents} &`]: {
       opacity: 1,
