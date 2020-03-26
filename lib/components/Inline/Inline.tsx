@@ -6,12 +6,18 @@ import {
   useNegativeMarginTop,
 } from '../../hooks/useNegativeMargin/useNegativeMargin';
 import { ResponsiveProp } from '../../utils/responsiveProp';
-import { Align, alignToFlexAlign } from '../../utils/align';
+import {
+  Align,
+  alignToFlexAlign,
+  alignYToFlexAlign,
+  AlignY,
+} from '../../utils/align';
 import { ReactNodeNoStrings } from '../private/ReactNodeNoStrings';
 
 export interface InlineProps {
   align?: ResponsiveProp<Align>;
   wrap?: boolean;
+  alignY?: ResponsiveProp<AlignY>;
   space: ResponsiveSpace;
   children: ReactNodeNoStrings;
 }
@@ -20,6 +26,7 @@ export const Inline = ({
   space = 'none',
   align,
   wrap = true,
+  alignY,
   children,
 }: InlineProps) => {
   const negativeMarginLeft = useNegativeMarginLeft(space);
@@ -31,6 +38,7 @@ export const Inline = ({
         display="flex"
         justifyContent={alignToFlexAlign(align)}
         flexWrap={wrap ? 'wrap' : undefined}
+        alignItems={alignYToFlexAlign(alignY)}
         className={negativeMarginLeft}
       >
         {Children.map(children, child =>
