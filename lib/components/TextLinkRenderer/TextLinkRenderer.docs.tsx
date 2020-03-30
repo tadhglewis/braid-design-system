@@ -14,7 +14,7 @@ const docs: ComponentDocs = {
         <Text>
           The last word of this sentence is a{' '}
           <TextLinkRenderer>
-            {textLinkProps => (
+            {(textLinkProps) => (
               <Link to="" {...textLinkProps}>
                 link.
               </Link>

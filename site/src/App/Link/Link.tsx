@@ -11,7 +11,7 @@ export const Link = (props: ReactRouterLinkProps & TextLinkProps) => {
   const { hitArea, showVisited, ...restProps } = props;
   return (
     <TextLinkRenderer hitArea={hitArea} showVisited={showVisited}>
-      {textLinkProps => <ReactRouterLink {...restProps} {...textLinkProps} />}
+      {(textLinkProps) => <ReactRouterLink {...restProps} {...textLinkProps} />}
     </TextLinkRenderer>
   );
 };

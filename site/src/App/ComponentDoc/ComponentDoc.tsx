@@ -47,7 +47,7 @@ export const ComponentDoc = ({
         <Box style={{ maxWidth: 700 }}>{docs.description}</Box>
       ) : null}
       {examples
-        .filter(example => example.docsSite !== false)
+        .filter((example) => example.docsSite !== false)
         .map((example, index) => {
           const {
             label,

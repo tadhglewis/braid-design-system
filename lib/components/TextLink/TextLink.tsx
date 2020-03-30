@@ -11,6 +11,6 @@ export interface TextLinkProps
 
 export const TextLink = ({ showVisited, hitArea, ...props }: TextLinkProps) => (
   <TextLinkRenderer showVisited={showVisited} hitArea={hitArea}>
-    {styleProps => <a {...props} {...styleProps} />}
+    {(styleProps) => <a {...props} {...styleProps} />}
   </TextLinkRenderer>
 );
