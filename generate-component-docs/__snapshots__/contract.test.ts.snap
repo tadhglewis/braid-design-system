@@ -483,6 +483,7 @@ Object {
         | "script"
         | "section"
         | "select"
+        | "slot"
         | "small"
         | "source"
         | "span"
@@ -521,7 +522,12 @@ Object {
         | ComponentClass<any, any>
         | FunctionComponent<any>
     content?: string
-    contentEditable?: boolean
+    contentEditable?: 
+        | "false"
+        | "inherit"
+        | "true"
+        | false
+        | true
     contextMenu?: string
     controls?: boolean
     coords?: string
@@ -548,7 +554,11 @@ Object {
         | "none"
     >
     download?: any
-    draggable?: boolean
+    draggable?: 
+        | "false"
+        | "true"
+        | false
+        | true
     encType?: string
     flexDirection?: ResponsiveProp<
         | "column"
@@ -994,7 +1004,11 @@ Object {
     sizes?: string
     slot?: string
     span?: number
-    spellCheck?: boolean
+    spellCheck?: 
+        | "false"
+        | "true"
+        | false
+        | true
     src?: string
     srcDoc?: string
     srcLang?: string
@@ -1020,6 +1034,9 @@ Object {
     transition?: 
         | "fast"
         | "touchable"
+    translate?: 
+        | "no"
+        | "yes"
     type?: string
     typeof?: string
     unselectable?: 
@@ -1237,6 +1254,7 @@ Object {
         | "script"
         | "section"
         | "select"
+        | "slot"
         | "small"
         | "source"
         | "span"
@@ -1934,6 +1952,7 @@ Object {
         | "script"
         | "section"
         | "select"
+        | "slot"
         | "small"
         | "source"
         | "span"
@@ -4408,6 +4427,7 @@ Object {
         | "script"
         | "section"
         | "select"
+        | "slot"
         | "small"
         | "source"
         | "span"
@@ -4711,7 +4731,12 @@ Object {
     color?: string
     cols?: number
     content?: string
-    contentEditable?: boolean
+    contentEditable?: 
+        | "false"
+        | "inherit"
+        | "true"
+        | false
+        | true
     contextMenu?: string
     controls?: boolean
     coords?: string
@@ -4730,7 +4755,11 @@ Object {
     dir?: string
     disabled?: boolean
     download?: any
-    draggable?: boolean
+    draggable?: 
+        | "false"
+        | "true"
+        | false
+        | true
     encType?: string
     form?: string
     formAction?: string
@@ -4991,7 +5020,11 @@ Object {
     sizes?: string
     slot?: string
     span?: number
-    spellCheck?: boolean
+    spellCheck?: 
+        | "false"
+        | "true"
+        | false
+        | true
     src?: string
     srcDoc?: string
     srcLang?: string
@@ -5006,6 +5039,9 @@ Object {
     tabIndex?: number
     target?: string
     title?: string
+    translate?: 
+        | "no"
+        | "yes"
     type?: string
     typeof?: string
     unselectable?: 
