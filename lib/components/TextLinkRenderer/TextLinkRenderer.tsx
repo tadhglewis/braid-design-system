@@ -1,22 +1,25 @@
+import classnames from 'classnames';
 import React, { CSSProperties, useContext, ReactElement } from 'react';
 import { useStyles } from 'sku/react-treat';
-import classnames from 'classnames';
-import TextLinkRendererContext from './TextLinkRendererContext';
-import TextContext from '../Text/TextContext';
-import HeadingContext from '../Heading/HeadingContext';
-import ActionsContext from '../Actions/ActionsContext';
-import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
-import { useBoxStyles } from '../Box/useBoxStyles';
-import { Box } from '../Box/Box';
+
 import {
   useTextTone,
   useWeight,
   useTouchableSpace,
   useText,
 } from '../../hooks/typography';
-import * as styleRefs from './TextLinkRenderer.treat';
+import ActionsContext from '../Actions/ActionsContext';
 import { useBackground } from '../Box/BackgroundContext';
+import { Box } from '../Box/Box';
+import { useBoxStyles } from '../Box/useBoxStyles';
+import HeadingContext from '../Heading/HeadingContext';
+import TextContext from '../Text/TextContext';
+import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
 import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
+
+import TextLinkRendererContext from './TextLinkRendererContext';
+
+import * as styleRefs from './TextLinkRenderer.treat';
 
 interface StyleProps {
   style: CSSProperties;

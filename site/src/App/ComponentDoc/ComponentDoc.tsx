@@ -1,13 +1,14 @@
 import React, { ReactNode, Fragment } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { ComponentProps } from './ComponentProps';
-import { ExternalLink } from '../Link/Link';
-import { Box, Heading, Stack, Text } from '../../../../lib/components';
 
+import { Box, Heading, Stack, Text } from '../../../../lib/components';
 import { ComponentDocs } from '../../types';
 import Code from '../Code/Code';
-import { ThemedExample } from '../ThemeSetting';
 import { useConfig } from '../ConfigContext';
+import { ExternalLink } from '../Link/Link';
+import { ThemedExample } from '../ThemeSetting';
+
+import { ComponentProps } from './ComponentProps';
 
 const handler = () => {
   /* No-op for docs examples */

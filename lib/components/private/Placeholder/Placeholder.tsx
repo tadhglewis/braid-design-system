@@ -1,9 +1,11 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { BraidProvider, Box, Text } from '../../';
+import wireframe from '../../../themes/wireframe';
 import { useBackgroundLightness } from '../../Box/BackgroundContext';
 import { useBoxStyles } from '../../Box/useBoxStyles';
-import wireframe from '../../../themes/wireframe';
+
 import * as styleRefs from './Placeholder.treat';
 
 export interface PlaceholderProps {

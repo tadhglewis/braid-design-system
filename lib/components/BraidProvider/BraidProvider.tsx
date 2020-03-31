@@ -1,9 +1,10 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 import { TreatProvider } from 'sku/react-treat';
+
 import { ensureResetImported } from '../../reset/resetTracker';
-import { HideFocusRingsRoot } from '../private/hideFocusRings/hideFocusRings';
-import { BraidTestProviderContext } from '../BraidTestProvider/BraidTestProviderContext';
 import { BraidTheme } from '../../themes/BraidTheme.d';
+import { BraidTestProviderContext } from '../BraidTestProvider/BraidTestProviderContext';
+import { HideFocusRingsRoot } from '../private/hideFocusRings/hideFocusRings';
 
 if (process.env.NODE_ENV === 'development') {
   ensureResetImported();

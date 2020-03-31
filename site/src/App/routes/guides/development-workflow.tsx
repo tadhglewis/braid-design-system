@@ -1,5 +1,6 @@
-import React from 'react';
 import dedent from 'dedent';
+import React from 'react';
+
 import {
   Heading,
   Text,
@@ -13,10 +14,10 @@ import {
   Column,
   Box,
 } from '../../../../../lib/components';
-import { TextStack } from '../../TextStack/TextStack';
-import { Link } from '../../Link/Link';
-import Code from '../../Code/Code';
 import { Page } from '../../../types';
+import Code from '../../Code/Code';
+import { Link } from '../../Link/Link';
+import { TextStack } from '../../TextStack/TextStack';
 
 const DevelopmentWorkflow = () => (
   <TextStack>

@@ -2,10 +2,12 @@ import mapValues from 'lodash/mapValues';
 import omit from 'lodash/omit';
 import { style, styleMap, ClassRef } from 'sku/treat';
 import { Theme } from 'treat/theme';
-import basekick from './basekick';
-import { getAccessibleVariant, mapToStyleProperty } from '../../utils';
-import { BackgroundVariant } from './../../components/Box/BackgroundContext';
+
 import { TextBreakpoint } from '../../themes/makeBraidTheme';
+import { getAccessibleVariant, mapToStyleProperty } from '../../utils';
+
+import { BackgroundVariant } from './../../components/Box/BackgroundContext';
+import basekick from './basekick';
 
 export const fontFamily = style(({ typography }) => ({
   fontFamily: typography.fontFamily,

@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react';
-import { IconInfo, IconCritical, IconPositive, IconPromote } from '../icons';
-import { Text } from '../Text/Text';
-import { Columns } from '../Columns/Columns';
-import { Column } from '../Column/Column';
+
 import { Box } from '../Box/Box';
+import { Column } from '../Column/Column';
+import { Columns } from '../Columns/Columns';
+import { Text } from '../Text/Text';
+import { IconInfo, IconCritical, IconPositive, IconPromote } from '../icons';
 
 type Tone = 'promote' | 'info' | 'positive' | 'critical';
 

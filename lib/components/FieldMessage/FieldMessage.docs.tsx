@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { FieldMessage, Text } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { FieldMessage as PlayroomFieldMessage } from '../../playroom/components';
 
 const docs: ComponentDocs = {

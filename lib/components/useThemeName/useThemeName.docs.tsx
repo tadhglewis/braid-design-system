@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../site/src/types';
-import { useThemeName } from './useThemeName';
-import { Text } from '../Text/Text';
 import { Strong } from '../Strong/Strong';
+import { Text } from '../Text/Text';
+
+import { useThemeName } from './useThemeName';
 
 const docs: ComponentDocs = {
   category: 'Logic',

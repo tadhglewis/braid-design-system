@@ -1,10 +1,12 @@
 import './treatTheme.d';
-import { createTheme } from 'sku/treat';
-import { darken, lighten } from 'polished';
 import mapValues from 'lodash/mapValues';
 import values from 'lodash/values';
-import { makeThemeUtils } from './themeUtils';
+import { darken, lighten } from 'polished';
+import { createTheme } from 'sku/treat';
+
 import { getLightVariant, isLight } from '../utils';
+
+import { makeThemeUtils } from './themeUtils';
 
 export const breakpoints = ['mobile', 'tablet', 'desktop'] as const;
 type Breakpoint = typeof breakpoints[number];

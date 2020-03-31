@@ -1,7 +1,12 @@
 import React, { ReactNode } from 'react';
 import { useStyles } from 'sku/react-treat';
+
+import { useBackground } from '../Box/BackgroundContext';
 import { Box, BoxProps } from '../Box/Box';
+import { Column } from '../Column/Column';
+import { Columns } from '../Columns/Columns';
 import { Text } from '../Text/Text';
+import { ClearButton } from '../iconButtons/ClearButton/ClearButton';
 import {
   IconInfo,
   IconCritical,
@@ -10,11 +15,8 @@ import {
   IconCaution,
 } from '../icons';
 import { AllOrNone } from '../private/AllOrNone';
-import { ClearButton } from '../iconButtons/ClearButton/ClearButton';
-import { Columns } from '../Columns/Columns';
-import { Column } from '../Column/Column';
 import { Overlay } from '../private/Overlay/Overlay';
-import { useBackground } from '../Box/BackgroundContext';
+
 import * as styleRefs from './Alert.treat';
 
 type Tone = 'promote' | 'info' | 'positive' | 'caution' | 'critical';

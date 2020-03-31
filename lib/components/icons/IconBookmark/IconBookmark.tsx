@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box } from '../../Box/Box';
+
 import useIcon, { UseIconProps } from '../../../hooks/useIcon';
-import { IconBookmarkSvg } from './IconBookmarkSvg';
+import { Box } from '../../Box/Box';
+
 import { IconBookmarkActiveSvg } from './IconBookmarkActiveSvg';
+import { IconBookmarkSvg } from './IconBookmarkSvg';
 
 export type IconBookmarkProps = UseIconProps & {
   active?: boolean;

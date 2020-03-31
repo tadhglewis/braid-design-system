@@ -1,11 +1,13 @@
+import classnames from 'classnames';
 import { ElementType } from 'react';
 import { useStyles } from 'sku/react-treat';
-import classnames from 'classnames';
 import { Theme } from 'treat/theme';
+
 import {
   resolveResponsiveProp,
   ResponsiveProp,
 } from '../../utils/responsiveProp';
+
 import * as resetStyleRefs from '../../reset/reset.treat';
 import * as styleRefs from './useBoxStyles.treat';
 

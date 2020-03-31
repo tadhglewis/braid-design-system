@@ -1,7 +1,8 @@
 import { style } from 'sku/treat';
+
 import getSize from '../private/InlineField/getSize';
-import { hitArea } from '../private/touchable/hitArea';
 import { debugTouchable } from '../private/touchable/debugTouchable';
+import { hitArea } from '../private/touchable/hitArea';
 
 const toggleWidthRatio = 1.6;
 const anticipationRatio = 0.12;

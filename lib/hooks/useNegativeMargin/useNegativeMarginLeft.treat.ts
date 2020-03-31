@@ -1,4 +1,5 @@
 import { styleMap } from 'sku/treat';
+
 import { mapToStyleProperty } from '../../utils';
 
 const negativeMarginLeft = (grid: number, rows: number) => ({

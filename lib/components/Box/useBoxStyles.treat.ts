@@ -1,8 +1,9 @@
-import { style, styleMap } from 'sku/treat';
 import { Properties } from 'csstype';
 import omit from 'lodash/omit';
-import { mapToStyleProperty } from '../../utils';
+import { style, styleMap } from 'sku/treat';
 import { Theme } from 'treat/theme';
+
+import { mapToStyleProperty } from '../../utils';
 
 const spaceMapToCss = (
   theme: Theme,

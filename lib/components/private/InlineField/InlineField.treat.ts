@@ -1,7 +1,9 @@
 import { style } from 'sku/treat';
-import getSize from './getSize';
-import { hitArea } from '../touchable/hitArea';
+
 import { debugTouchable } from '../touchable/debugTouchable';
+import { hitArea } from '../touchable/hitArea';
+
+import getSize from './getSize';
 
 // Reset the z-index at the parent level to scope
 // overrides internally.

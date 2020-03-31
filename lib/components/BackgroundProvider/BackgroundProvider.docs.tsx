@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../site/src/types';
-import { BackgroundProvider } from './BackgroundProvider';
-import { Text } from '../Text/Text';
 import { Box } from '../Box/Box';
+import { Text } from '../Text/Text';
+
+import { BackgroundProvider } from './BackgroundProvider';
 
 const docs: ComponentDocs = {
   category: 'Logic',

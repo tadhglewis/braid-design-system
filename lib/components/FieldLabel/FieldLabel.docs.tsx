@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { FieldLabel, TextLink } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { FieldLabel as PlayroomFieldLabel } from '../../playroom/components';
 
 const Container = ({ children }: { children: ReactNode }) => (

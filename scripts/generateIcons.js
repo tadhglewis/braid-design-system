@@ -1,11 +1,12 @@
 const path = require('path');
+
+const { default: svgr } = require('@svgr/core');
+const { pascalCase } = require('change-case');
+const cheerio = require('cheerio');
+const dedent = require('dedent');
 const fs = require('fs-extra');
 const globby = require('globby');
-const cheerio = require('cheerio');
-const { pascalCase } = require('change-case');
-const dedent = require('dedent');
 const SVGO = require('svgo');
-const { default: svgr } = require('@svgr/core');
 
 const componentTemplate = ({ template }, opts, { componentName, jsx }) => {
   const code = `

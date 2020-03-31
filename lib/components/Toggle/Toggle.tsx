@@ -1,10 +1,12 @@
 import React, { AllHTMLAttributes, ChangeEvent, ReactNode } from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box } from '../Box/Box';
-import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
 import { Text } from '../Text/Text';
 import { IconTick } from '../icons';
+import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
 import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
+
 import * as styleRefs from './Toggle.treat';
 
 type HTMLInputProps = AllHTMLAttributes<HTMLInputElement>;

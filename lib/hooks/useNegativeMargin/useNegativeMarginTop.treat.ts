@@ -1,4 +1,5 @@
 import { style, styleMap } from 'sku/treat';
+
 import { mapToStyleProperty } from '../../utils';
 
 const preventCollapse = 1;

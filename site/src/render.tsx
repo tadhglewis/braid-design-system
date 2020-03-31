@@ -1,13 +1,16 @@
-import { Render } from 'sku';
+import dedent from 'dedent';
+import { uniq, flatten, values } from 'lodash';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
-import dedent from 'dedent';
-import { uniq, flatten, values } from 'lodash';
-import { App } from './App/App';
-import { RenderContext } from './types';
-import { ConfigProvider } from './App/ConfigContext';
+import { Render } from 'sku';
+
 import * as themes from '../../lib/themes';
+
+import { App } from './App/App';
+import { ConfigProvider } from './App/ConfigContext';
+import { RenderContext } from './types';
+
 import { theme as docSiteTheme } from './theme/theme.treat';
 
 const skuRender: Render<RenderContext> = {

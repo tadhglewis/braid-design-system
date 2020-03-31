@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../site/src/types';
 import { Placeholder } from '../private/Placeholder/Placeholder';
+
 import { useSpace } from './useSpace';
 
 const docs: ComponentDocs = {

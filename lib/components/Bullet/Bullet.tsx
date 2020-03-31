@@ -1,12 +1,14 @@
 import React, { ReactNode, useContext, useMemo } from 'react';
 import { useStyles } from 'sku/react-treat';
-import { Box } from '../Box/Box';
+
 import { useText } from '../../hooks/typography';
+import { useLineHeightContainer } from '../../hooks/useLineHeightContainer/useLineHeightContainer';
+import { Box } from '../Box/Box';
 import { BulletListContext } from '../BulletList/BulletList';
 import { useStackItem } from '../Stack/Stack';
-import { useLineHeightContainer } from '../../hooks/useLineHeightContainer/useLineHeightContainer';
-import * as styleRefs from './Bullet.treat';
 import TextContext from '../Text/TextContext';
+
+import * as styleRefs from './Bullet.treat';
 
 export interface BulletProps {
   children: ReactNode;

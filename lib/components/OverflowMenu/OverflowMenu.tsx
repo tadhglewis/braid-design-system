@@ -1,8 +1,10 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
+
+import { Box } from '../Box/Box';
 import { MenuRenderer, MenuRendererProps } from '../MenuRenderer/MenuRenderer';
 import { OverflowButton } from '../iconButtons/OverflowButton/OverflowButton';
-import { Box } from '../Box/Box';
+
 import * as styleRefs from './OverflowMenu.treat';
 
 interface OverflowMenuProps

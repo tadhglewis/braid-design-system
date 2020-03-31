@@ -8,15 +8,17 @@ import React, {
   ComponentType,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
-import { useBoxStyles, UseBoxStylesProps } from '../Box/useBoxStyles';
+
+import { useTouchableSpace } from '../../hooks/typography';
 import {
   BackgroundProvider,
   useBackgroundLightness,
 } from '../Box/BackgroundContext';
 import { Box } from '../Box/Box';
+import { useBoxStyles, UseBoxStylesProps } from '../Box/useBoxStyles';
 import { Text, TextProps } from '../Text/Text';
 import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
-import { useTouchableSpace } from '../../hooks/typography';
+
 import * as styleRefs from './ButtonRenderer.treat';
 
 type ButtonWeight = 'weak' | 'regular' | 'strong';

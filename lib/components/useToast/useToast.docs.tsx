@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from 'sku/react-treat';
-import { ComponentDocs } from '../../../site/src/types';
+
 import {
   Box,
   Button,
@@ -15,6 +15,8 @@ import {
   IconPromote,
 } from '..';
 import Code from '../../../site/src/App/Code/Code';
+import { ComponentDocs } from '../../../site/src/types';
+
 import Toast from './Toast';
 
 const description = (

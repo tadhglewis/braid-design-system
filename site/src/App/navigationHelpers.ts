@@ -1,4 +1,5 @@
 import groupBy from 'lodash/groupBy';
+
 import * as components from '../../../lib/components';
 import { ComponentDocs } from '../types';
 import undocumentedExports from '../undocumentedExports.json';

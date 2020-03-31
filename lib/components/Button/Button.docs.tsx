@@ -1,7 +1,9 @@
 import React, { Fragment, ReactNode } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
-import { background as boxBackgrounds } from '../Box/useBoxStyles.treat';
+
 import { Box, Button } from '../';
+import { ComponentDocs } from '../../../site/src/types';
+
+import { background as boxBackgrounds } from '../Box/useBoxStyles.treat';
 
 const Container = ({ children }: { children: ReactNode }) => (
   <div style={{ maxWidth: '300px' }}>{children}</div>

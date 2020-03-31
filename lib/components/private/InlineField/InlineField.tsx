@@ -1,16 +1,18 @@
 import React, { ReactNode, AllHTMLAttributes, forwardRef } from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box } from '../../Box/Box';
 import { FieldLabelProps } from '../../FieldLabel/FieldLabel';
 import {
   FieldMessage,
   FieldMessageProps,
 } from '../../FieldMessage/FieldMessage';
-import { FieldOverlay } from '../FieldOverlay/FieldOverlay';
 import { Text } from '../../Text/Text';
 import { IconTick } from '../../icons';
-import { useVirtualTouchable } from '../touchable/useVirtualTouchable';
+import { FieldOverlay } from '../FieldOverlay/FieldOverlay';
 import buildDataAttributes, { DataAttributeMap } from '../buildDataAttributes';
+import { useVirtualTouchable } from '../touchable/useVirtualTouchable';
+
 import * as styleRefs from './InlineField.treat';
 
 const tones = ['neutral', 'critical'] as const;

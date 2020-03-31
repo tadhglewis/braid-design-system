@@ -9,10 +9,13 @@ import React, {
   FormEvent,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
-import { formatRanges } from './formatRanges';
 import { Field, FieldProps } from '../private/Field/Field';
+
+import { formatRanges } from './formatRanges';
+
 import * as styleRefs from './Textarea.treat';
 
 type NativeTextareaProps = AllHTMLAttributes<HTMLTextAreaElement>;

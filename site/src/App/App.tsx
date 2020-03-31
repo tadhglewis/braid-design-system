@@ -1,15 +1,18 @@
 import '../../../lib/reset';
+import map from 'lodash/map';
 import React, { StrictMode } from 'react';
 import { Route, Switch, Redirect } from 'react-router';
-import map from 'lodash/map';
-import { ThemeSettingProvider } from './ThemeSetting';
-import { theme as docsSiteTheme } from '../theme/theme.treat';
+
 import { BraidProvider, ToastProvider } from '../../../lib/components';
+
 import { Navigation } from './Navigation/Navigation';
-import home from './routes/home';
-import guides from './routes/guides';
-import foundations from './routes/foundations';
+import { ThemeSettingProvider } from './ThemeSetting';
 import components from './routes/components';
+import foundations from './routes/foundations';
+import guides from './routes/guides';
+import home from './routes/home';
+
+import { theme as docsSiteTheme } from '../theme/theme.treat';
 
 export const App = () => (
   <StrictMode>

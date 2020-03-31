@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Box, Rating } from '../';
+import { ComponentDocs } from '../../../site/src/types';
+
 import { background as boxBackgrounds } from '../Box/useBoxStyles.treat';
 
 const docs: ComponentDocs = {

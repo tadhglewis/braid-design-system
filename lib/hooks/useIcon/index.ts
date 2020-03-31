@@ -1,13 +1,14 @@
+import classnames from 'classnames';
 import { useContext } from 'react';
 import { useStyles } from 'sku/react-treat';
-import classnames from 'classnames';
 
-import { OptionalTitle } from '../../components/icons/SVGTypes';
 import { BoxProps } from '../../components/Box/Box';
-import TextContext from '../../components/Text/TextContext';
 import HeadingContext from '../../components/Heading/HeadingContext';
+import TextContext from '../../components/Text/TextContext';
+import { OptionalTitle } from '../../components/icons/SVGTypes';
 import { useTextSize, useTextTone, UseTextProps } from '../typography';
 import { useLineHeightContainer } from '../useLineHeightContainer/useLineHeightContainer';
+
 import * as styleRefs from './icon.treat';
 
 type IconSize = NonNullable<UseTextProps['size']> | 'fill';

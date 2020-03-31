@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
 
-import React, { ReactNode } from 'react';
 import {
   cleanup,
   render,
@@ -9,6 +8,7 @@ import {
   getByTestId,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import React, { ReactNode } from 'react';
 
 import { BraidTestProvider, ToastProvider, useToast } from '..';
 

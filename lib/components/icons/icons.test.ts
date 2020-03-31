@@ -1,6 +1,7 @@
-import globby from 'globby';
 import path from 'path';
+
 import fs from 'fs-extra';
+import globby from 'globby';
 
 const svgComponentPaths = globby.sync('Icon*/*Svg.tsx', {
   cwd: __dirname,

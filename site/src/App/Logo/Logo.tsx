@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Box } from '../../../../lib/components';
 
 interface LogoProps {

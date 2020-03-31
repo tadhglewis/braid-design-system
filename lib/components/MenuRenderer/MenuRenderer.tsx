@@ -10,14 +10,17 @@ import React, {
   Ref,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box, BoxProps } from '../Box/Box';
-import { normalizeKey } from '../private/normalizeKey';
-import { getNextIndex } from '../private/getNextIndex';
 import { Overlay } from '../private/Overlay/Overlay';
-import { actionTypes, Action } from './MenuRenderer.actions';
 import buildDataAttributes, {
   DataAttributeMap,
 } from '../private/buildDataAttributes';
+import { getNextIndex } from '../private/getNextIndex';
+import { normalizeKey } from '../private/normalizeKey';
+
+import { actionTypes, Action } from './MenuRenderer.actions';
+
 import * as styleRefs from './MenuRenderer.treat';
 
 interface MenuContextValues {

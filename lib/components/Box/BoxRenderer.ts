@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+
 import { renderBackgroundProvider } from './BackgroundContext';
 import { useBoxStyles, UseBoxStylesProps } from './useBoxStyles';
 

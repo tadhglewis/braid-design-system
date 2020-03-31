@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../../site/src/types';
+
 import { IconDate } from './IconDate';
 
 const docs: ComponentDocs = {

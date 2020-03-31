@@ -1,5 +1,5 @@
-import mapValues from 'lodash/mapValues';
 import { Properties } from 'csstype';
+import mapValues from 'lodash/mapValues';
 import { Style } from 'sku/treat';
 
 export const mapToStyleProperty = <

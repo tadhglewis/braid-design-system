@@ -1,7 +1,9 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
-import { Box } from '../Box/Box';
+
 import { useBackgroundLightness } from '../Box/BackgroundContext';
+import { Box } from '../Box/Box';
+
 import * as styleRefs from './Loader.treat';
 
 const indicators = [...Array(3)];

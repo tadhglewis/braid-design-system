@@ -1,6 +1,8 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box } from '../Box/Box';
+
 import * as styleRefs from './Divider.treat';
 
 export const Divider = () => {

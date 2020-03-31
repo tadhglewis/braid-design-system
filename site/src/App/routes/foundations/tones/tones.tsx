@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
-import { BoxProps } from '../../../../../../lib/components/Box/Box';
+
 import {
   Box,
   Text,
@@ -11,9 +11,11 @@ import {
   Divider,
   Hidden,
 } from '../../../../../../lib/components';
-import { TextStack } from '../../../TextStack/TextStack';
+import { BoxProps } from '../../../../../../lib/components/Box/Box';
 import { Page } from '../../../../types';
+import { TextStack } from '../../../TextStack/TextStack';
 import { ThemedExample } from '../../../ThemeSetting';
+
 import * as styleRefs from './tones.treat';
 
 const tones = [

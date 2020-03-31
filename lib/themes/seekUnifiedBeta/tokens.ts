@@ -1,5 +1,6 @@
-import { TreatTokens } from '../makeBraidTheme';
 import { rgba } from 'polished';
+
+import { TreatTokens } from '../makeBraidTheme';
 
 const formAccent = '#2765cf';
 const critical = '#e60278';

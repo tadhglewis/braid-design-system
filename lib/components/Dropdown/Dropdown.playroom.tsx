@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Optional } from 'utility-types';
+
 import { useFallbackId } from '../../playroom/utils';
+
 import { Dropdown as BraidDropdown, DropdownProps } from './Dropdown';
 
 type PlayroomDropdownProps = Optional<

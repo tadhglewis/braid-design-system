@@ -1,5 +1,7 @@
 const path = require('path');
+
 const ghpages = require('gh-pages');
+
 const basePath = path.join(__dirname, '../site/dist');
 const repoUrl = require('../package.json').repository.url;
 

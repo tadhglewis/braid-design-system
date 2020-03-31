@@ -1,8 +1,6 @@
 import React, { Children } from 'react';
 import { useStyles } from 'sku/react-treat';
-import { Box } from '../Box/Box';
-import { Divider } from '../Divider/Divider';
-import { ResponsiveSpace } from '../Box/useBoxStyles';
+
 import {
   useNegativeMarginTop,
   useNegativeMarginLeft,
@@ -12,8 +10,12 @@ import {
   resolveResponsiveProp,
   ResponsiveProp,
 } from '../../utils/responsiveProp';
-import * as styleRefs from './Tiles.treat';
+import { Box } from '../Box/Box';
+import { ResponsiveSpace } from '../Box/useBoxStyles';
+import { Divider } from '../Divider/Divider';
 import { ReactNodeNoStrings } from '../private/ReactNodeNoStrings';
+
+import * as styleRefs from './Tiles.treat';
 
 export interface TilesProps {
   children: ReactNodeNoStrings;

@@ -1,14 +1,16 @@
-import React, { ChangeEvent, FocusEvent, createRef, Fragment } from 'react';
-import range from 'lodash/range';
 import { isMobile } from 'is-mobile';
+import range from 'lodash/range';
+import React, { ChangeEvent, FocusEvent, createRef, Fragment } from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box } from '../Box/Box';
 import { Column } from '../Column/Column';
 import { Columns } from '../Columns/Columns';
-import { Hidden } from '../Hidden/Hidden';
 import { Dropdown } from '../Dropdown/Dropdown';
+import { Hidden } from '../Hidden/Hidden';
 import { FieldProps, Field } from '../private/Field/Field';
 import { FieldGroup } from '../private/FieldGroup/FieldGroup';
+
 import * as styleRefs from './MonthPicker.treat';
 
 interface MonthPickerValue {

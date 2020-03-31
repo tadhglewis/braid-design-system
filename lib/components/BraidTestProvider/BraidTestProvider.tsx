@@ -1,9 +1,11 @@
 import React from 'react';
+
 import * as themes from '../../themes';
 import {
   BraidProvider,
   BraidProviderProps,
 } from '../BraidProvider/BraidProvider';
+
 import { BraidTestProviderContext } from './BraidTestProviderContext';
 
 interface BraidTestProviderProps

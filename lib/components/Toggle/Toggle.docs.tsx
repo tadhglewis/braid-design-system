@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Toggle } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { Toggle as PlayroomToggle } from '../../playroom/components';
 
 const handler = () => {

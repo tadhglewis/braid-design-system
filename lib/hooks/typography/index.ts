@@ -1,12 +1,14 @@
+import classnames from 'classnames';
 import { useContext } from 'react';
 import { useStyles } from 'sku/react-treat';
-import classnames from 'classnames';
+
 import {
   useBackground,
   useBackgroundLightness,
 } from '../../components/Box/BackgroundContext';
 import { BoxProps } from '../../components/Box/Box';
 import TextLinkRendererContext from '../../components/TextLinkRenderer/TextLinkRendererContext';
+
 import * as styleRefs from './typography.treat';
 
 type TextTone = keyof typeof styleRefs.tone | 'neutral';

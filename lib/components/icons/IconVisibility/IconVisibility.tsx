@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box } from '../../Box/Box';
+
 import useIcon, { UseIconProps } from '../../../hooks/useIcon';
-import { IconVisibilitySvg } from './IconVisibilitySvg';
+import { Box } from '../../Box/Box';
+
 import { IconVisibilityHiddenSvg } from './IconVisibilityHiddenSvg';
+import { IconVisibilitySvg } from './IconVisibilitySvg';
 
 export type IconVisibilityProps = UseIconProps & {
   hidden?: boolean;

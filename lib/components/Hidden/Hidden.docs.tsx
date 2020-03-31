@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../site/src/types';
-import { Hidden } from './Hidden';
-import { Text } from '../Text/Text';
 import { Stack } from '../Stack/Stack';
+import { Text } from '../Text/Text';
+
+import { Hidden } from './Hidden';
 
 const docs: ComponentDocs = {
   category: 'Layout',

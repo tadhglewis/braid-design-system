@@ -1,7 +1,8 @@
 import React from 'react';
+
+import { Columns, Column, Stack } from '../';
 import { ComponentDocs } from '../../../site/src/types';
 import { Placeholder } from '../private/Placeholder/Placeholder';
-import { Columns, Column, Stack } from '../';
 
 const docs: ComponentDocs = {
   category: 'Layout',

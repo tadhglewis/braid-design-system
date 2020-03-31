@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../site/src/types';
-import { BoxRenderer } from './BoxRenderer';
 import { Text } from '../Text/Text';
+
+import { BoxRenderer } from './BoxRenderer';
 
 const docs: ComponentDocs = {
   category: 'Layout',

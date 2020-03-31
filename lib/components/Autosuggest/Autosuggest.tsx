@@ -1,3 +1,4 @@
+import parseHighlights from 'autosuggest-highlight/parse';
 import React, {
   Fragment,
   useRef,
@@ -9,19 +10,21 @@ import React, {
   useEffect,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
-import parseHighlights from 'autosuggest-highlight/parse';
-import { Box } from '../Box/Box';
-import { Text } from '../Text/Text';
-import { Strong } from '../Strong/Strong';
-import { Field, FieldProps } from '../private/Field/Field';
-import { ClearButton } from '../iconButtons/ClearButton/ClearButton';
+
 import { useTouchableSpace, useText } from '../../hooks/typography';
+import { Box } from '../Box/Box';
+import { Strong } from '../Strong/Strong';
+import { Text } from '../Text/Text';
+import { ClearButton } from '../iconButtons/ClearButton/ClearButton';
+import { Field, FieldProps } from '../private/Field/Field';
 import { getNextIndex } from '../private/getNextIndex';
 import { normalizeKey } from '../private/normalizeKey';
-import { smoothScroll } from './smoothScroll';
-import { useScrollIntoView } from './useScrollIntoView';
-import { useIsolatedScroll } from './useIsolatedScroll';
+
 import { createAccessbilityProps, getItemId } from './createAccessbilityProps';
+import { smoothScroll } from './smoothScroll';
+import { useIsolatedScroll } from './useIsolatedScroll';
+import { useScrollIntoView } from './useScrollIntoView';
+
 import * as styleRefs from './Autosuggest.treat';
 
 type SuggestionMatch = Array<{ start: number; end: number }>;

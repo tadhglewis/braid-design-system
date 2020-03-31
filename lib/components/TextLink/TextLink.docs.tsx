@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import {
   Actions,
   Box,
@@ -10,6 +10,8 @@ import {
   Text,
   TextLink,
 } from '../';
+import { ComponentDocs } from '../../../site/src/types';
+
 import { background as boxBackgrounds } from '../Box/useBoxStyles.treat';
 
 const docs: ComponentDocs = {

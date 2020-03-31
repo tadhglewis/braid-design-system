@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Heading,
   Text,
@@ -7,10 +8,10 @@ import {
   BulletList,
   Bullet,
 } from '../../../../../lib/components';
-import { TextStack } from '../../TextStack/TextStack';
-import { useConfig } from '../../ConfigContext';
 import { Page } from '../../../types';
+import { useConfig } from '../../ConfigContext';
 import { Link } from '../../Link/Link';
+import { TextStack } from '../../TextStack/TextStack';
 
 const braidDesignSupportLink = (
   <TextLink href="https://seekchat.slack.com/channels/braid-design-support">

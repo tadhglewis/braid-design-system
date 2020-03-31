@@ -1,7 +1,9 @@
 import React, { ReactNode, useContext, useMemo } from 'react';
-import TextContext from './TextContext';
-import { Box, BoxProps } from '../Box/Box';
+
 import { useText, UseTextProps, useTruncate } from '../../hooks/typography';
+import { Box, BoxProps } from '../Box/Box';
+
+import TextContext from './TextContext';
 
 export interface TextProps extends Pick<BoxProps, 'component'> {
   id?: string;

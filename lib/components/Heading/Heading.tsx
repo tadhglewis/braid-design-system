@@ -1,12 +1,14 @@
 import React, { ReactNode } from 'react';
-import HeadingContext from './HeadingContext';
-import { Box, BoxProps } from '../Box/Box';
+
 import {
   useHeading,
   useTruncate,
   HeadingLevel,
   HeadingWeight,
 } from '../../hooks/typography';
+import { Box, BoxProps } from '../Box/Box';
+
+import HeadingContext from './HeadingContext';
 
 /* tslint:disable-next-line no-object-literal-type-assertion */
 const resolveDefaultComponent = {

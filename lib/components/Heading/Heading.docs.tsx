@@ -1,11 +1,13 @@
 import React, { ReactNode, Fragment } from 'react';
+
+import { Box, Heading, Stack } from '../';
 import { ComponentDocs } from '../../../site/src/types';
+
+import { heading as headingLevels } from '../../hooks/typography/typography.treat';
 import {
   background as boxBackgrounds,
   textAlign,
 } from '../Box/useBoxStyles.treat';
-import { heading as headingLevels } from '../../hooks/typography/typography.treat';
-import { Box, Heading, Stack } from '../';
 
 const Container = ({ children }: { children: ReactNode }) => (
   <div style={{ maxWidth: '300px' }}>{children}</div>

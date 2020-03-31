@@ -1,6 +1,8 @@
 import React, { Children, ReactNode } from 'react';
-import ActionsContext from './ActionsContext';
+
 import { Box } from '../Box/Box';
+
+import ActionsContext from './ActionsContext';
 
 export interface ActionsProps {
   children: ReactNode;

@@ -1,8 +1,7 @@
 import React, { Children, ReactElement, createContext, useMemo } from 'react';
-import { Box } from '../Box/Box';
-import { ColumnProps } from '../Column/Column';
-import { Space, ResponsiveSpace } from '../Box/useBoxStyles';
+
 import { useNegativeMarginLeft } from '../../hooks/useNegativeMargin/useNegativeMargin';
+import { AlignY, alignYToFlexAlign } from '../../utils/align';
 import {
   normaliseResponsiveProp,
   ResponsiveProp,
@@ -11,7 +10,9 @@ import {
   resolveResponsiveRangeProps,
   ResponsiveRangeProps,
 } from '../../utils/responsiveRangeProps';
-import { AlignY, alignYToFlexAlign } from '../../utils/align';
+import { Box } from '../Box/Box';
+import { Space, ResponsiveSpace } from '../Box/useBoxStyles';
+import { ColumnProps } from '../Column/Column';
 
 interface ColumnsContextValue {
   collapseMobile: boolean;

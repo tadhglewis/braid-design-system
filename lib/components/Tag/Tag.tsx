@@ -1,8 +1,10 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
 import { ClearButton } from '../iconButtons/ClearButton/ClearButton';
+
 import * as styleRefs from './Tag.treat';
 
 type AllOrNone<T> = T | { [K in keyof T]?: never };

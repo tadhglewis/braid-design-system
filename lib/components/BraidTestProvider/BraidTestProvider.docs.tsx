@@ -1,7 +1,8 @@
 import React from 'react';
-import { seekAnz } from '../../themes';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Stack, Text, Strong } from '..';
+import { ComponentDocs } from '../../../site/src/types';
+import { seekAnz } from '../../themes';
 
 const docs: ComponentDocs = {
   category: 'Logic',

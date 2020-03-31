@@ -1,8 +1,11 @@
 import React, { ReactNode } from 'react';
+
+import { Box, Inline } from '../';
 import { ComponentDocs } from '../../../site/src/types';
 import { Placeholder } from '../private/Placeholder/Placeholder';
+
 import { InlineProps } from './Inline';
-import { Box, Inline } from '../';
+
 import { padding } from '../Box/useBoxStyles.treat';
 
 const spaces = Object.keys(padding.top).filter(

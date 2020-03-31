@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
 import { Link } from 'react-router-dom';
+
+import { ComponentDocs } from '../../../site/src/types';
+
 import { ButtonRenderer } from './ButtonRenderer';
 
 const Container = ({ children }: { children: ReactNode }) => (

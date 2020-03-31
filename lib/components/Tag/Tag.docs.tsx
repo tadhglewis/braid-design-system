@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../site/src/types';
-import { Tag } from './Tag';
 import { Inline } from '../Inline/Inline';
+
+import { Tag } from './Tag';
 
 const docs: ComponentDocs = {
   category: 'Content',

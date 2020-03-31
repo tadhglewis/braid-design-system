@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Box, OverflowMenu, MenuItem } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 
 const docs: ComponentDocs = {
   category: 'Interaction',

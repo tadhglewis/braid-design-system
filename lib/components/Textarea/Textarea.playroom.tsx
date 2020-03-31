@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Optional } from 'utility-types';
+
 import { useFallbackId } from '../../playroom/utils';
+
 import { Textarea as BraidTextarea, TextareaProps } from './Textarea';
 
 type PlayroomTextareaProps = Optional<

@@ -1,7 +1,8 @@
-import reactElementToJsxString from 'react-element-to-jsx-string';
 import { flatten } from 'lodash';
-import { ComponentDocs } from '../../site/src/types';
+import reactElementToJsxString from 'react-element-to-jsx-string';
 import { Snippets } from 'sku/playroom';
+
+import { ComponentDocs } from '../../site/src/types';
 
 const req = require.context('../components', true, /\.docs\.tsx?$/);
 export default flatten(

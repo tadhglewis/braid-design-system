@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box } from '../../Box/Box';
+
 import useIcon, { UseIconProps } from '../../../hooks/useIcon';
-import { IconStarSvg } from './IconStarSvg';
+import { Box } from '../../Box/Box';
+
 import { IconStarActiveSvg } from './IconStarActiveSvg';
+import { IconStarSvg } from './IconStarSvg';
 
 export type IconStarProps = UseIconProps & {
   active?: boolean;

@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { Text, Stack, Heading, Divider } from '../../../../../lib/components';
-import { Link, ExternalLink } from '../../Link/Link';
-import { useConfig } from '../../ConfigContext';
 import { Page } from '../../../types';
+import { useConfig } from '../../ConfigContext';
+import { Link, ExternalLink } from '../../Link/Link';
 
 const Home = () => {
   const { playroomUrl } = useConfig();

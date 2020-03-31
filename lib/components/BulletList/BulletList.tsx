@@ -1,6 +1,7 @@
 import React, { ReactNode, createContext, useMemo } from 'react';
-import { Box } from '../Box/Box';
+
 import { UseTextProps } from '../../hooks/typography';
+import { Box } from '../Box/Box';
 import { UseStackProps } from '../Stack/Stack';
 
 const defaultSize = 'standard';

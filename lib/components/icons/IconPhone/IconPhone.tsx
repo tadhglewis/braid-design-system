@@ -1,6 +1,8 @@
 import React from 'react';
-import { Box } from '../../Box/Box';
+
 import useIcon, { UseIconProps } from '../../../hooks/useIcon';
+import { Box } from '../../Box/Box';
+
 import { IconPhoneSvg } from './IconPhoneSvg';
 
 export type IconPhoneProps = UseIconProps;

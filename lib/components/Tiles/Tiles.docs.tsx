@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Tiles, Box, Card, Text } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { Placeholder } from '../private/Placeholder/Placeholder';
 
 const exampleRows = 3;

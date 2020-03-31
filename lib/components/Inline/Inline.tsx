@@ -1,17 +1,18 @@
 import React, { Children } from 'react';
-import { Box } from '../Box/Box';
-import { ResponsiveSpace } from '../Box/useBoxStyles';
+
 import {
   useNegativeMarginLeft,
   useNegativeMarginTop,
 } from '../../hooks/useNegativeMargin/useNegativeMargin';
-import { ResponsiveProp } from '../../utils/responsiveProp';
 import {
   Align,
   alignToFlexAlign,
   alignYToFlexAlign,
   AlignY,
 } from '../../utils/align';
+import { ResponsiveProp } from '../../utils/responsiveProp';
+import { Box } from '../Box/Box';
+import { ResponsiveSpace } from '../Box/useBoxStyles';
 import { ReactNodeNoStrings } from '../private/ReactNodeNoStrings';
 
 export interface InlineProps {

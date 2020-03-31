@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
+
+import { ContentBlock, Box } from '../';
 import { ComponentDocs } from '../../../site/src/types';
 import { Placeholder } from '../private/Placeholder/Placeholder';
-import { ContentBlock, Box } from '../';
 
 const Container = ({ children }: { children: ReactNode }) => (
   <Box background="neutralLight">{children}</Box>

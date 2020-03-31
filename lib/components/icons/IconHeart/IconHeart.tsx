@@ -1,8 +1,10 @@
 import React from 'react';
-import { Box } from '../../Box/Box';
+
 import useIcon, { UseIconProps } from '../../../hooks/useIcon';
-import { IconHeartSvg } from './IconHeartSvg';
+import { Box } from '../../Box/Box';
+
 import { IconHeartActiveSvg } from './IconHeartActiveSvg';
+import { IconHeartSvg } from './IconHeartSvg';
 
 export type IconHeartProps = UseIconProps & {
   active?: boolean;

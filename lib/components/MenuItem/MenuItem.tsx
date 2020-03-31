@@ -7,16 +7,18 @@ import React, {
   MouseEvent,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
-import { Box } from '../Box/Box';
+
 import { useTouchableSpace } from '../../hooks/typography';
-import { normalizeKey } from '../private/normalizeKey';
+import { Box } from '../Box/Box';
 import { MenuContext } from '../MenuRenderer/MenuRenderer';
 import { actionTypes, Action } from '../MenuRenderer/MenuRenderer.actions';
-import * as styleRefs from './MenuItem.treat';
 import { Text } from '../Text/Text';
 import buildDataAttributes, {
   DataAttributeMap,
 } from '../private/buildDataAttributes';
+import { normalizeKey } from '../private/normalizeKey';
+
+import * as styleRefs from './MenuItem.treat';
 
 interface MenuItemProps {
   children: ReactNode;

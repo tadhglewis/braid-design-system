@@ -1,5 +1,5 @@
-import { styleMap } from 'sku/treat';
 import mapValues from 'lodash/mapValues';
+import { styleMap } from 'sku/treat';
 
 export const size = styleMap(({ utils, grid, typography }) =>
   mapValues(typography.text, ({ mobile, tablet }) =>

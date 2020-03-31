@@ -1,6 +1,7 @@
 import isEqual from 'lodash/isEqual';
-import { Style } from 'sku/treat';
 import omit from 'lodash/omit';
+import { Style } from 'sku/treat';
+
 import { TreatTokens } from './makeBraidTheme';
 
 type RequiredTokens = Pick<TreatTokens, 'breakpoint'>;

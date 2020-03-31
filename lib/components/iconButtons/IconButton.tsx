@@ -6,21 +6,23 @@ import React, {
   forwardRef,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box } from '..';
-import { Overlay } from '../private/Overlay/Overlay';
-import buildDataAttributes, {
-  DataAttributeMap,
-} from '../private/buildDataAttributes';
 import {
   useIconSize,
   useIconContainerSize,
   UseIconProps,
 } from '../../hooks/useIcon';
-import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
 import {
   useBackground,
   useBackgroundLightness,
 } from '../Box/BackgroundContext';
+import { Overlay } from '../private/Overlay/Overlay';
+import buildDataAttributes, {
+  DataAttributeMap,
+} from '../private/buildDataAttributes';
+import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
+
 import * as styleRefs from './IconButton.treat';
 
 type NativeButtonProps = AllHTMLAttributes<HTMLButtonElement>;

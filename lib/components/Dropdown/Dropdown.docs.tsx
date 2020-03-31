@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Box, Dropdown, IconLocation } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { Dropdown as PlayroomDropdown } from '../../playroom/components';
 
 const Container = ({ children }: { children: ReactNode }) => (

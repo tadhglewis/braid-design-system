@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom/extend-expect';
-import React from 'react';
 import {
   render,
   cleanup,
@@ -8,7 +7,10 @@ import {
   act,
 } from '@testing-library/react';
 import genericUserEvent from '@testing-library/user-event';
+import React from 'react';
+
 import { BraidTestProvider, MenuItem } from '..';
+
 import { MenuRendererProps } from './MenuRenderer';
 
 // The generic `user-event` library currently doesn't have knowledge

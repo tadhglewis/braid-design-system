@@ -1,12 +1,14 @@
 import React, { Children, Fragment } from 'react';
 import { useStyles } from 'sku/react-treat';
-import { Divider } from '../Divider/Divider';
+
 import { Align, alignToFlexAlign } from '../../utils/align';
 import { ResponsiveProp, mapResponsiveProp } from '../../utils/responsiveProp';
-import { useBoxStyles, UseBoxStylesProps } from '../Box/useBoxStyles';
-import * as styleRefs from './Stack.treat';
 import { Box } from '../Box/Box';
+import { useBoxStyles, UseBoxStylesProps } from '../Box/useBoxStyles';
+import { Divider } from '../Divider/Divider';
 import { ReactNodeNoStrings } from '../private/ReactNodeNoStrings';
+
+import * as styleRefs from './Stack.treat';
 
 export interface UseStackProps {
   align: ResponsiveProp<Align>;

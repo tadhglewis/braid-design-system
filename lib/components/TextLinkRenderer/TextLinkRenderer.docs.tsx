@@ -1,8 +1,10 @@
 import React from 'react';
-import { ComponentDocs } from '../../../site/src/types';
 import { Link } from 'react-router-dom';
-import { TextLinkRenderer } from './TextLinkRenderer';
+
+import { ComponentDocs } from '../../../site/src/types';
 import { Text } from '../Text/Text';
+
+import { TextLinkRenderer } from './TextLinkRenderer';
 
 const docs: ComponentDocs = {
   category: 'Interaction',

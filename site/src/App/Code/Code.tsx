@@ -1,24 +1,27 @@
-import React, { Fragment, ReactChild } from 'react';
-import { useStyles } from 'react-treat';
+import classnames from 'classnames';
 import copy from 'copy-to-clipboard';
 import memoize from 'lodash/memoize';
-import reactElementToJSXString from 'react-element-to-jsx-string';
-import prettier from 'prettier/standalone';
 import babylonParser from 'prettier/parser-babylon';
+import prettier from 'prettier/standalone';
+import React, { Fragment, ReactChild } from 'react';
+import reactElementToJSXString from 'react-element-to-jsx-string';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { useStyles } from 'react-treat';
 import { createUrl } from 'sku/playroom/utils';
-import classnames from 'classnames';
-import { useConfig } from '../ConfigContext';
+
 import { Box, Stack, Text } from '../../../../lib/components';
 import { BoxProps } from '../../../../lib/components/Box/Box';
 import { FieldOverlay } from '../../../../lib/components/private/FieldOverlay/FieldOverlay';
+import { useConfig } from '../ConfigContext';
+import { ThemedExample } from '../ThemeSetting';
+
 import { CopyIcon } from './CopyIcon';
 import { PlayIcon } from './PlayIcon';
+import editorTheme from './editorTheme';
+
 import * as styleRefs from './Code.treat';
 
 // @ts-ignore
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import editorTheme from './editorTheme';
-import { ThemedExample } from '../ThemeSetting';
 
 const formatSnippet = memoize(
   (snippet) =>

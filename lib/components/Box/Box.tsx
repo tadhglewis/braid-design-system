@@ -4,8 +4,9 @@ import {
   AllHTMLAttributes,
   ElementType,
 } from 'react';
-import { useBoxStyles, UseBoxStylesProps } from './useBoxStyles';
+
 import { renderBackgroundProvider } from './BackgroundContext';
+import { useBoxStyles, UseBoxStylesProps } from './useBoxStyles';
 
 export interface BoxProps
   extends Omit<UseBoxStylesProps, 'component'>,

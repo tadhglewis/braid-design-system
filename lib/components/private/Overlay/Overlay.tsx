@@ -1,7 +1,9 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box, BoxProps } from '../../Box/Box';
 import { hideFocusRingsClassName } from '../hideFocusRings/hideFocusRings';
+
 import * as styleRefs from './Overlay.treat';
 
 export interface OverlayProps

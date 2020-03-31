@@ -11,8 +11,8 @@ import React, {
 import { createPortal } from 'react-dom';
 import { useTheme } from 'sku/react-treat';
 
-import { Toaster } from './Toaster';
 import { Toast } from './ToastTypes';
+import { Toaster } from './Toaster';
 
 let toastCounter = 0;
 

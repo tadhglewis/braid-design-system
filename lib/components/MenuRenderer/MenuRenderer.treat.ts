@@ -1,4 +1,5 @@
 import { style } from 'sku/treat';
+
 import * as zIndex from '../private/zIndex';
 
 export const trigger = style({

@@ -1,5 +1,6 @@
-import { TreatTokens } from '../makeBraidTheme';
 import { lighten } from 'polished';
+
+import { TreatTokens } from '../makeBraidTheme';
 
 const brand = '#083cae';
 const brandAccent = '#f13465';

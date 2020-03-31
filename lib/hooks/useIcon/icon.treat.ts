@@ -1,5 +1,5 @@
-import { style, styleMap } from 'sku/treat';
 import mapValues from 'lodash/mapValues';
+import { style, styleMap } from 'sku/treat';
 
 export const size = style({
   width: '1em',

@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Strong, Text } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 
 const docs: ComponentDocs = {
   category: 'Content',

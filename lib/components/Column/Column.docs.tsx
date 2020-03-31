@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Columns, Column, Box, Stack } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { Placeholder } from '../private/Placeholder/Placeholder';
+
 import { width as columnWidths } from '../Column/Column.treat';
 
 const widths = [

@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Radio, Text } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { Radio as PlayroomRadio } from '../../playroom/components';
 
 const docs: ComponentDocs = {

@@ -1,6 +1,4 @@
 import React, { useCallback } from 'react';
-
-import * as styleRefs from './Toast.treat';
 import { useStyles, TreatProvider } from 'sku/react-treat';
 
 import {
@@ -12,10 +10,13 @@ import {
   Text,
   TextLinkRenderer,
 } from '../../components';
-import { IconPositive, IconCritical } from '../icons';
 import { ClearButton } from '../iconButtons/ClearButton/ClearButton';
-import { useTimeout } from './useTimeout';
+import { IconPositive, IconCritical } from '../icons';
+
 import { Toast as ToastType, ToastAction } from './ToastTypes';
+import { useTimeout } from './useTimeout';
+
+import * as styleRefs from './Toast.treat';
 
 const toneToIcon = {
   critical: IconCritical,

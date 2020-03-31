@@ -1,8 +1,8 @@
+import didYouMean, { ReturnTypeEnums } from 'didyoumean2';
 import React, { useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import { useStyles } from 'sku/react-treat';
-import didYouMean, { ReturnTypeEnums } from 'didyoumean2';
-import { useBoxStyles } from '../../../../../../lib/components/Box/useBoxStyles';
+
 import {
   Inline,
   Box,
@@ -13,9 +13,11 @@ import {
   IconSearch,
   Strong,
 } from '../../../../../../lib/components';
+import { useBoxStyles } from '../../../../../../lib/components/Box/useBoxStyles';
+import * as icons from '../../../../../../lib/components/icons';
 import { Overlay } from '../../../../../../lib/components/private/Overlay/Overlay';
 import { Page } from '../../../../types';
-import * as icons from '../../../../../../lib/components/icons';
+
 import * as styleRefs from './iconography.treat';
 
 type IconName = keyof typeof icons;

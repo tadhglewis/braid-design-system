@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../../site/src/types';
+
 import { IconShare } from './IconShare';
 
 const docs: ComponentDocs = {

@@ -1,6 +1,7 @@
 import React, { ReactNode, useState } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Textarea, TextLink } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { Textarea as PlayroomTextarea } from '../../playroom/components';
 
 const Container = ({ children }: { children: ReactNode }) => (

@@ -28,4 +28,5 @@ module.exports = {
   playroomFrameComponent: './lib/playroom/FrameComponent.tsx',
   playroomTarget: './site/dist/playroom',
   playroomWidths: [320, 768, 1024, 1400],
+  orderImports: true,
 };

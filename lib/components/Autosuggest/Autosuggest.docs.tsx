@@ -1,7 +1,8 @@
-import React, { useState, ReactNode } from 'react';
 import matchHighlights from 'autosuggest-highlight/match';
-import { ComponentDocs } from '../../../site/src/types';
+import React, { useState, ReactNode } from 'react';
+
 import { Autosuggest, Box, IconSearch, IconLocation } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 
 const Container = ({ children }: { children: ReactNode }) => (
   <div style={{ maxWidth: '300px' }}>{children}</div>

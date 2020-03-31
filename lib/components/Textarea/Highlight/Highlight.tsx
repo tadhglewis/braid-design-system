@@ -1,7 +1,9 @@
 import React from 'react';
-import { Box } from '../../Box/Box';
-import * as styleRefs from './Highlight.treat';
 import { useStyles } from 'sku/react-treat';
+
+import { Box } from '../../Box/Box';
+
+import * as styleRefs from './Highlight.treat';
 
 export interface HighlightProps {
   children: string;

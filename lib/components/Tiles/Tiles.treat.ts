@@ -1,5 +1,6 @@
-import { styleMap } from 'sku/treat';
 import mapValues from 'lodash/mapValues';
+import { styleMap } from 'sku/treat';
+
 import { TreatTokens } from '../../themes/makeBraidTheme';
 
 const columnsWidths = {

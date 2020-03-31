@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Page } from '../../../types';
-import { TextStack } from '../../TextStack/TextStack';
 import {
   Heading,
   Divider,
@@ -10,8 +8,10 @@ import {
   Bullet,
   Strong,
 } from '../../../../../lib/components';
-import { Link, ExternalLink } from '../../Link/Link';
+import { Page } from '../../../types';
 import Code from '../../Code/Code';
+import { Link, ExternalLink } from '../../Link/Link';
+import { TextStack } from '../../TextStack/TextStack';
 
 const page: Page = {
   title: 'Testing Guide',

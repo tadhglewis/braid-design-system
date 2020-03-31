@@ -1,4 +1,5 @@
 import { style } from 'sku/treat';
+
 import { hideFocusRingsDataAttribute } from './HideFocusRingsRoot';
 
 export const hideFocusRingsClassName = style({

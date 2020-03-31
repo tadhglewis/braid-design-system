@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import React, {
   forwardRef,
   useRef,
@@ -8,23 +9,24 @@ import React, {
   Ref,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
-import classnames from 'classnames';
-import { Box, BoxProps } from '../../Box/Box';
+
+import { useText, useTouchableSpace } from '../../../hooks/typography';
 import {
   BackgroundProvider,
   useBackgroundLightness,
 } from '../../Box/BackgroundContext';
+import { Box, BoxProps } from '../../Box/Box';
 import { FieldLabel, FieldLabelProps } from '../../FieldLabel/FieldLabel';
 import {
   FieldMessage,
   FieldMessageProps,
 } from '../../FieldMessage/FieldMessage';
-import { FieldOverlay } from '../FieldOverlay/FieldOverlay';
 import { Stack } from '../../Stack/Stack';
-import { ClearButton } from '../../iconButtons/ClearButton/ClearButton';
-import buildDataAttributes, { DataAttributeMap } from '../buildDataAttributes';
-import { useText, useTouchableSpace } from '../../../hooks/typography';
 import { Text } from '../../Text/Text';
+import { ClearButton } from '../../iconButtons/ClearButton/ClearButton';
+import { FieldOverlay } from '../FieldOverlay/FieldOverlay';
+import buildDataAttributes, { DataAttributeMap } from '../buildDataAttributes';
+
 import * as styleRefs from './Field.treat';
 
 type FormElementProps = AllHTMLAttributes<HTMLFormElement>;

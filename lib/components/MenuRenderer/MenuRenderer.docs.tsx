@@ -1,6 +1,6 @@
-import React from 'react';
 import dedent from 'dedent';
-import { ComponentDocs } from '../../../site/src/types';
+import React from 'react';
+
 import {
   Box,
   MenuRenderer,
@@ -11,6 +11,7 @@ import {
   TextLink,
 } from '..';
 import { Link } from '../../../site/src/App/Link/Link';
+import { ComponentDocs } from '../../../site/src/types';
 
 const docs: ComponentDocs = {
   category: 'Interaction',

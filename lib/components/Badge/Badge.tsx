@@ -1,8 +1,10 @@
 import React from 'react';
+import { useStyles } from 'sku/react-treat';
+
 import { Box } from '../Box/Box';
 import { Text } from '../Text/Text';
+
 import * as styleRefs from './Badge.treat';
-import { useStyles } from 'sku/react-treat';
 
 const validTones = [
   'promote',

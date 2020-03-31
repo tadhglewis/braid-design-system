@@ -1,12 +1,14 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
-import { useBackground } from '../Box/BackgroundContext';
+
 import useIcon, { UseIconProps } from '../../hooks/useIcon';
+import { useBackground } from '../Box/BackgroundContext';
 import { Box } from '../Box/Box';
 import { Text, TextProps } from '../Text/Text';
-import { IconStarSvg as IconStarEmptySvg } from '../icons/IconStar/IconStarSvg';
-import { IconStarHalfSvg } from '../icons/IconStar/IconStarHalfSvg';
 import { IconStarActiveSvg as IconStarFullSvg } from '../icons/IconStar/IconStarActiveSvg';
+import { IconStarHalfSvg } from '../icons/IconStar/IconStarHalfSvg';
+import { IconStarSvg as IconStarEmptySvg } from '../icons/IconStar/IconStarSvg';
+
 import * as styleRefs from './Rating.treat';
 
 const getPercent = (rating: number, position: number) =>

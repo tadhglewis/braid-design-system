@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Optional } from 'utility-types';
+
 import { useFallbackId } from '../../playroom/utils';
+
 import { Toggle as BraidToggle, ToggleProps } from './Toggle';
 
 type PlayroomToggleProps = Optional<ToggleProps, 'id' | 'on' | 'onChange'>;

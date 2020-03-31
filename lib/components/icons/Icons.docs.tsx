@@ -1,19 +1,21 @@
 import React from 'react';
+
 import { ComponentDocs } from '../../../site/src/types';
-import { Text } from '../Text/Text';
+import { UseIconProps } from '../../hooks/useIcon';
 import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
 import { Heading } from '../Heading/Heading';
 import { Inline } from '../Inline/Inline';
-import { Button } from '../Button/Button';
-import { UseIconProps } from '../../hooks/useIcon';
+import { Stack } from '../Stack/Stack';
+import { Text } from '../Text/Text';
+
+import * as icons from './index';
+
 import {
   heading as headingSizes,
   text as textSizes,
   tone as tones,
 } from '../../hooks/typography/typography.treat';
-import { Stack } from '../Stack/Stack';
-
-import * as icons from './index';
 
 type IconName = keyof typeof icons;
 const iconNames = Object.keys(icons).map((icon) => icon as IconName);

@@ -1,5 +1,11 @@
-import React, { Fragment } from 'react';
 import partition from 'lodash/partition';
+import React, { Fragment } from 'react';
+
+import componentDocs from '../../../../generate-component-docs/componentDocs.json';
+import {
+  NormalisedPropType,
+  ExportDoc,
+} from '../../../../generate-component-docs/generate';
 import {
   Box,
   Text,
@@ -7,11 +13,6 @@ import {
   Heading,
   Stack,
 } from '../../../../lib/components';
-import componentDocs from '../../../../generate-component-docs/componentDocs.json';
-import {
-  NormalisedPropType,
-  ExportDoc,
-} from '../../../../generate-component-docs/generate';
 
 type ComponentName = keyof typeof componentDocs;
 

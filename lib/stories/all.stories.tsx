@@ -1,11 +1,12 @@
-import React, { ReactNode, Fragment } from 'react';
-import { storiesOf } from 'sku/@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
 import { uniq, flatten, values } from 'lodash';
+import React, { ReactNode, Fragment } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { storiesOf } from 'sku/@storybook/react';
+
 import '../../reset';
-import * as themes from '../themes';
-import { BraidProvider } from '../components';
 import { ComponentDocs } from '../../site/src/types';
+import { BraidProvider } from '../components';
+import * as themes from '../themes';
 
 const webFontLinkTags = uniq(
   flatten(values(themes).map((theme) => theme.webFonts)).map(

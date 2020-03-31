@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import {
   Heading,
   Text,
@@ -21,12 +22,13 @@ import {
   TextLink,
 } from '../../../../../../lib/components';
 import { HeadingProps } from '../../../../../../lib/components/Heading/Heading';
-import { TextStack } from '../../../TextStack/TextStack';
-import Code from '../../../Code/Code';
 import tokens from '../../../../../../lib/themes/wireframe/tokens';
 import { Page } from '../../../../types';
-import * as styleRefs from './layout.treat';
+import Code from '../../../Code/Code';
+import { TextStack } from '../../../TextStack/TextStack';
 import { ThemedExample } from '../../../ThemeSetting';
+
+import * as styleRefs from './layout.treat';
 
 const slugify = (string: string) => string.replace(/ /, '-');
 

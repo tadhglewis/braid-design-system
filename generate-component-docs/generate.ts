@@ -1,8 +1,9 @@
 /* eslint-disable no-console */
 import fs from 'fs';
 import path from 'path';
-import ts from 'typescript';
+
 import isEqual from 'lodash/isEqual';
+import ts from 'typescript';
 
 const aliasWhitelist = ['ResponsiveProp'];
 const propBlacklist = ['key'];

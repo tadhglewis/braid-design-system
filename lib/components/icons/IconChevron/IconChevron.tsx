@@ -1,8 +1,11 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
-import { Box } from '../../Box/Box';
+
 import useIcon, { UseIconProps } from '../../../hooks/useIcon';
+import { Box } from '../../Box/Box';
+
 import { IconChevronSvg } from './IconChevronSvg';
+
 import * as styleRefs from './IconChevron.treat';
 
 export type IconChevronProps = UseIconProps & {

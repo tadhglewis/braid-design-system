@@ -1,9 +1,11 @@
-import { useStyles } from 'sku/react-treat';
 import classnames from 'classnames';
+import { useStyles } from 'sku/react-treat';
+
 import {
   resolveResponsiveProp,
   ResponsiveProp,
 } from '../../utils/responsiveProp';
+
 import * as styleRefs from './useNegativeMarginLeft.treat';
 
 type NegativeMarginLeft = Extract<

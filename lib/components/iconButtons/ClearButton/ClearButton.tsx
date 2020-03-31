@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
-import { IconButton, IconButtonProps } from '../IconButton';
+
 import { IconClear } from '../..';
+import { IconButton, IconButtonProps } from '../IconButton';
 
 export type ClearButtonProps = Pick<
   IconButtonProps,

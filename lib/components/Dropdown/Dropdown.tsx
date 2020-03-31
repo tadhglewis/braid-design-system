@@ -6,11 +6,13 @@ import React, {
   forwardRef,
 } from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { Box } from '../Box/Box';
-import { Field, FieldProps } from '../private/Field/Field';
-import { IconChevron } from '../icons';
-import * as styleRefs from './Dropdown.treat';
 import { Text } from '../Text/Text';
+import { IconChevron } from '../icons';
+import { Field, FieldProps } from '../private/Field/Field';
+
+import * as styleRefs from './Dropdown.treat';
 
 type ValidDropdownChildren = AllHTMLAttributes<
   HTMLOptionElement | HTMLOptGroupElement

@@ -1,12 +1,14 @@
-import React, { Fragment, ReactNode } from 'react';
 import { titleCase } from 'change-case';
-import { ComponentDocs } from '../../../site/src/types';
+import React, { Fragment, ReactNode } from 'react';
+
 import { Box, Text, Stack, Column, Columns, IconPositive } from '../';
+import { ComponentDocs } from '../../../site/src/types';
+
+import { text as textSizes } from '../../hooks/typography/typography.treat';
 import {
   background as boxBackgrounds,
   textAlign,
 } from '../Box/useBoxStyles.treat';
-import { text as textSizes } from '../../hooks/typography/typography.treat';
 
 const Container = ({ children }: { children: ReactNode }) => (
   <div style={{ maxWidth: '300px' }}>{children}</div>

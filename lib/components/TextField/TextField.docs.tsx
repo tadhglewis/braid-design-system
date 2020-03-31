@@ -1,6 +1,7 @@
 import React, { useState, ReactNode } from 'react';
-import { ComponentDocs } from '../../../site/src/types';
+
 import { Box, IconSearch, TextField, TextLink } from '../';
+import { ComponentDocs } from '../../../site/src/types';
 import { TextField as PlayroomTextField } from '../../playroom/components';
 
 const Container = ({ children }: { children: ReactNode }) => (

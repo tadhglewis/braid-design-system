@@ -1,7 +1,8 @@
-import { TreatTokens } from '../makeBraidTheme';
-import { DeepPartial } from 'utility-types';
-import { rgba } from 'polished';
 import merge from 'lodash/merge';
+import { rgba } from 'polished';
+import { DeepPartial } from 'utility-types';
+
+import { TreatTokens } from '../makeBraidTheme';
 
 interface MakeTokensOptions {
   name: string;

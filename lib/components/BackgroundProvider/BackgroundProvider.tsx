@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+
 import { renderBackgroundProvider } from '../Box/BackgroundContext';
 
 export interface BackgroundProviderProps {

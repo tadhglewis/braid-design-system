@@ -1,15 +1,16 @@
-import React from 'react';
 import map from 'lodash/map';
-import guides from '../routes/guides';
-import foundations from '../routes/foundations';
+import React from 'react';
+
 import { Text, Box, Stack } from '../../../../lib/components';
+import { useConfig } from '../ConfigContext';
 import { Link, ExternalLink } from '../Link/Link';
 import { ThemeToggle } from '../ThemeSetting';
 import {
   categorisedComponents,
   documentedComponents,
 } from '../navigationHelpers';
-import { useConfig } from '../ConfigContext';
+import foundations from '../routes/foundations';
+import guides from '../routes/guides';
 
 interface SubNavigationItem {
   name: string;

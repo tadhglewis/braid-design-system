@@ -1,12 +1,14 @@
 import React, { useState, useRef, ReactNode } from 'react';
 import { useStyles } from 'sku/react-treat';
+
 import { ContentBlock, Text, Box, Hidden } from '../../../../lib/components';
 import { useIsolatedScroll } from '../../../../lib/components/Autosuggest/useIsolatedScroll';
 import { Overlay } from '../../../../lib/components/private/Overlay/Overlay';
-import { Logo } from '../Logo/Logo';
 import { Link } from '../Link/Link';
+import { Logo } from '../Logo/Logo';
 import { MenuButton } from '../MenuButton/MenuButton';
 import { SubNavigation } from '../SubNavigation/SubNavigation';
+
 import * as styleRefs from './Navigation.treat';
 
 const Header = ({
