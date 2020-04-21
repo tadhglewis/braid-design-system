@@ -53,10 +53,7 @@ const Swatch = ({ colorName }: { colorName: ColorName }) => {
         .map(Number)
         .map((tint) => (
           <Column key={tint}>
-            <Color
-              value={color[tint as keyof typeof color]}
-              label={chroma(color[tint as keyof typeof color]).css('hsl')}
-            />
+            <Color value={color[tint as keyof typeof color]} label={tint} />
           </Column>
         ))}
     </Columns>

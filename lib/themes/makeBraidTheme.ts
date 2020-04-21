@@ -108,13 +108,13 @@ export interface TreatTokens {
       black: string;
       white: string;
       yellow: Swatch;
-      // orange: Swatch;
-      // red: Swatch;
-      // purple: Swatch;
-      // indigo: Swatch;
-      // blue: Swatch;
-      // cyan: Swatch;
-      // green: Swatch;
+      orange: Swatch;
+      red: Swatch;
+      purple: Swatch;
+      indigo: Swatch;
+      blue: Swatch;
+      cyan: Swatch;
+      green: Swatch;
     };
     foreground: {
       link: string;
