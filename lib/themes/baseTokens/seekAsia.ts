@@ -1,6 +1,7 @@
 import { TreatTokens } from '../makeBraidTheme';
 import { DeepPartial } from 'utility-types';
 import merge from 'lodash/merge';
+import { generateSwatch } from '../../utils/generateSwatch';
 
 interface MakeTokensOptions {
   name: string;
@@ -206,6 +207,11 @@ export const makeTokens = ({
         '0 2px 4px 0px rgba(28,28,28,.1), 0 12px 12px -4px rgba(28,28,28,.1), 0 20px 20px -12px rgba(28,28,28,.2)',
     },
     color: {
+      palette: {
+        black: neutral,
+        white,
+        yellow: generateSwatch(caution),
+      },
       foreground: {
         link,
         linkHover,

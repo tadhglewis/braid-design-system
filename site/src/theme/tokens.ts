@@ -1,4 +1,5 @@
 import { TreatTokens } from '../../../lib/themes/makeBraidTheme';
+import { generateSwatch } from '../../../lib/utils/generateSwatch';
 
 const formAccent = '#404040';
 const critical = '#ef3e4a';
@@ -177,6 +178,19 @@ const tokens: TreatTokens = {
       '0 2px 4px 0px rgba(28,28,28,.1), 0 12px 12px -4px rgba(28,28,28,.1), 0 20px 20px -12px rgba(28,28,28,.2)',
   },
   color: {
+    palette: {
+      black: neutral,
+      white,
+      yellow: generateSwatch(caution),
+      orange: generateSwatch('hsl(24, 94%, 50%)'),
+      red: generateSwatch('hsl(352, 99%, 41%)'),
+      purple: generateSwatch('hsl(280, 51%, 35%)'),
+      violet: generateSwatch('hsl(254, 61%, 53%)'),
+      indigo: generateSwatch('hsl(217, 68%, 52%)'),
+      blue: generateSwatch('hsl(200, 77%, 49%)'),
+      cyan: generateSwatch('hsl(183, 100%, 34%)'),
+      green: generateSwatch('hsl(110, 100%, 27%)'),
+    },
     foreground: {
       link,
       linkHover: link,

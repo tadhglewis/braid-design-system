@@ -20,6 +20,11 @@ type TextDefinition = Record<
 >;
 type FontWeight = 'regular' | 'medium' | 'strong';
 
+type Swatch = Record<
+  50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
+  string
+>;
+
 export interface TreatTokens {
   name: string;
   displayName: string;
@@ -99,6 +104,18 @@ export interface TreatTokens {
     large: string;
   };
   color: {
+    palette: {
+      black: string;
+      white: string;
+      yellow: Swatch;
+      // orange: Swatch;
+      // red: Swatch;
+      // purple: Swatch;
+      // indigo: Swatch;
+      // blue: Swatch;
+      // cyan: Swatch;
+      // green: Swatch;
+    };
     foreground: {
       link: string;
       linkHover: string;
@@ -243,7 +260,7 @@ export function makeBraidTheme(treatTokens: TreatTokens) {
   return {
     treatTheme: createTheme(decoratedTokens),
     ...makeRuntimeTokens(decoratedTokens),
-  };
+  } as const;
 }
 
 export type BraidTheme = ReturnType<typeof makeBraidTheme>;
