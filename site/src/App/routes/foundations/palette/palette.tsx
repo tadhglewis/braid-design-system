@@ -1,5 +1,4 @@
 import React from 'react';
-import chroma from 'chroma-js';
 import {
   Box,
   Text,
@@ -29,10 +28,12 @@ const Color = ({
     style={{ height: 60, backgroundColor: value }}
   >
     {label ? (
-      // <BackgroundProvider type={isLight(value) ? 'light' : 'dark'}>
-      <Text size="small">{label}</Text>
-    ) : // </BackgroundProvider>
-    null}
+      <BackgroundProvider type={isLight(value) ? 'light' : 'dark'}>
+        <Text size="small" tone="secondary">
+          {label}
+        </Text>
+      </BackgroundProvider>
+    ) : null}
   </Box>
 );
 
@@ -49,13 +50,11 @@ const Swatch = ({ colorName }: { colorName: ColorName }) => {
     <Color value={color} />
   ) : (
     <Columns space="none" collapseBelow="desktop">
-      {Object.keys(color)
-        .map(Number)
-        .map((tint) => (
-          <Column key={tint}>
-            <Color value={color[tint as keyof typeof color]} label={tint} />
-          </Column>
-        ))}
+      {Object.keys(color).map((tint) => (
+        <Column key={tint}>
+          <Color value={color[tint as keyof typeof color]} label={tint} />
+        </Column>
+      ))}
     </Columns>
   );
 };

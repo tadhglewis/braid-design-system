@@ -21,7 +21,7 @@ type TextDefinition = Record<
 type FontWeight = 'regular' | 'medium' | 'strong';
 
 type Swatch = Record<
-  50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
+  '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
   string
 >;
 
@@ -107,10 +107,14 @@ export interface TreatTokens {
     palette: {
       black: string;
       white: string;
+      brandPrimary: Swatch;
+      brandSecondary: Swatch;
+      grey: Swatch;
       yellow: Swatch;
       orange: Swatch;
       red: Swatch;
       purple: Swatch;
+      violet: Swatch;
       indigo: Swatch;
       blue: Swatch;
       cyan: Swatch;
