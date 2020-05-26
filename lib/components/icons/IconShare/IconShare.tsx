@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '../../Box/Box';
-import useIcon, { UseIconProps } from '../../../hooks/useIcon';
+import { useIcon, UseIconProps } from '../../private/icons/useIcon';
 import { IconShareSvg } from './IconShareSvg';
 
 export type IconShareProps = UseIconProps;

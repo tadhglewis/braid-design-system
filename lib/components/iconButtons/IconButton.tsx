@@ -15,7 +15,7 @@ import {
   useIconSize,
   useIconContainerSize,
   UseIconProps,
-} from '../../hooks/useIcon';
+} from '../private/icons/useIcon';
 import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
 import {
   useBackground,

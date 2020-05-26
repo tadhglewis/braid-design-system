@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStyles } from 'sku/react-treat';
 import { Box } from '../../Box/Box';
-import useIcon, { UseIconProps } from '../../../hooks/useIcon';
+import { useIcon, UseIconProps } from '../../private/icons/useIcon';
 import { IconChevronSvg } from './IconChevronSvg';
 import * as styleRefs from './IconChevron.treat';
 

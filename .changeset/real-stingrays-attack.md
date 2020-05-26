@@ -2,4 +2,4 @@
 'braid-design-system': patch
 ---
 
-**IconStar:** Animate between inactive and active states
+**IconStar, IconHeart, IconBookmark:** Animate transition between inactive and active states

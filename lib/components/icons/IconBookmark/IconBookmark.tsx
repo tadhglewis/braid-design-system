@@ -1,23 +1,17 @@
 import React from 'react';
-import { Box } from '../../Box/Box';
-import useIcon, { UseIconProps } from '../../../hooks/useIcon';
 import { IconBookmarkSvg } from './IconBookmarkSvg';
 import { IconBookmarkActiveSvg } from './IconBookmarkActiveSvg';
+import {
+  FillableIcon,
+  FillableIconProps,
+} from '../../private/icons/FillableIcon';
 
-export type IconBookmarkProps = UseIconProps & {
-  active?: boolean;
-};
+export type IconBookmarkProps = FillableIconProps;
 
-export const IconBookmark = ({
-  active = false,
-  ...props
-}: IconBookmarkProps) => {
-  const iconProps = useIcon(props);
-
-  return (
-    <Box
-      component={active ? IconBookmarkActiveSvg : IconBookmarkSvg}
-      {...iconProps}
-    />
-  );
-};
+export const IconBookmark = (props: IconBookmarkProps) => (
+  <FillableIcon
+    inactiveSvgComponent={IconBookmarkSvg}
+    activeSvgComponent={IconBookmarkActiveSvg}
+    {...props}
+  />
+);

@@ -2,7 +2,7 @@ import React from 'react';
 import { useStyles } from 'sku/react-treat';
 import assert from 'assert';
 import { useBackground } from '../Box/BackgroundContext';
-import useIcon, { UseIconProps } from '../../hooks/useIcon';
+import { useIcon, UseIconProps } from '../private/icons/useIcon';
 import { Box } from '../Box/Box';
 import { Text, TextProps } from '../Text/Text';
 import { IconStarSvg as IconStarEmptySvg } from '../icons/IconStar/IconStarSvg';

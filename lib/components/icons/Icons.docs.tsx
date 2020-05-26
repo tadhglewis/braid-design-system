@@ -5,7 +5,7 @@ import { Box } from '../Box/Box';
 import { Heading } from '../Heading/Heading';
 import { Inline } from '../Inline/Inline';
 import { Button } from '../Button/Button';
-import { UseIconProps } from '../../hooks/useIcon';
+import { UseIconProps } from '../private/icons/useIcon';
 import {
   heading as headingSizes,
   text as textSizes,

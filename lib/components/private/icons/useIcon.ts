@@ -3,13 +3,17 @@ import { useStyles } from 'sku/react-treat';
 import assert from 'assert';
 import classnames from 'classnames';
 
-import { OptionalTitle } from '../../components/icons/SVGTypes';
-import { BoxProps } from '../../components/Box/Box';
-import TextContext from '../../components/Text/TextContext';
-import HeadingContext from '../../components/Heading/HeadingContext';
-import { useTextSize, useTextTone, UseTextProps } from '../typography';
-import { useLineHeightContainer } from '../useLineHeightContainer/useLineHeightContainer';
-import * as styleRefs from './icon.treat';
+import { OptionalTitle } from '../../icons/SVGTypes';
+import { BoxProps } from '../../Box/Box';
+import TextContext from '../../Text/TextContext';
+import HeadingContext from '../../Heading/HeadingContext';
+import {
+  useTextSize,
+  useTextTone,
+  UseTextProps,
+} from '../../../hooks/typography';
+import { useLineHeightContainer } from '../../../hooks/useLineHeightContainer/useLineHeightContainer';
+import * as styleRefs from './useIcon.treat';
 
 type IconSize = NonNullable<UseTextProps['size']> | 'fill';
 
@@ -39,6 +43,7 @@ export type UseIconProps = {
 } & OptionalTitle;
 
 type PrivateIconProps = {
+  container?: boolean;
   verticalCorrection?: {
     lowercase: keyof typeof styleRefs.alignY.lowercase;
     uppercase: keyof typeof styleRefs.alignY.uppercase;
@@ -50,9 +55,12 @@ const detaultVerticalCorrection = {
   lowercase: 'none',
 } as const;
 
-export default (
+export const useIcon = (
   { size, tone, alignY, ...titleProps }: UseIconProps,
-  { verticalCorrection = detaultVerticalCorrection }: PrivateIconProps = {},
+  {
+    container = false,
+    verticalCorrection = detaultVerticalCorrection,
+  }: PrivateIconProps = {},
 ): BoxProps => {
   const styles = useStyles(styleRefs);
   const textContext = useContext(TextContext);
@@ -82,8 +90,12 @@ export default (
       width: 'full',
       height: 'full',
       display: 'block',
-      className: resolvedTone,
-      ...titleProps,
+      ...(container
+        ? null
+        : {
+            className: resolvedTone,
+            ...titleProps,
+          }),
     };
   }
 
@@ -96,9 +108,11 @@ export default (
       isInline
         ? [
             styles.inline,
-            styles.alignY[alignY || 'uppercase'][
-              verticalCorrection[alignY || 'uppercase']
-            ],
+            container
+              ? null
+              : styles.alignY[alignY || 'uppercase'][
+                  verticalCorrection[alignY || 'uppercase']
+                ],
           ]
         : blockSizeStyles,
     ],
