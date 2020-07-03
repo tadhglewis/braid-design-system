@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{"2yJB":function(n,w,i){"use strict";i.r(w);var o=i("j2wi");i.d(w,"default",(function(){return o.a}))}}]);
