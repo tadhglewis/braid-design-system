@@ -8,6 +8,11 @@ export const weak = style({
   backgroundColor: 'transparent',
 });
 
+export const compact = style(({ space, grid }) => ({
+  paddingTop: space.xxsmall * grid,
+  paddingBottom: space.xxsmall * grid,
+}));
+
 export const inverted = style({});
 
 export const activeOverlay = style({

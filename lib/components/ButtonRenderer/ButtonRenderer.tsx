@@ -18,7 +18,9 @@ import { Text, TextProps } from '../Text/Text';
 import { FieldOverlay } from '../private/FieldOverlay/FieldOverlay';
 import { useTouchableSpace } from '../../hooks/typography';
 import * as styleRefs from './ButtonRenderer.treat';
+import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
 
+type ButtonSize = 'standard' | 'compact';
 type ButtonWeight = 'weak' | 'regular' | 'strong';
 type ButtonVariant = 'strong' | 'regular' | 'weak' | 'weakInverted';
 const buttonVariants: Record<
@@ -72,8 +74,9 @@ const useButtonVariant = (weight: ButtonWeight) => {
 
 const ButtonChildrenContext = createContext<{
   weight: ButtonWeight;
+  size: ButtonSize;
   loading: boolean;
-}>({ weight: 'regular', loading: false });
+}>({ weight: 'regular', loading: false, size: 'standard' });
 
 interface ButtonChildrenProps {
   children: ReactNode;
@@ -81,8 +84,9 @@ interface ButtonChildrenProps {
 
 const ButtonChildren = ({ children }: ButtonChildrenProps) => {
   const styles = useStyles(styleRefs);
-  const { weight, loading } = useContext(ButtonChildrenContext);
+  const { weight, loading, size } = useContext(ButtonChildrenContext);
   const buttonVariant = useButtonVariant(weight);
+  const touchableSpace = useTouchableSpace('standard');
 
   return (
     <Fragment>
@@ -106,7 +110,7 @@ const ButtonChildren = ({ children }: ButtonChildrenProps) => {
         textAlign="center"
         overflow="hidden"
         userSelect="none"
-        className={useTouchableSpace('standard')}
+        className={size === 'standard' ? touchableSpace : styles.compact}
       >
         <Text baseline={false} weight="medium" tone={buttonVariant.textTone}>
           {children}
@@ -149,6 +153,7 @@ const ButtonChildren = ({ children }: ButtonChildrenProps) => {
 
 export interface ButtonRendererProps {
   weight?: ButtonWeight;
+  size?: ButtonSize;
   loading?: boolean;
   children: (
     ButtonChildren: ComponentType<ButtonChildrenProps>,
@@ -161,12 +166,14 @@ export interface ButtonRendererProps {
 
 export const ButtonRenderer = ({
   weight = 'regular',
+  size = 'standard',
   loading = false,
   children,
 }: ButtonRendererProps) => {
   const styles = useStyles(styleRefs);
   const isWeak = weight === 'weak';
   const { background, boxShadow } = useButtonVariant(weight);
+  const virtualTouchable = useVirtualTouchable();
 
   const buttonStyles = useBoxStyles({
     component: 'button',
@@ -184,13 +191,14 @@ export const ButtonRenderer = ({
       styles.root,
       isWeak ? styles.weak : null,
       useBackgroundLightness() === 'dark' ? styles.inverted : null,
+      size === 'compact' ? virtualTouchable : null,
     ],
   });
 
-  const buttonChildrenContextValue = useMemo(() => ({ weight, loading }), [
-    weight,
-    loading,
-  ]);
+  const buttonChildrenContextValue = useMemo(
+    () => ({ weight, loading, size }),
+    [weight, loading, size],
+  );
 
   const buttonProps = {
     style: {},

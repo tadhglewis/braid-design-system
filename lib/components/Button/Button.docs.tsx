@@ -7,6 +7,10 @@ const Container = ({ children }: { children: ReactNode }) => (
   <div style={{ maxWidth: '300px' }}>{children}</div>
 );
 
+const CompactContainer = ({ children }: { children: ReactNode }) => (
+  <div style={{ maxWidth: '80px' }}>{children}</div>
+);
+
 const docs: ComponentDocs = {
   category: 'Content',
   migrationGuide: true,
@@ -35,6 +39,29 @@ const docs: ComponentDocs = {
       label: 'Weak Button',
       Container,
       Example: () => <Button weight="weak">Submit</Button>,
+    },
+    {
+      label: 'Default Compact Button',
+      Container: CompactContainer,
+      Example: () => <Button size="compact">Add</Button>,
+    },
+    {
+      label: 'Strong Compact Button',
+      Container: CompactContainer,
+      Example: () => (
+        <Button size="compact" weight="strong">
+          Add
+        </Button>
+      ),
+    },
+    {
+      label: 'Weak Compact Button',
+      Container: CompactContainer,
+      Example: () => (
+        <Button size="compact" weight="weak">
+          Add
+        </Button>
+      ),
     },
     {
       label: 'Weak Button on Brand Background',
