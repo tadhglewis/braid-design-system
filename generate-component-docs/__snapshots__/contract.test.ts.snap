@@ -1672,6 +1672,9 @@ Object {
     id?: string
     loading?: boolean
     onClick?: (event: MouseEvent<HTMLButtonElement, MouseEvent>) => void
+    size?: 
+        | "compact"
+        | "standard"
     type?: 
         | "button"
         | "reset"
@@ -2064,6 +2067,9 @@ Object {
     results?: number
     role?: string
     security?: string
+    size?: 
+        | "compact"
+        | "standard"
     slot?: string
     spellCheck?: 
         | "false"
@@ -2098,6 +2104,9 @@ Object {
   props: {
     children: (ButtonChildren: ComponentType<ButtonChildrenProps>, styleProps: { style: CSSProperties; className: string; }) => ReactNode
     loading?: boolean
+    size?: 
+        | "compact"
+        | "standard"
     weight?: 
         | "regular"
         | "strong"
