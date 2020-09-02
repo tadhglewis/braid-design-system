@@ -42,7 +42,7 @@ export function useText({
 export type HeadingLevel = keyof typeof styleRefs.heading;
 export type HeadingWeight = 'regular' | 'weak';
 
-interface UseHeadingParams {
+export interface UseHeadingProps {
   weight?: HeadingWeight;
   level: HeadingLevel;
   baseline: boolean;
@@ -54,7 +54,7 @@ export function useHeading({
   level,
   baseline,
   backgroundContext,
-}: UseHeadingParams) {
+}: UseHeadingProps) {
   const styles = useStyles(styleRefs);
   const textTone = useTextTone({ tone: 'neutral', backgroundContext });
 

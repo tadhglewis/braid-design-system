@@ -48,13 +48,13 @@ export const heading = style({
   },
 });
 
-const CLOSE_ICON_SIZE = 9;
+const CLOSE_ICON_SIZE = 13;
 export const closePlaceholder = style({
   width: CLOSE_ICON_SIZE,
 });
 
 export const closeOffset = style((theme) => {
-  const iconSize = theme.grid * theme.typography.text.standard.mobile.rows;
+  const iconSize = theme.grid * theme.typography.heading.level['3'].mobile.rows;
   const offset = (iconSize - CLOSE_ICON_SIZE) / 2;
 
   return {

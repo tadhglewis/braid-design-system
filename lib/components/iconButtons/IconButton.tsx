@@ -15,6 +15,7 @@ import {
   useIconSize,
   useIconContainerSize,
   UseIconProps,
+  UseIconSizeProps,
 } from '../../hooks/useIcon';
 import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
 import {
@@ -22,9 +23,10 @@ import {
   useBackgroundLightness,
 } from '../Box/BackgroundContext';
 import * as styleRefs from './IconButton.treat';
+import { useText, useHeading } from '../../hooks/typography';
 
 type NativeButtonProps = AllHTMLAttributes<HTMLButtonElement>;
-export interface IconButtonProps {
+export type IconButtonProps = UseIconSizeProps & {
   label: string;
   children: (props: UseIconProps) => ReactNode;
   onClick?: NativeButtonProps['onClick'];
@@ -37,7 +39,7 @@ export interface IconButtonProps {
   active?: boolean;
   tone?: 'neutral' | 'secondary';
   data?: DataAttributeMap;
-}
+};
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
   (
@@ -54,12 +56,21 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       tone = 'secondary',
       data,
       children,
+      ...props
     },
     forwardedRef,
   ) => {
     const styles = useStyles(styleRefs);
-    const iconContainerStyles = useIconContainerSize();
-    const iconStyles = useIconSize();
+
+    const headingStyle = useHeading({
+      level: 'level' in props ? props.level : '4',
+      baseline: false,
+    });
+    const textStyle = useText({
+      size: 'size' in props ? props.size : 'standard',
+      baseline: false,
+    });
+
     const background = useBackground();
     const backgroundLightness = useBackgroundLightness();
 
@@ -113,7 +124,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         <Box
           position="relative"
           display="flex"
-          className={iconContainerStyles}
+          className={'level' in props ? headingStyle : textStyle}
           alignItems="center"
           justifyContent="center"
           pointerEvents="none"
@@ -143,7 +154,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
               onlyVisibleForKeyboardNavigation
             />
           ) : null}
-          <Box position="relative" className={iconStyles}>
+          <Box position="relative" style={{ height: '1em', width: '1em' }}>
             {children({ size: 'fill', tone })}
           </Box>
         </Box>

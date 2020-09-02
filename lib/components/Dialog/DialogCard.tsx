@@ -19,6 +19,7 @@ import { ContentBlock, ContentBlockProps } from '../ContentBlock/ContentBlock';
 import { Overlay } from '../private/Overlay/Overlay';
 import { ReactNodeNoStrings } from '../private/ReactNodeNoStrings';
 import * as styleRefs from './Dialog.treat';
+import { IconClear } from '../icons';
 
 export interface DialogCardProps {
   id: string;
@@ -176,10 +177,14 @@ export const DialogCard = ({
             paddingRight={dialogPadding}
           >
             <Box className={styles.closeOffset}>
+              {/* <Heading level="3">
+                <IconClear />
+              </Heading> */}
               <ClearButton
                 tone="neutral"
                 label={closeLabel}
                 onClick={onClose}
+                level="2"
               />
             </Box>
           </Box>

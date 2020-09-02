@@ -7,19 +7,43 @@ import { OptionalTitle } from '../../components/icons/SVGTypes';
 import { BoxProps } from '../../components/Box/Box';
 import TextContext from '../../components/Text/TextContext';
 import HeadingContext from '../../components/Heading/HeadingContext';
-import { useTextSize, useTextTone, UseTextProps } from '../typography';
+import {
+  useTextSize,
+  useTextTone,
+  UseTextProps,
+  UseHeadingProps,
+  useHeading,
+} from '../typography';
 import { useLineHeightContainer } from '../useLineHeightContainer/useLineHeightContainer';
 import * as styleRefs from './icon.treat';
 
-type IconSize = NonNullable<UseTextProps['size']> | 'fill';
+type TextSizes = NonNullable<UseTextProps['size']>;
+type HeadingSizes = NonNullable<UseHeadingProps['level']>;
+type IconSize = TextSizes | 'fill';
 
-export interface UseIconSizeProps {
-  size?: Exclude<IconSize, 'fill'>;
-}
-export const useIconSize = ({ size = 'standard' }: UseIconSizeProps = {}) => {
+type TextIconSize = {
+  size?: TextSizes;
+};
+type HeadingIconSize = {
+  level: HeadingSizes;
+};
+
+export type UseIconSizeProps = TextIconSize | HeadingIconSize;
+
+export const useIconSize = (props: UseIconSizeProps = {}) => {
   const styles = useStyles(styleRefs);
 
-  return classnames(styles.size, useTextSize(size));
+  const size = 'size' in props && props.size ? props.size : 'standard';
+  const textSize = useTextSize(size);
+
+  const level = 'level' in props && props.level ? props.level : '4';
+  const headingSize = useHeading({ level, baseline: false });
+
+  if ('level' in props) {
+    return classnames(styles.size, headingSize);
+  }
+
+  return classnames(styles.size, textSize);
 };
 
 export interface UseIconContainerSizeProps {

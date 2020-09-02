@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import { IconButton, IconButtonProps } from '../IconButton';
 import { IconClear } from '../..';
+import { UseIconSizeProps } from '../../../hooks/useIcon';
 
 export type ClearButtonProps = Pick<
   IconButtonProps,
@@ -15,7 +16,8 @@ export type ClearButtonProps = Pick<
   | 'aria-expanded'
   | 'tone'
   | 'data'
->;
+> &
+  UseIconSizeProps;
 
 export const ClearButton = forwardRef<HTMLButtonElement, ClearButtonProps>(
   (
@@ -31,6 +33,7 @@ export const ClearButton = forwardRef<HTMLButtonElement, ClearButtonProps>(
       'aria-expanded': ariaExpanded,
       tone,
       data,
+      ...props
     },
     forwardedRef,
   ) => (
@@ -47,6 +50,8 @@ export const ClearButton = forwardRef<HTMLButtonElement, ClearButtonProps>(
       tone={tone}
       ref={forwardedRef}
       data={data}
+      level={'level' in props ? props.level : undefined}
+      size={'size' in props ? props.size : undefined}
     >
       {(iconProps) => <IconClear {...iconProps} />}
     </IconButton>
