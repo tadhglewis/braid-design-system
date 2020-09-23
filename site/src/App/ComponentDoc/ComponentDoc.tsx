@@ -1,6 +1,7 @@
-import React, { ReactNode, Fragment } from 'react';
+import React, { ReactNode, Fragment, useRef, useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import { Route, Switch, useRouteMatch } from 'react-router';
+import domtoimage from 'dom-to-image';
 import { ComponentProps } from './ComponentProps';
 import {
   Box,
@@ -11,9 +12,15 @@ import {
   Alert,
   Inline,
   Badge,
+  Button,
+  Column,
+  Columns,
 } from '../../../../lib/components';
 
-import { ComponentDocs } from '../../types';
+import {
+  ComponentDocs,
+  ComponentExample as ComponentExampleType,
+} from '../../types';
 import Code from '../Code/Code';
 import { ThemedExample } from '../ThemeSetting';
 import { useConfig } from '../ConfigContext';
@@ -133,63 +140,15 @@ export const ComponentDoc = ({
           <Stack space="xxlarge">
             {docs.description}
 
-            {filteredExamples.map((example, index) => {
-              const {
-                label,
-                Example,
-                code,
-                Container = DefaultContainer,
-                background = 'body',
-                showCodeByDefault = false,
-                playroom,
-                description,
-              } = example;
-
-              const codeAsString =
-                Example && !code
-                  ? reactElementToJSXString(
-                      Example({ id: 'id', handler }), // eslint-disable-line new-cap
-                      {
-                        useBooleanShorthandSyntax: false,
-                        showDefaultProps: false,
-                        showFunctions: false,
-                        filterProps: ['onChange', 'onBlur', 'onFocus'],
-                      },
-                    )
-                  : code;
-
-              return (
-                <Box key={index}>
-                  <Stack space="large">
-                    {label && filteredExamples.length > 1 ? (
-                      <Heading level="3">{label}</Heading>
-                    ) : null}
-                    {description ?? null}
-                    <Stack space="xxsmall">
-                      {Example ? (
-                        <ThemedExample background={background}>
-                          <Container>
-                            <Example id={`${index}`} handler={handler} />
-                          </Container>
-                        </ThemedExample>
-                      ) : null}
-                      {codeAsString ? (
-                        <Code
-                          collapsedByDefault={
-                            !showCodeByDefault &&
-                            Example !== undefined &&
-                            docs.category !== 'Logic'
-                          }
-                          playroom={playroom}
-                        >
-                          {codeAsString}
-                        </Code>
-                      ) : null}
-                    </Stack>
-                  </Stack>
-                </Box>
-              );
-            })}
+            {filteredExamples.map((example, index) => (
+              <ComponentExample
+                key={index}
+                index={index}
+                exampleCount={filteredExamples.length}
+                category={docs.category}
+                {...example}
+              />
+            ))}
           </Stack>
         </Route>
         <Route path={`/components/${componentName}/props`}>
@@ -262,3 +221,99 @@ export const ComponentDoc = ({
     </Stack>
   );
 };
+
+interface ComponentExampleProps extends ComponentExampleType {
+  index: number;
+  exampleCount: number;
+  category: ComponentDocs['category'];
+}
+function ComponentExample({
+  index,
+  exampleCount,
+  category,
+  label,
+  Example,
+  code,
+  Container = DefaultContainer,
+  background = 'body',
+  showCodeByDefault = false,
+  playroom,
+  description,
+}: ComponentExampleProps) {
+  const exampleRef = useRef<HTMLDivElement>(null);
+  const [image, setImage] = useState<string>();
+  const codeAsString =
+    Example && !code
+      ? reactElementToJSXString(
+          Example({ id: 'id', handler }), // eslint-disable-line new-cap
+          {
+            useBooleanShorthandSyntax: false,
+            showDefaultProps: false,
+            showFunctions: false,
+            filterProps: ['onChange', 'onBlur', 'onFocus'],
+          },
+        )
+      : code;
+
+  const copyJpg = () => {
+    if (exampleRef.current) {
+      domtoimage
+        .toJpeg(exampleRef.current, { bgcolor: 'white' })
+        .then((dataUrl) => {
+          setImage(dataUrl);
+        });
+    }
+  };
+
+  const copyPng = () => {
+    if (exampleRef.current) {
+      domtoimage.toPng(exampleRef.current).then((dataUrl) => {
+        setImage(dataUrl);
+      });
+    }
+  };
+
+  return (
+    <Box>
+      <Stack space="large">
+        {label && exampleCount > 1 ? (
+          <Heading level="3">{label}</Heading>
+        ) : null}
+        {description ?? null}
+        <Columns space="medium">
+          <Column>
+            <Button onClick={copyPng}>PNG</Button>
+          </Column>
+          <Column>
+            <Button onClick={copyJpg}>JPG</Button>
+          </Column>
+        </Columns>
+
+        {image ? <img src={image} /> : null}
+        <Stack space="xxsmall">
+          {Example ? (
+            <ThemedExample background={background}>
+              <Container>
+                <div ref={exampleRef}>
+                  <Example id={`${index}`} handler={handler} />
+                </div>
+              </Container>
+            </ThemedExample>
+          ) : null}
+          {codeAsString ? (
+            <Code
+              collapsedByDefault={
+                !showCodeByDefault &&
+                Example !== undefined &&
+                category !== 'Logic'
+              }
+              playroom={playroom}
+            >
+              {codeAsString}
+            </Code>
+          ) : null}
+        </Stack>
+      </Stack>
+    </Box>
+  );
+}
