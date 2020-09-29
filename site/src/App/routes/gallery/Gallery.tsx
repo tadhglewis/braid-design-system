@@ -67,9 +67,11 @@ const rows = chunk(galleryComponents, rowLength);
 const Mask = ({
   children,
   background,
+  active = false,
 }: {
   children: ReactNode;
   background: ComponentExample['background'];
+  active?: boolean;
 }) => {
   const elRef = useRef<HTMLElement | null>(null);
   const [dimensions, setDimensions] = useState<{ w: number; h: number }>({
@@ -91,7 +93,8 @@ const Mask = ({
     }
   }, []);
 
-  const masked = Boolean(intersection && intersection.intersectionRatio === 0);
+  const masked =
+    active || Boolean(intersection && intersection.intersectionRatio === 0);
 
   return (
     <Box
@@ -115,10 +118,14 @@ const Mask = ({
   );
 };
 
+type GalleryItemMode = 'thumbnails' | 'real';
+
 const GalleryItem = ({
   component,
+  mode = 'real',
 }: {
   component: typeof galleryComponents[number];
+  mode?: GalleryItemMode;
 }) => {
   const relevantNames = component.subComponents
     ? [component.name, ...component.subComponents]
@@ -243,7 +250,10 @@ const GalleryItem = ({
                           </Columns>
                           {Example ? (
                             <ThemedExample background={background}>
-                              <Mask background={background}>
+                              <Mask
+                                background={background}
+                                active={mode === 'thumbnails'}
+                              >
                                 <Container>
                                   <Box style={{ cursor: 'auto' }}>
                                     <Example
@@ -269,14 +279,14 @@ const GalleryItem = ({
   );
 };
 
-export const Gallery = memo(() => (
+export const Gallery = memo(({ mode }: { mode?: GalleryItemMode }) => (
   <Box>
     {rows.map((row, index) => (
       <Columns space="none" key={index}>
         {row.map((component) => (
           <Column key={component.name} width="content">
             <Box padding="xxlarge">
-              <GalleryItem component={component} />
+              <GalleryItem component={component} mode={mode} />
             </Box>
           </Column>
         ))}
