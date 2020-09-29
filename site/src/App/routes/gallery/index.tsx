@@ -384,7 +384,7 @@ const GalleryPage = () => {
           className={styles.moveCursor}
         >
           <Box ref={contentRef} userSelect="none">
-            <Gallery mode={zoom < 0.6 ? 'thumbnails' : 'real'} />
+            <Gallery mode={zoom < 0.4 ? 'thumbnails' : 'real'} />
           </Box>
         </Box>
       ) : null}

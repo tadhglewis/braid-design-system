@@ -10,6 +10,7 @@ import { chunk } from 'lodash';
 import copy from 'copy-to-clipboard';
 import { useIntersection } from 'react-use';
 import reactElementToJSXString from 'react-element-to-jsx-string';
+import domtoimage from 'dom-to-image';
 
 import {
   Stack,
@@ -66,18 +67,13 @@ const rows = chunk(galleryComponents, rowLength);
 
 const Mask = ({
   children,
-  background,
   active = false,
 }: {
   children: ReactNode;
-  background: ComponentExample['background'];
   active?: boolean;
 }) => {
   const elRef = useRef<HTMLElement | null>(null);
-  const [dimensions, setDimensions] = useState<{ w: number; h: number }>({
-    w: 0,
-    h: 0,
-  });
+  const [imgSrc, setImgSrc] = useState('');
   const intersection = useIntersection(elRef, {
     root: null,
     rootMargin: '0px',
@@ -86,36 +82,17 @@ const Mask = ({
 
   useEffect(() => {
     if (elRef.current) {
-      setDimensions({
-        w: elRef.current.offsetWidth,
-        h: elRef.current.offsetHeight,
+      domtoimage.toPng(elRef.current).then((dataUrl) => {
+        setImgSrc(dataUrl);
       });
     }
   }, []);
 
   const masked =
-    active || Boolean(intersection && intersection.intersectionRatio === 0);
+    imgSrc &&
+    (active || Boolean(intersection && intersection.intersectionRatio === 0));
 
-  return (
-    <Box
-      ref={elRef}
-      position="relative"
-      style={{
-        minHeight: dimensions.h > 0 ? dimensions.h : undefined,
-        minWidth: dimensions.w > 0 ? dimensions.w : undefined,
-      }}
-    >
-      <Box width="full" height="full">
-        {masked ? null : children}
-      </Box>
-      <Overlay
-        background={background}
-        borderRadius="standard"
-        transition="fast"
-        visible={masked}
-      />
-    </Box>
-  );
+  return <Box ref={elRef}>{masked ? <img src={imgSrc} /> : children}</Box>;
 };
 
 type GalleryItemMode = 'thumbnails' | 'real';
@@ -250,10 +227,7 @@ const GalleryItem = ({
                           </Columns>
                           {Example ? (
                             <ThemedExample background={background}>
-                              <Mask
-                                background={background}
-                                active={mode === 'thumbnails'}
-                              >
+                              <Mask active={mode === 'thumbnails'}>
                                 <Container>
                                   <Box style={{ cursor: 'auto' }}>
                                     <Example
