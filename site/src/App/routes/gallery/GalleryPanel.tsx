@@ -28,7 +28,8 @@ export const GalleryPanel = ({
       left={left ? 0 : undefined}
       right={right ? 0 : undefined}
       top={top ? 0 : undefined}
-      padding="small"
+      paddingY="xsmall"
+      paddingX="small"
       zIndex="sticky"
       className={styles.panel}
     >

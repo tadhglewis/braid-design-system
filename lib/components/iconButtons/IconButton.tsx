@@ -15,6 +15,8 @@ import {
   useIconSize,
   useIconContainerSize,
   UseIconProps,
+  UseIconSizeProps,
+  UseIconContainerSizeProps,
 } from '../../hooks/useIcon';
 import { useVirtualTouchable } from '../private/touchable/useVirtualTouchable';
 import {
@@ -22,6 +24,7 @@ import {
   useBackgroundLightness,
 } from '../Box/BackgroundContext';
 import * as styleRefs from './IconButton.treat';
+import { TextProps } from '../Text/Text';
 
 type NativeButtonProps = AllHTMLAttributes<HTMLButtonElement>;
 export interface IconButtonProps {
@@ -37,6 +40,7 @@ export interface IconButtonProps {
   active?: boolean;
   tone?: 'neutral' | 'secondary';
   data?: DataAttributeMap;
+  size?: TextProps['size'];
 }
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
@@ -54,12 +58,13 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
       tone = 'secondary',
       data,
       children,
+      size,
     },
     forwardedRef,
   ) => {
     const styles = useStyles(styleRefs);
-    const iconContainerStyles = useIconContainerSize();
-    const iconStyles = useIconSize();
+    const iconContainerStyles = useIconContainerSize(size);
+    const iconStyles = useIconSize({ size });
     const background = useBackground();
     const backgroundLightness = useBackgroundLightness();
 

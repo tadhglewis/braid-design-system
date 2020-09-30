@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  ChangeEvent,
+} from 'react';
 import { useStyles } from 'sku/react-treat';
 import panzoom from 'panzoom';
 import { parseToHsl, setLightness } from 'polished';
@@ -13,6 +19,16 @@ import {
   Link,
   TextDropdown,
   Inline,
+  IconSearch,
+  Dropdown,
+  Autosuggest,
+  HiddenVisually,
+  FieldLabel,
+  IconHistory,
+  MenuRenderer,
+  MenuItem,
+  IconPromote,
+  Badge,
 } from '../../../../../lib/components';
 import { Logo } from '../../Logo/Logo';
 import { useThemeSettings, ThemeToggle } from '../../ThemeSetting';
@@ -23,6 +39,7 @@ import useIcon, { UseIconProps } from '../../../../../lib/hooks/useIcon';
 import { Gallery, galleryComponentNames } from './Gallery';
 import { GalleryPanel } from './GalleryPanel';
 import * as styleRefs from './gallery.treat';
+import { isNew } from '../../Updates';
 
 const useBackgroundColor = () => {
   const { theme } = useThemeSettings();
@@ -105,6 +122,8 @@ const GalleryPage = () => {
   const zoomOutRef = useRef<HTMLButtonElement | null>(null);
   const panzoomRef = useRef<ReturnType<typeof panzoom> | null>(null);
 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [openSearch, setOpenSearch] = useState(false);
   const [jumpTo, setJumpTo] = useState(jumpToPlaceholder);
   const [zoom, setZoom] = useState(1);
   const [
@@ -161,6 +180,38 @@ const GalleryPage = () => {
       );
     }
   }, [fitToScreenDimensions]);
+
+  const jumpToComponent = (name: string) => {
+    if (panzoomRef.current && name !== jumpToPlaceholder) {
+      const component = document.querySelector<HTMLDivElement>(
+        `[data-braid-component-name=${name}]`,
+      );
+
+      if (component) {
+        const viewportWidth = document.documentElement.clientWidth;
+        const viewportHeight = document.documentElement.clientHeight;
+        const clientRect = component.getBoundingClientRect();
+        const actualWidth = clientRect.width / zoom + jumpToEdgeThreshold * 2;
+        const actualHeight = clientRect.height / zoom + jumpToEdgeThreshold * 2;
+
+        const targetScale = Math.min(
+          viewportWidth / actualWidth,
+          viewportHeight / actualHeight,
+        );
+
+        const scaled = (n: number) => n * targetScale;
+        const targetX =
+          scaled(-component.offsetLeft + jumpToEdgeThreshold) +
+          (viewportWidth - scaled(actualWidth)) / 2;
+        const targetY =
+          scaled(-component.offsetTop + jumpToEdgeThreshold) +
+          (viewportHeight - scaled(actualHeight)) / 2;
+
+        panzoomRef.current.moveTo(targetX, targetY);
+        panzoomRef.current.zoomAbs(targetX, targetY, targetScale);
+      }
+    }
+  };
 
   useEffect(() => {
     if (themeReady && fitToScreenDimensions) {
@@ -273,6 +324,115 @@ const GalleryPage = () => {
             </Box>
             <PanelDivider />
             <ThemeToggle size="small" weight="strong" />
+            <PanelDivider />
+            <MenuRenderer
+              offsetSpace="xxsmall"
+              trigger={(props) => (
+                <IconButton
+                  label="Latest components"
+                  size="large"
+                  tone="neutral"
+                  keyboardAccessible
+                  {...props}
+                >
+                  {(iconProps) => <IconPromote {...iconProps} />}
+                </IconButton>
+              )}
+            >
+              {galleryComponentNames
+                .filter((name) => isNew(name))
+                .map((name) => (
+                  <MenuItem onClick={() => jumpToComponent(name)} key={name}>
+                    {name}
+                  </MenuItem>
+                ))}
+            </MenuRenderer>
+
+            {!openSearch ? (
+              <IconButton
+                label="Jump to"
+                size="large"
+                tone="neutral"
+                onClick={() => {
+                  setSearchTerm('');
+                  setOpenSearch(true);
+                }}
+                keyboardAccessible
+              >
+                {(iconProps) => <IconSearch {...iconProps} />}
+              </IconButton>
+            ) : null}
+            {openSearch ? (
+              <>
+                <HiddenVisually>
+                  <FieldLabel
+                    label="Search for component"
+                    htmlFor="search-lookup"
+                  />
+                </HiddenVisually>
+                {/* <Dropdown
+                  id="search-lookup"
+                  icon={<IconSearch />}
+                  // placeholder="Jump to"
+                  value={searchTerm}
+                  onChange={(ev: ChangeEvent<HTMLSelectElement>) => {
+                    const name = ev.currentTarget.value;
+                    // setSearchTerm(name);
+                    jumpToComponent(name);
+                    setOpenSearch(false);
+                  }}
+                  onBlur={() => setOpenSearch(false)}
+                >
+                  <optgroup label="New">
+                    {galleryComponentNames
+                      .filter((name) => isNew(name))
+                      .map((name) => (
+                        <option value={name} key={`${name}-new`}>
+                          {name}
+                        </option>
+                      ))}
+                  </optgroup>
+
+                  <optgroup label="All components">
+                    {galleryComponentNames.map((name) => (
+                      <option value={name} key={name}>
+                        {name}
+                      </option>
+                    ))}
+                  </optgroup>
+                </Dropdown> */}
+                <Box style={{ margin: '-8px -12px' }}>
+                  <Autosuggest
+                    id="search-lookup"
+                    icon={<IconSearch />}
+                    autoFocus
+                    value={{
+                      text: searchTerm,
+                    }}
+                    onChange={({ text }) => {
+                      setSearchTerm(text);
+                      jumpToComponent(text);
+                      setOpenSearch(false);
+                    }}
+                    onBlur={() => setOpenSearch(false)}
+                    suggestions={[
+                      {
+                        label: 'New',
+                        suggestions: galleryComponentNames
+                          .filter((name) => isNew(name))
+                          .map((name) => ({ text: name })),
+                      },
+                      {
+                        label: 'All components',
+                        suggestions: galleryComponentNames.map((name) => ({
+                          text: name,
+                        })),
+                      },
+                    ]}
+                  />
+                </Box>
+              </>
+            ) : null}
           </Inline>
         </GalleryPanel>
 
@@ -290,52 +450,16 @@ const GalleryPage = () => {
                   }}
                   onChange={(name) => {
                     setJumpTo(name);
-
-                    if (panzoomRef.current && name !== jumpToPlaceholder) {
-                      const component = document.querySelector<HTMLDivElement>(
-                        `[data-braid-component-name=${name}]`,
-                      );
-
-                      if (component) {
-                        const viewportWidth =
-                          document.documentElement.clientWidth;
-                        const viewportHeight =
-                          document.documentElement.clientHeight;
-                        const clientRect = component.getBoundingClientRect();
-                        const actualWidth =
-                          clientRect.width / zoom + jumpToEdgeThreshold * 2;
-                        const actualHeight =
-                          clientRect.height / zoom + jumpToEdgeThreshold * 2;
-
-                        const targetScale = Math.min(
-                          viewportWidth / actualWidth,
-                          viewportHeight / actualHeight,
-                        );
-
-                        const scaled = (n: number) => n * targetScale;
-                        const targetX =
-                          scaled(-component.offsetLeft + jumpToEdgeThreshold) +
-                          (viewportWidth - scaled(actualWidth)) / 2;
-                        const targetY =
-                          scaled(-component.offsetTop + jumpToEdgeThreshold) +
-                          (viewportHeight - scaled(actualHeight)) / 2;
-
-                        panzoomRef.current.moveTo(targetX, targetY);
-                        panzoomRef.current.zoomAbs(
-                          targetX,
-                          targetY,
-                          targetScale,
-                        );
-                      }
-                    }
+                    jumpToComponent(name);
                   }}
                 />
               </Text>
             </Box>
             <PanelDivider />
-            <Inline space="none">
+            <Inline space="xxsmall">
               <IconButton
                 label="Fit to screen"
+                size="large"
                 onClick={fitToScreen}
                 keyboardAccessible
               >
@@ -344,6 +468,7 @@ const GalleryPage = () => {
               <IconButton
                 ref={zoomOutRef}
                 label="Zoom Out"
+                size="large"
                 onClick={zoomOut}
                 keyboardAccessible
               >
@@ -364,6 +489,7 @@ const GalleryPage = () => {
               <IconButton
                 ref={zoomInRef}
                 label="Zoom In"
+                size="large"
                 onClick={zoomIn}
                 keyboardAccessible
               >
