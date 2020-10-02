@@ -47,13 +47,14 @@ export const loading = style({
   verticalAlign: 'top',
 });
 export const ellipsis = style({
-  width: 0,
-  overflowX: 'hidden',
   animationDuration: '1s',
   animationIterationCount: 'infinite',
   '@keyframes': {
-    to: {
-      width: 20,
+    '0%': {
+      clipPath: 'inset(0% 100% 0% 0%);',
+    },
+    '60%, 100%': {
+      clipPath: 'inset(0% 0% 0% 0%);',
     },
   },
 });
