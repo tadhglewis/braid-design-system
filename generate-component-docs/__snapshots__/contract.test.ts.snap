@@ -1624,6 +1624,7 @@ Object {
         | "apac"
         | "catho"
         | "docs"
+        | "jobAdder"
         | "jobStreet"
         | "jobStreetClassic"
         | "jobsDb"
