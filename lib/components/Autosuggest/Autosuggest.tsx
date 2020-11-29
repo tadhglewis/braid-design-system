@@ -139,7 +139,7 @@ function SuggestionItem({
         paddingRight={onClear ? 'none' : undefined}
       >
         <Box className={useTouchableSpace('standard')}>
-          <Text baseline={false}>
+          <Text baseline={false}> B
             {suggestionParts.map(({ highlight, text }, index) =>
               selected || highlight ? (
                 <Strong key={index}>{text}</Strong>
