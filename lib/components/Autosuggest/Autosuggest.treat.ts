@@ -3,11 +3,11 @@ import { style } from 'sku/treat';
 export const backdrop = style({
   width: '100vw',
   height: '100vh',
-  background: 'black',
+  background: 'white',
 });
 
 export const backdropVisible = style({
-  opacity: 0.4,
+  opacity: 1,
 });
 
 const menuBase = style({
